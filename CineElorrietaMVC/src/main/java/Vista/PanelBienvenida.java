@@ -73,15 +73,7 @@ public class PanelBienvenida extends JPanel{
 	}
 	
 	private void initializeEvents() {
-		this.btnGeneros.addActionListener(listenerBotonGeneros(this.controladorPanelBienvenida));
+		this.controladorPanelBienvenida.timerBienvenida();
 	}
 	
-	private ActionListener listenerBotonGeneros(ControladorPanelBienvenida controladorPanelBienvenida) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton Generos");
-				controladorPanelBienvenida.accionadoBottonMostrarPanelGeneros();
-			}
-		};
-	}
 }
