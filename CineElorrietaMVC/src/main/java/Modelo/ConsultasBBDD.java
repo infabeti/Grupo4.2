@@ -5,24 +5,32 @@ import java.util.Arrays;
 import App.Main;
 
 public class ConsultasBBDD {
-	//Objeto de esta busqueda
-
+	
+	///////////////////////////////////////////////////////////////////////////////////////////
+	//PELICULAS
+	//////////////////////////////////////////////////////////////////////////////////////////
 	//Películas totales
 	private Pelicula[] peliculas_totales = new Pelicula[0];
+	
 	//Drama
 	private Pelicula handia,lista_Schindler, cadena_perpetua, mdb;
+	private Pelicula[] pelis_Drama = new Pelicula[0];
+
 	//Sci-Fi
 	private Pelicula space_odyssey,novia_Frankenstein, planeta_simios, alien;
+	private Pelicula[] pelis_Sci_Fi = new Pelicula[0];
+
 	//Comedia
 	private Pelicula scary_movie,gran_lebowski, vida_brian, aterriza_como_puedas;
+	private Pelicula[] pelis_Comedia = new Pelicula[0];
+
 	//Terror
 	private Pelicula psicosis,el_resplandor, dracula, cisne_negro;
-	//Arrays de géneros
-	private Pelicula[] pelis_Drama = new Pelicula[0];
-	private Pelicula[] pelis_Sci_Fi = new Pelicula[0];
-	private Pelicula[] pelis_Comedia = new Pelicula[0];
 	private Pelicula[] pelis_Terror = new Pelicula[0];
-	
+
+	///////////////////////////////////////////////////
+	//USUARIOS
+	private Usuario[] lista_usuarios = new Usuario[0];
 	
 	
 	public Pelicula getPelicula(int codepeli) {		
@@ -38,7 +46,7 @@ public class ConsultasBBDD {
 		
 		for(Pelicula x : consultaPeliculas()) {
 			if(x.getGenero().equalsIgnoreCase(genero_in))
-				pelis_genero = Pelicula.pushPelicula(pelis_genero, x);
+				pelis_genero = (Pelicula[]) Modelo.pushObject(pelis_genero, x);
 		}
 		
 		return pelis_genero;
@@ -70,17 +78,14 @@ public class ConsultasBBDD {
 		el_resplandor = new Pelicula("El resplandor", "Terror",14, 8760);
 		dracula = new Pelicula("Dracula", "Terror",15, 9300);
 		cisne_negro = new Pelicula("Cisne negro", "Terror", 6600);
-		
-		//Añadir pelis totales
-		
+				
 		
 		return getPeliculas_totales();
 	}
 	
-//	public static void main(String[]ar) {
+	public static void main(String[]ar) {
 //		
-//		ConsultasBBDD bbdd = Main.consultasBBDD;
-//		bbdd = new ConsultasBBDD();
+		App.Main.consultasBBDD = new ConsultasBBDD();
 //		Pelicula[] pelis = bbdd.consultaPeliculas();
 //		System.out.println("LONG "+bbdd.getPeliculas_totales().length);
 
@@ -94,7 +99,12 @@ public class ConsultasBBDD {
 //		pelis1 = pushPelicula(pelis1, peli);
 //		for(Pelicula x : pelis1)
 //			System.out.println("f "+x.getNombre());	
-//	}
+//		App.Main.main(null);
+		Usuario[] users = App.Main.consultasBBDD.consulta_lista_usuarios();
+		for(Usuario x: users) {
+			System.out.println(x.getUsuario());
+		}
+	}
 
 	public Pelicula[] getPelis_Drama() {
 		return pelis_Drama;
@@ -134,5 +144,22 @@ public class ConsultasBBDD {
 
 	public void setPeliculas_totales(Pelicula[] peliculas_totales) {
 		this.peliculas_totales = peliculas_totales;
+	}
+///////////////////////////////////////////////////////////////////////////////////////////
+//USUARIOS
+//////////////////////////////////////////////////////////////////////////////////////////
+	public Usuario[] consulta_lista_usuarios(){
+		//Aquí se crean los usuarios, de momento solo tendíamos el usuario admin
+		Usuario admin = new Usuario("admin", "admin");
+		
+		return getLista_usuarios();
+	}
+
+	public Usuario[] getLista_usuarios() {
+		return lista_usuarios;
+	}
+
+	public void setLista_usuarios(Usuario[] lista_usuarios) {
+		this.lista_usuarios = lista_usuarios;
 	}
 }

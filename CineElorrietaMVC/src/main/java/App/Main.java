@@ -14,10 +14,18 @@ public class Main {
 	public static void main(String[] args) {
 		consultasBBDD = new ConsultasBBDD();
 		
-		modelo = new Modelo(consultasBBDD);    
+		setModelo(new Modelo(consultasBBDD));    
 		vista = new Vista();
                 
-		controlador = new Controlador(modelo, vista);
+		controlador = new Controlador(getModelo(), vista);
+	}
+
+	public static Modelo getModelo() {
+		return modelo;
+	}
+
+	public static void setModelo(Modelo modelo) {
+		Main.modelo = modelo;
 	}
 
 }
