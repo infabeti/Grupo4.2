@@ -1,5 +1,8 @@
 package Controlador;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import Modelo.Modelo;
 import Vista.PanelBienvenida;
 import Vista.Vista;
@@ -23,7 +26,25 @@ public class ControladorPanelBienvenida {
 		this.vista.mostrarPanel(this.panelBienvenida);
 	}
 	
-	public void accionadoBottonMostrarPanelGeneros() {
-		this.controlador.navegarPanelGeneros();
+	public void timerBienvenida() {
+		
+		Timer cronom=new Timer();
+        cronom.schedule(new TimerTask(){
+            
+	        public void run(){    
+	        	System.out.println("Ejecutado timer Generos");
+	        	controlador.navegarPanelGeneros();
+	        	this.setVisible(false);
+	        	this.dispose();
+	        }
+	
+			private void setVisible(boolean b) {
+				// TODO Auto-generated method stub
+			}
+	
+			private void dispose() {
+				// TODO Auto-generated method stub
+			}
+		},5000);
 	}
 }
