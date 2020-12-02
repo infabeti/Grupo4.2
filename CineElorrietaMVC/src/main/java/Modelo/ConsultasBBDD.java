@@ -83,28 +83,6 @@ public class ConsultasBBDD {
 		return getPeliculas_totales();
 	}
 	
-	public static void main(String[]ar) {
-//		
-		App.Main.consultasBBDD = new ConsultasBBDD();
-//		Pelicula[] pelis = bbdd.consultaPeliculas();
-//		System.out.println("LONG "+bbdd.getPeliculas_totales().length);
-
-//		System.out.println(Arrays.toString(bbdd.consultaPeliculas()));
-//		for(Pelicula x : pelis)
-//			System.out.println("a "+x.getCodigo()+": "+x.getGenero());
-//		
-//		Pelicula[] pelis1 = {bbdd.alien,bbdd.psicosis};
-//		Pelicula peli = bbdd.dracula;
-//		
-//		pelis1 = pushPelicula(pelis1, peli);
-//		for(Pelicula x : pelis1)
-//			System.out.println("f "+x.getNombre());	
-//		App.Main.main(null);
-		Usuario[] users = App.Main.consultasBBDD.consulta_lista_usuarios();
-		for(Usuario x: users) {
-			System.out.println(x.getUsuario());
-		}
-	}
 
 	public Pelicula[] getPelis_Drama() {
 		return pelis_Drama;
@@ -150,7 +128,8 @@ public class ConsultasBBDD {
 //////////////////////////////////////////////////////////////////////////////////////////
 	public Usuario[] consulta_lista_usuarios(){
 		//Aquí se crean los usuarios, de momento solo tendíamos el usuario admin
-		Usuario admin = new Usuario("admin", "admin");
+		Usuario admin = new Usuario("admin", "admin" ,true);
+		Usuario user1 = new Usuario("user1", "12345", false);
 		
 		return getLista_usuarios();
 	}
