@@ -23,7 +23,6 @@ public class PanelBienvenida extends JPanel{
 	public PanelBienvenida(ControladorPanelBienvenida controladorPanelBienvenida) {
 		setBackground(new Color(57, 62, 70));
 		this.controladorPanelBienvenida = controladorPanelBienvenida;
-		
 		setLayout(null);
 		
 //		lblBienvenida = new JLabel("Panel Bienvenida");
@@ -31,38 +30,38 @@ public class PanelBienvenida extends JPanel{
 //		add(lblBienvenida);
 		
 		btnGeneros = new JButton("Generos");
-		btnGeneros.setBounds(10, 23, 120, 23);
+		btnGeneros.setBounds(139, 34, 73, 23);
 		add(btnGeneros);
 		///////////////////////////////////////
 		
 		
 		JLabel lblBienvenida = new JLabel("Bienvenido/a");
+		lblBienvenida.setBounds(175, 182, 444, 81);
 		lblBienvenida.setForeground(new Color(240, 248, 255));
 		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenida.setFont(new Font("SimSun", Font.BOLD, 70));
-		lblBienvenida.setBounds(167, 116, 450, 83);
 		add(lblBienvenida);
 		
 		JLabel lblAppDiseñada = new JLabel("App dise\u00F1ada para");
+		lblAppDiseñada.setBounds(175, 294, 391, 52);
 		lblAppDiseñada.setForeground(new Color(240, 248, 255));
 		lblAppDiseñada.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAppDiseñada.setFont(new Font("SimSun", Font.PLAIN, 45));
-		lblAppDiseñada.setBounds(183, 222, 415, 64);
 		add(lblAppDiseñada);
 		
 		JLabel lblCineSS = new JLabel("Cine Elorrieta MVC");
+		lblCineSS.setBounds(175, 357, 486, 58);
 		lblCineSS.setForeground(new Color(244, 164, 96));
 		lblCineSS.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCineSS.setFont(new Font("SimSun", Font.BOLD, 50));
-		lblCineSS.setBounds(131, 310, 498, 52);
 		add(lblCineSS);
 		
 		
 		JLabel lblNewLabel = new JLabel("A continuaci\u00F3n podr\u00E1s elegir la cartelera del pr\u00F3ximo fin de semana");
+		lblNewLabel.setBounds(10, 520, 434, 19);
 		lblNewLabel.setForeground(new Color(255, 0, 0));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel.setBounds(167, 529, 536, 28);
 		add(lblNewLabel);
 		
 		///////////////////////////////////////
