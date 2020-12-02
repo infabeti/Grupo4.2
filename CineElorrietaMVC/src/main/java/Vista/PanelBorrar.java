@@ -10,9 +10,9 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Controlador.ControladorPanelAnadir;
 import Controlador.ControladorPanelBorrar;
 
+@SuppressWarnings("serial")
 public class PanelBorrar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
@@ -22,6 +22,7 @@ public class PanelBorrar extends JPanel {
 	 * @param controladorPanelBorrar 
 	 */
 	public PanelBorrar(ControladorPanelBorrar controladorPanelBorrar) {
+		this.controladorPanelBorrar = controladorPanelBorrar;
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import Controlador.ControladorPanelEdicion;
-import Controlador.ControladorPanelLogin;
+
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JTextArea;
 
+@SuppressWarnings("serial")
 public class PanelEdicion extends JPanel {
 	private JButton btnEditar;
 	private JButton btnAnadir;
@@ -21,11 +22,9 @@ public class PanelEdicion extends JPanel {
 	private JButton btnContinuar;
 	private JButton btnCancelar;
 	private ControladorPanelEdicion controladorPanelEdicion;
-	/**
-	 * Create the panel.
-	 * @param controladorPanelEdicion 
-	 */
+
 	public PanelEdicion(ControladorPanelEdicion controladorPanelEdicion) {
+		this.controladorPanelEdicion = controladorPanelEdicion;
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

@@ -10,11 +10,11 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import Controlador.ControladorPanelGeneros;
 import Controlador.ControladorPanelLogin;
 
 import java.awt.Color;
 
+@SuppressWarnings("serial")
 public class PanelLogin extends JPanel {
 	private JTextField textFieldUsuario;
 	private JTextField textFieldPass;
@@ -28,8 +28,8 @@ public class PanelLogin extends JPanel {
 	 * @param controladorPanelLogin 
 	 */
 	public PanelLogin(ControladorPanelLogin controladorPanelLogin) {
-		setBackground(new Color(57, 62, 70));
 		this.controladorPanelLogin = controladorPanelLogin;
+		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
 		btnGeneros = new JButton("Generos");
@@ -95,11 +95,11 @@ public class PanelLogin extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonVolver(ControladorPanelLogin controladorPanelGeneros) {
+	private ActionListener listenerBotonVolver(ControladorPanelLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Volver en Generos");
-				controladorPanelGeneros.accionadoBotonVolverPanelLogin();
+				controladorPanelLogin.accionadoBotonVolverPanelLogin();
 			}
 		};
 	}

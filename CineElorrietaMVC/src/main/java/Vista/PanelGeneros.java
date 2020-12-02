@@ -21,10 +21,9 @@ public class PanelGeneros extends JPanel {
 	private JLabel lblGeneros;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	
-	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros)
-	{
-		setBackground(new Color(57, 62, 70));
+	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
+		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
 		lblGeneros = new JLabel("Panel Generos");

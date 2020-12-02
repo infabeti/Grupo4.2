@@ -10,9 +10,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
-import Controlador.ControladorPanelAnadir;
 import Controlador.ControladorPanelResumen;
 
+@SuppressWarnings("serial")
 public class PanelResumen extends JPanel {
 	private JButton btnConfirmar;
 	private JButton btnCancelar1;
@@ -23,6 +23,7 @@ public class PanelResumen extends JPanel {
 	 * @param controladorPanelResumen 
 	 */
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
+		this.controladorPanelResumen = controladorPanelResumen;
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

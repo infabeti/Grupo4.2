@@ -11,9 +11,9 @@ import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
-import Controlador.ControladorPanelEdicion;
 import Controlador.ControladorPanelEditar;
 
+@SuppressWarnings("serial")
 public class PanelEditar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
@@ -23,6 +23,7 @@ public class PanelEditar extends JPanel {
 	 * @param controladorPanelEditar 
 	 */
 	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
+		this.controladorPanelEditar = controladorPanelEditar;
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

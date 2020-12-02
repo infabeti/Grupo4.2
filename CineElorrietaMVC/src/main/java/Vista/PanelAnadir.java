@@ -12,9 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Controlador.ControladorPanelAnadir;
-import Controlador.ControladorPanelEdicion;
-import Controlador.ControladorPanelEditar;
 
+@SuppressWarnings("serial")
 public class PanelAnadir extends JPanel {
 	private JTextField textField;
 	private JButton btnAceptar;
@@ -25,6 +24,7 @@ public class PanelAnadir extends JPanel {
 	 * @param controladorPanelAnadir 
 	 */
 	public PanelAnadir(ControladorPanelAnadir controladorPanelAnadir) {
+		this.controladorPanelAnadir = controladorPanelAnadir;
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

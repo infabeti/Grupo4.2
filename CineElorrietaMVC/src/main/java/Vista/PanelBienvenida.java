@@ -19,8 +19,8 @@ public class PanelBienvenida extends JPanel{
 	private ControladorPanelBienvenida controladorPanelBienvenida;
 	
 	public PanelBienvenida(ControladorPanelBienvenida controladorPanelBienvenida) {
-		setBackground(new Color(57, 62, 70));
 		this.controladorPanelBienvenida = controladorPanelBienvenida;
+		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		///////////////////////////////////////
 		

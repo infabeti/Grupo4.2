@@ -13,6 +13,7 @@ import Controlador.ControladorPanelPeliculas;
 
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class PanelPeliculas extends JPanel {
 	private JButton btnContinuar;
 	private JButton btnCancelar;
@@ -22,6 +23,7 @@ public class PanelPeliculas extends JPanel {
 	 * @param controladorPanelPeliculas 
 	 */
 	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
+		this.controladorPanelPeliculas = controladorPanelPeliculas;
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
@@ -60,14 +62,14 @@ public class PanelPeliculas extends JPanel {
 	}
 	
 	private void initializeEvents() {
-		this.btnContinuar.addActionListener(listenerBotonAceptar(this.controladorPanelPeliculas));
+		this.btnContinuar.addActionListener(listenerBotonContinuar(this.controladorPanelPeliculas));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelPeliculas));
 	}
 	
-	private ActionListener listenerBotonAceptar(ControladorPanelPeliculas controladorPanelPeliculas) {
+	private ActionListener listenerBotonContinuar(ControladorPanelPeliculas controladorPanelPeliculas) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton hacia Generos");
+				System.out.println("Ejecutando evento Boton hacia Resumen");
 				controladorPanelPeliculas.accionadoBotonContinuarPanelPeliculas();
 			}
 		};
