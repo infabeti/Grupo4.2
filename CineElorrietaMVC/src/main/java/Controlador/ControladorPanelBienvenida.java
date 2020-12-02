@@ -32,8 +32,8 @@ public class ControladorPanelBienvenida {
         cronom.schedule(new TimerTask(){
             
 	        public void run(){    
-	        	System.out.println("Ejecutado timer Generos");
-	        	controlador.navegarPanelGeneros();
+	        	System.out.println("Ejecutado timer hacia Login");
+	        	controlador.navegarPanelLogin();
 	        	this.setVisible(false);
 	        	this.dispose();
 	        }

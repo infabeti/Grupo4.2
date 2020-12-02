@@ -16,6 +16,7 @@ import javax.swing.JRadioButton;
 @SuppressWarnings("serial")
 public class PanelGeneros extends JPanel {
 
+	private JButton btnSiguiente;
 	private JButton btnVolver;
 	private JLabel lblGeneros;
 	private ControladorPanelGeneros controladorPanelGeneros;
@@ -29,6 +30,10 @@ public class PanelGeneros extends JPanel {
 		lblGeneros = new JLabel("Panel Generos");
 		lblGeneros.setBounds(10, 11, 115, 14);
 		add(lblGeneros);
+		
+		btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.setBounds(602, 503, 89, 23);
+		add(btnSiguiente);
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setBounds(701, 503, 89, 23);
@@ -86,10 +91,6 @@ public class PanelGeneros extends JPanel {
 		lblCienciaFiccion.setBounds(577, 59, 169, 26);
 		add(lblCienciaFiccion);
 		
-		JButton btnSiguiente = new JButton("Siguiente");
-		btnSiguiente.setBounds(602, 503, 89, 23);
-		add(btnSiguiente);
-		
 		JRadioButton rdbtnSabado = new JRadioButton("Sabado");
 		rdbtnSabado.setBounds(16, 277, 109, 23);
 		add(rdbtnSabado);
@@ -110,14 +111,23 @@ public class PanelGeneros extends JPanel {
 	}
 	
 	private void initializeEvents() {
+		this.btnSiguiente.addActionListener(listenerBotonSiguiente(this.controladorPanelGeneros));
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
 	}
 	
+	private ActionListener listenerBotonSiguiente(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Siguiente en Generos");
+				controladorPanelGeneros.accionadoBotonSiguientePanelGeneros();
+			}
+		};
+	}
 	private ActionListener listenerBotonVolver(ControladorPanelGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton Volver");
-				controladorPanelGeneros.accionadoBottonVolverPanelGeneros();
+				System.out.println("Ejecutando evento Boton Volver en Generos");
+				controladorPanelGeneros.accionadoBotonVolverPanelGeneros();
 			}
 		};
 	}

@@ -15,8 +15,6 @@ import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class PanelBienvenida extends JPanel{
-
-	private JButton btnGeneros;
 	private JLabel lblBienvenida;
 	private ControladorPanelBienvenida controladorPanelBienvenida;
 	
@@ -24,14 +22,6 @@ public class PanelBienvenida extends JPanel{
 		setBackground(new Color(57, 62, 70));
 		this.controladorPanelBienvenida = controladorPanelBienvenida;
 		setLayout(null);
-		
-//		lblBienvenida = new JLabel("Panel Bienvenida");
-//		lblBienvenida.setBounds(58, 35, 115, 14);
-//		add(lblBienvenida);
-		
-		btnGeneros = new JButton("Generos");
-		btnGeneros.setBounds(139, 34, 73, 23);
-		add(btnGeneros);
 		///////////////////////////////////////
 		
 		

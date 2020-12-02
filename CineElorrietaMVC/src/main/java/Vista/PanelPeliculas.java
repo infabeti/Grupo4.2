@@ -4,15 +4,24 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextArea;
+
+import Controlador.ControladorPanelPeliculas;
+
 import javax.swing.JButton;
 
 public class PanelPeliculas extends JPanel {
-
+	private JButton btnContinuar;
+	private JButton btnCancelar;
+	private ControladorPanelPeliculas controladorPanelPeliculas;
 	/**
 	 * Create the panel.
+	 * @param controladorPanelPeliculas 
 	 */
-	public PanelPeliculas() {
+	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
@@ -39,13 +48,36 @@ public class PanelPeliculas extends JPanel {
 		lblNewLabelDomingo.setBounds(454, 159, 117, 36);
 		add(lblNewLabelDomingo);
 		
-		JButton btnContinuar = new JButton("Continuar");
+		btnContinuar = new JButton("Continuar");
 		btnContinuar.setBounds(595, 494, 89, 23);
 		add(btnContinuar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(701, 494, 89, 23);
 		add(btnCancelar);
 
+		initializeEvents();
+	}
+	
+	private void initializeEvents() {
+		this.btnContinuar.addActionListener(listenerBotonAceptar(this.controladorPanelPeliculas));
+		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelPeliculas));
+	}
+	
+	private ActionListener listenerBotonAceptar(ControladorPanelPeliculas controladorPanelPeliculas) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelPeliculas.accionadoBotonContinuarPanelPeliculas();
+			}
+		};
+	}
+	private ActionListener listenerBotonCancelar(ControladorPanelPeliculas controladorPanelPeliculas) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelPeliculas.accionadoBotonCancelarPanelPeliculas();
+			}
+		};
 	}
 }

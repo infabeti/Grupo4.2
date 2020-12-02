@@ -1,6 +1,9 @@
 package Vista;
 
 import javax.swing.JPanel;
+
+import Controlador.ControladorPanelFin;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -10,8 +13,9 @@ public class PanelFin extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @param controladorPanelFin 
 	 */
-	public PanelFin() {
+	public PanelFin(ControladorPanelFin controladorPanelFin) {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

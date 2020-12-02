@@ -3,30 +3,47 @@ package Vista;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import Controlador.ControladorPanelGeneros;
+import Controlador.ControladorPanelLogin;
+
 import java.awt.Color;
 
 public class PanelLogin extends JPanel {
 	private JTextField textFieldUsuario;
 	private JTextField textFieldPass;
+	private JButton btnGeneros;
+	private JButton btnEdicion;
+	private JButton btnCancelar;
+	private ControladorPanelLogin controladorPanelLogin;
 
 	/**
 	 * Create the panel.
+	 * @param controladorPanelLogin 
 	 */
-	public PanelLogin() {
+	public PanelLogin(ControladorPanelLogin controladorPanelLogin) {
 		setBackground(new Color(57, 62, 70));
+		this.controladorPanelLogin = controladorPanelLogin;
 		setLayout(null);
 		
-		JButton btnContinuar = new JButton("Contiuar");
-		btnContinuar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnContinuar.setBounds(453, 523, 113, 41);
-		add(btnContinuar);
+		btnGeneros = new JButton("Generos");
+		btnGeneros.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnGeneros.setBounds(295, 430, 113, 41);
+		add(btnGeneros);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnEdicion = new JButton("Edicion");
+		btnEdicion.setBounds(454, 443, 89, 23);
+		add(btnEdicion);
+		
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(597, 523, 113, 41);
+		btnCancelar.setBounds(592, 430, 113, 41);
 		add(btnCancelar);
 		
 		textFieldUsuario = new JTextField();
@@ -52,6 +69,38 @@ public class PanelLogin extends JPanel {
 		lblPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPass.setBounds(137, 267, 151, 28);
 		add(lblPass);
-
+		
+		initializeEvents();
+	}
+	
+	private void initializeEvents() {
+		this.btnGeneros.addActionListener(listenerBotonGeneros(this.controladorPanelLogin));
+		this.btnEdicion.addActionListener(listenerBotonEdicion(this.controladorPanelLogin));
+		this.btnCancelar.addActionListener(listenerBotonVolver(this.controladorPanelLogin));
+	}
+	
+	private ActionListener listenerBotonGeneros(ControladorPanelLogin controladorPanelLogin) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelLogin.accionadoBotonGenerosPanelLogin();
+			}
+		};
+	}
+	private ActionListener listenerBotonEdicion(ControladorPanelLogin controladorPanelLogin) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelLogin.accionadoBotonEdicionPanelLogin();
+			}
+		};
+	}
+	private ActionListener listenerBotonVolver(ControladorPanelLogin controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Volver en Generos");
+				controladorPanelGeneros.accionadoBotonVolverPanelLogin();
+			}
+		};
 	}
 }

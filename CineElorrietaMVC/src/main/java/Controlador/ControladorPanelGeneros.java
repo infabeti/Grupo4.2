@@ -1,7 +1,6 @@
 package Controlador;
 
 import Modelo.Modelo;
-import Vista.PanelBienvenida;
 import Vista.PanelGeneros;
 import Vista.Vista;
 
@@ -23,7 +22,10 @@ public class ControladorPanelGeneros {
 		this.vista.mostrarPanel(this.panelGeneros);
 	}
 	
-	public void accionadoBottonVolverPanelGeneros() {
+	public void accionadoBotonSiguientePanelGeneros() {
+		this.controlador.navegarPanelPeliculas();
+	}
+	public void accionadoBotonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
 }

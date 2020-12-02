@@ -2,6 +2,8 @@ package Vista;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -9,22 +11,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Controlador.ControladorPanelAnadir;
+import Controlador.ControladorPanelEdicion;
+import Controlador.ControladorPanelEditar;
+
 public class PanelAnadir extends JPanel {
 	private JTextField textField;
-
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+	private ControladorPanelAnadir controladorPanelAnadir;
 	/**
 	 * Create the panel.
+	 * @param controladorPanelAnadir 
 	 */
-	public PanelAnadir() {
+	public PanelAnadir(ControladorPanelAnadir controladorPanelAnadir) {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAceptar.setBounds(444, 527, 113, 41);
 		add(btnAceptar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCancelar.setBounds(588, 527, 113, 41);
 		add(btnCancelar);
@@ -55,7 +64,30 @@ public class PanelAnadir extends JPanel {
 		textField.setBounds(247, 139, 339, 37);
 		add(textField);
 		textField.setColumns(10);
-
+		
+		initializeEvents();
+	}
+	
+	private void initializeEvents() {
+		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelAnadir));
+		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelAnadir));
+	}
+	
+	private ActionListener listenerBotonAceptar(ControladorPanelAnadir controladorPanelAnadir) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelAnadir.accionadoBotonAceptarPanelAnadir();
+			}
+		};
+	}
+	private ActionListener listenerBotonCancelar(ControladorPanelAnadir controladorPanelAnadir) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelAnadir.accionadoBotonCancelarPanelAnadir();
+			}
+		};
 	}
 
 }

@@ -3,27 +3,35 @@ package Vista;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
-public class PanelEditar extends JPanel {
+import Controlador.ControladorPanelEdicion;
+import Controlador.ControladorPanelEditar;
 
+public class PanelEditar extends JPanel {
+	private JButton btnAceptar;
+	private JButton btnCancelar;
+	private ControladorPanelEditar controladorPanelEditar;
 	/**
 	 * Create the panel.
+	 * @param controladorPanelEditar 
 	 */
-	public PanelEditar() {
+	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAceptar.setBounds(453, 523, 113, 41);
 		add(btnAceptar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCancelar.setBounds(597, 523, 113, 41);
 		add(btnCancelar);
@@ -55,6 +63,29 @@ public class PanelEditar extends JPanel {
 		lblEditar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblEditar.setBounds(10, 11, 700, 130);
 		add(lblEditar);
-
+		
+		initializeEvents();
+	}
+	
+	private void initializeEvents() {
+		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelEditar));
+		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelEditar));
+	}
+	
+	private ActionListener listenerBotonAceptar(ControladorPanelEditar controladorPanelEditar) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelEditar.accionadoBotonAceptarPanelEditar();
+			}
+		};
+	}
+	private ActionListener listenerBotonCancelar(ControladorPanelEditar controladorPanelEditar) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelEditar.accionadoBotonCancelarPanelEditar();
+			}
+		};
 	}
 }
