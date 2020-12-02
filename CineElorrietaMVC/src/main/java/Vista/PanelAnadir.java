@@ -9,13 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelAñadir extends JPanel {
+public class PanelAnadir extends JPanel {
 	private JTextField textField;
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelAñadir() {
+	public PanelAnadir() {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
