@@ -58,9 +58,11 @@ public class ConsultasBBDD {
 	}
 	
 	public Pelicula[] consultaPeliculas(String genero_in) {
-		Pelicula[] pelis_genero = null;
+		Pelicula[] pelis_genero = new Pelicula[0];
 		
-		for(Pelicula x : consultaPeliculas()) {
+		consultaPeliculas();
+		
+		for(Pelicula x : getPeliculas_totales()) {
 			if(x.getGenero().equalsIgnoreCase(genero_in))
 				pelis_genero = (Pelicula[]) Modelo.pushObject(pelis_genero, x);
 		}
@@ -107,7 +109,7 @@ public class ConsultasBBDD {
 		dracula = new Pelicula("Dracula", "Terror",15, 9300);
 		setPelis_Terror((Pelicula[]) Modelo.pushObject(getPelis_Terror(), dracula));
 		
-		cisne_negro = new Pelicula("Cisne negro", "Terror", 16, 6600);
+		cisne_negro = new Pelicula("Cisne negro", "Terror", 6600);
 		
 				
 		

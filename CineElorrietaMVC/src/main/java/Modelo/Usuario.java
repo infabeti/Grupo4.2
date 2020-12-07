@@ -8,6 +8,7 @@ public class Usuario {
 	
 	private String usuario, password;
 	private boolean admin;
+	public static ConsultasBBDD consulta = new ConsultasBBDD();
 	
 	public Usuario(String usuario, String password, boolean admin) {
 		super();
@@ -15,7 +16,7 @@ public class Usuario {
 		this.setPassword(password);
 		this.admin = admin;
 		
-		Main.consultasBBDD.setLista_usuarios((Usuario[]) Modelo.pushObject(Main.consultasBBDD.getLista_usuarios(), this));
+		consulta.setLista_usuarios((Usuario[]) Modelo.pushObject(consulta.getLista_usuarios(), this));
 	}
 	
 
