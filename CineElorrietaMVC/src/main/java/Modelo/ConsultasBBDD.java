@@ -6,6 +6,22 @@ import App.Main;
 
 public class ConsultasBBDD {
 	
+	public static void main(String[]ar) {
+//		App.Main.setModelo(new Modelo(App.Main.consultasBBDD)); // creando el modelo para simulacion
+		
+		App.Main.main(null); // simular main
+//		System.out.println(App.Main.getModelo().getConsultasBBDD());
+		ConsultasBBDD consulta = Pelicula.consulta; // simular main, arreglar
+		
+		consulta.consultaPeliculas();
+		
+		System.out.println(consulta.peliculas_totales.length);
+		
+		for(Pelicula x : consulta.peliculas_totales){
+			System.out.println(x.getCodigo());
+		}
+	}
+	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//PELICULAS
 	//////////////////////////////////////////////////////////////////////////////////////////
@@ -33,7 +49,7 @@ public class ConsultasBBDD {
 	private Usuario[] lista_usuarios = new Usuario[0];
 	
 	
-	public Pelicula getPelicula(int codepeli) {		
+	public Pelicula getPelicula(int codepeli) {
 		for(Pelicula x : consultaPeliculas()) {
 			if(x.getCodigo() == codepeli)
 				return x;
@@ -56,28 +72,43 @@ public class ConsultasBBDD {
 	public Pelicula[] consultaPeliculas() {
 		//Drama
 		handia = new Pelicula("Handia", "Drama", 1, 6960);
+		
 		lista_Schindler = new Pelicula("La lista de Schindler", "Drama", 2, 11820);
+		
 		cadena_perpetua = new Pelicula("Cadena Perpetua", "Drama", 3, 8520);
+		
 		mdb = new Pelicula("Million Dollar Baby", "Drama", 4, 7980);
+		
 
 		//Sci-Fi
 		space_odyssey = new Pelicula("2001: Odisea en el espacio", "Sci-Fi",5,  8520);
+		
 		novia_Frankenstein = new Pelicula("La novia de Frankenstein", "Sci-Fi",6, 4500);
+		
 		planeta_simios = new Pelicula("El planeta de los simios", "Sci-Fi",7, 6900);
+		
 		alien = new Pelicula("Alien, el octavo pasajero", "Sci-Fi",8, 7020);
 		
 		//Comedia
 		scary_movie = new Pelicula("Scary movie", "Comedia",9, 5400);
+		
 		gran_lebowski = new Pelicula("El gran Lebowsky", "Comedia",10, 7140);
+		
 		vida_brian = new Pelicula("La vida de Brian", "Comedia",11, 5640);
+		
 		aterriza_como_puedas = new Pelicula("Aterriza como puedas", "Comedia",12, 5280);
-
+		setPelis_Comedia((Pelicula[]) Modelo.pushObject(getPelis_Comedia(), aterriza_como_puedas));
 		
 		//Terror
 		psicosis = new Pelicula("Psicosis", "Terror",13, 6540);
+		
 		el_resplandor = new Pelicula("El resplandor", "Terror",14, 8760);
+		
 		dracula = new Pelicula("Dracula", "Terror",15, 9300);
-		cisne_negro = new Pelicula("Cisne negro", "Terror", 6600);
+		setPelis_Terror((Pelicula[]) Modelo.pushObject(getPelis_Terror(), dracula));
+		
+		cisne_negro = new Pelicula("Cisne negro", "Terror", 16, 6600);
+		
 				
 		
 		return getPeliculas_totales();

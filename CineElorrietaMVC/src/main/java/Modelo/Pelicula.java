@@ -7,7 +7,7 @@ import App.Main;
 public class Pelicula {
 	private String nombre, genero;
 	private int codigo, duracion;
-	public static ConsultasBBDD consulta = App.Main.getModelo().getConsultasBBDD();
+	public static ConsultasBBDD consulta = new ConsultasBBDD(); // Esto puede dar problemas puesto que no se actualiza
 	
 	public Pelicula(String nombre, String genero, int codigo , int duracion) {
 		this.nombre = nombre;
@@ -15,11 +15,12 @@ public class Pelicula {
 		this.duracion = duracion;
 		this.codigo = codigo ;
 		
+//		consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
+		
 		//Para añadir la peli a la lista total y la de su género correspondiente
 		consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
 		switch(genero.toLowerCase()) {
 			case "drama":
-				consulta.setPelis_Drama((Pelicula[]) Modelo.pushObject(consulta.getPelis_Drama(), this));
 				break;
 			case "sci-fi":
 				consulta.setPelis_Sci_Fi((Pelicula[]) Modelo.pushObject(consulta.getPelis_Sci_Fi(), this));

@@ -2,6 +2,7 @@ package App;
 import Controlador.Controlador;
 import Modelo.*;
 import Vista.Vista;
+import Modelo.Modelo;
 
 public class Main {
 	
@@ -17,7 +18,7 @@ public class Main {
 		setModelo(new Modelo(consultasBBDD));    
 		vista = new Vista();
                 
-		controlador = new Controlador(modelo, vista);
+		controlador = new Controlador(getModelo(), vista);
 	}
 
 	public static Modelo getModelo() {
@@ -27,5 +28,9 @@ public class Main {
 	public static void setModelo(Modelo modelo) {
 		Main.modelo = modelo;
 	}
+
+	
+
+	
 
 }
