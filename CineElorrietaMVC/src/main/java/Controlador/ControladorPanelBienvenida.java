@@ -20,10 +20,10 @@ public class ControladorPanelBienvenida {
 		this.vista = vista;
 		this.controlador = controlador;	
 	}
-	
-	public void mostrarPanelBienvenida() {
-		this.panelBienvenida = new PanelBienvenida(this);
-		this.vista.mostrarPanel(this.panelBienvenida);
+	                                                        
+	public void mostrarPanelBienvenida() {                  
+		this.panelBienvenida = new PanelBienvenida(this);   
+		this.vista.mostrarPanel(this.panelBienvenida);      
 	}
 	
 	public void timerBienvenida() {

@@ -18,7 +18,7 @@ public class Main {
 		setModelo(new Modelo(consultasBBDD));    
 		vista = new Vista();
                 
-		controlador = new Controlador(getModelo(), vista);
+		controlador = new Controlador(modelo, vista);
 	}
 
 	public static Modelo getModelo() {

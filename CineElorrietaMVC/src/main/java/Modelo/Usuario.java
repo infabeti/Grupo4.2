@@ -8,13 +8,13 @@ public class Usuario {
 	
 	private String usuario, password;
 	private boolean admin;
-	public static ConsultasBBDD consulta = new ConsultasBBDD();
+	public static ConsultasBBDD consulta = App.Main.consultasBBDD;
 	
 	public Usuario(String usuario, String password, boolean admin) {
 		super();
 		this.setUsuario(usuario);
 		this.setPassword(password);
-		this.admin = admin;
+		this.setAdmin(admin);
 		
 		consulta.setLista_usuarios((Usuario[]) Modelo.pushObject(consulta.getLista_usuarios(), this));
 	}
@@ -34,6 +34,16 @@ public class Usuario {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 

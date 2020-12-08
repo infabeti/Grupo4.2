@@ -6,21 +6,21 @@ import App.Main;
 
 public class ConsultasBBDD {
 	
-	public static void main(String[]ar) {
-//		App.Main.setModelo(new Modelo(App.Main.consultasBBDD)); // creando el modelo para simulacion
-		
-		App.Main.main(null); // simular main
-//		System.out.println(App.Main.getModelo().getConsultasBBDD());
-		ConsultasBBDD consulta = Pelicula.consulta; // simular main, arreglar
-		
-		consulta.consultaPeliculas();
-		
-		System.out.println(consulta.peliculas_totales.length);
-		
-		for(Pelicula x : consulta.peliculas_totales){
-			System.out.println(x.getCodigo());
-		}
-	}
+//	public static void main(String[]ar) {
+////		App.Main.setModelo(new Modelo(App.Main.consultasBBDD)); // creando el modelo para simulacion
+//		
+//		App.Main.main(null); // simular main
+////		System.out.println(App.Main.getModelo().getConsultasBBDD());
+//		ConsultasBBDD consulta = Pelicula.consulta; // simular main, arreglar
+//		
+//		consulta.consultaPeliculas();
+//		
+//		System.out.println(consulta.peliculas_totales.length);
+//		
+//		for(Pelicula x : consulta.peliculas_totales){
+//			System.out.println(x.getCodigo());
+//		}
+//	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//PELICULAS
@@ -72,6 +72,9 @@ public class ConsultasBBDD {
 	
 	//FUNCION QUE RECIBE UN GENERO Y DEVUELVE UNA LISTA DE PELICULAS 
 	public Pelicula[] consultaPeliculas() {
+		Pelicula[] reset = new Pelicula[0];
+		setPeliculas_totales(reset);
+		
 		//Drama
 		handia = new Pelicula("Handia", "Drama", 1, 6960);
 		
@@ -159,7 +162,13 @@ public class ConsultasBBDD {
 ///////////////////////////////////////////////////////////////////////////////////////////
 //USUARIOS
 //////////////////////////////////////////////////////////////////////////////////////////
+	static {
+		System.out.println("bbdd");
+	}
 	public Usuario[] consulta_lista_usuarios(){
+		System.out.println("lista_usuarios");
+		Usuario[] reset = new Usuario[0];
+		setLista_usuarios(reset);
 		//Aquí se crean los usuarios, de momento solo tendíamos el usuario admin
 		Usuario admin = new Usuario("admin", "admin" ,true);
 		Usuario user1 = new Usuario("user1", "12345", false);

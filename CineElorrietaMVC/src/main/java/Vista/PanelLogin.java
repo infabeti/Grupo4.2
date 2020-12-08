@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -51,7 +52,7 @@ public class PanelLogin extends JPanel {
 		add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
-		textFieldPass = new JTextField();
+		textFieldPass = new JPasswordField();
 		textFieldPass.setColumns(10);
 		textFieldPass.setBounds(312, 254, 242, 41);
 		add(textFieldPass);
@@ -83,7 +84,7 @@ public class PanelLogin extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelLogin.accionadoBotonGenerosPanelLogin();
+				controladorPanelLogin.accionadoBotonGenerosPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
 			}
 		};
 	}
@@ -91,7 +92,7 @@ public class PanelLogin extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelLogin.accionadoBotonEdicionPanelLogin();
+				controladorPanelLogin.accionadoBotonEdicionPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
 			}
 		};
 	}
