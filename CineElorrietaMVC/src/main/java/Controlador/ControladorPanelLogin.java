@@ -24,7 +24,6 @@ public class ControladorPanelLogin {
 	}
 	
 	public void accionadoBotonEdicionPanelLogin(String usuario_in, String password_in) {
-		/////////////////////////////////////////////////
 		System.out.println("Entrando a géneros");
 
 		///////////////////////////////////////////
@@ -66,7 +65,6 @@ public class ControladorPanelLogin {
 	public void accionadoBotonGenerosPanelLogin(String usuario_in, String password_in) {
 		System.out.println("Entrando a géneros");
 
-		///////////////////////////////////////////
 		boolean usuario_existe = false;
 		Usuario[] listaUsers = modelo.getConsultasBBDD().consulta_lista_usuarios();
 		

@@ -19,6 +19,8 @@ public class PanelGeneros extends JPanel {
 	private JButton btnSiguiente;
 	private JButton btnVolver;
 	private JLabel lblGeneros;
+	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
+	public JTextArea textAreaSabado;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
@@ -38,7 +40,12 @@ public class PanelGeneros extends JPanel {
 		btnVolver.setBounds(701, 503, 89, 23);
 		add(btnVolver);
 		
-		JComboBox comboBoxDrama = new JComboBox();
+		comboBoxDrama = new JComboBox();
+		comboBoxDrama.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelGeneros.addPelicula((JComboBox) arg0.getSource());
+			}
+		});
 		comboBoxDrama.setBounds(40, 96, 169, 28);
 		add(comboBoxDrama);
 		
@@ -47,7 +54,8 @@ public class PanelGeneros extends JPanel {
 		lblDrama.setBounds(40, 59, 169, 26);
 		add(lblDrama);
 		
-		JTextArea textAreaSabado = new JTextArea();
+		textAreaSabado = new JTextArea();
+		textAreaSabado.setLineWrap(true);
 		textAreaSabado.setBounds(253, 214, 162, 244);
 		add(textAreaSabado);
 		
@@ -63,7 +71,7 @@ public class PanelGeneros extends JPanel {
 		lblDomingo.setBounds(494, 180, 162, 23);
 		add(lblDomingo);
 		
-		JComboBox comboBoxComedia = new JComboBox();
+		comboBoxComedia = new JComboBox();
 		comboBoxComedia.setBounds(219, 96, 169, 28);
 		add(comboBoxComedia);
 		
@@ -72,7 +80,7 @@ public class PanelGeneros extends JPanel {
 		lblComedia.setBounds(219, 59, 169, 26);
 		add(lblComedia);
 		
-		JComboBox comboBoxTerror = new JComboBox();
+		comboBoxTerror = new JComboBox();
 		comboBoxTerror.setBounds(398, 96, 169, 28);
 		add(comboBoxTerror);
 		
@@ -81,7 +89,7 @@ public class PanelGeneros extends JPanel {
 		lblTerror.setBounds(398, 59, 169, 26);
 		add(lblTerror);
 		
-		JComboBox comboBoxCienciaFiccion = new JComboBox();
+		comboBoxCienciaFiccion = new JComboBox();
 		comboBoxCienciaFiccion.setBounds(577, 96, 169, 28);
 		add(comboBoxCienciaFiccion);
 		

@@ -7,7 +7,7 @@ import App.Main;
 public class Pelicula {
 	private String nombre, genero;
 	private int codigo, duracion;
-	public static ConsultasBBDD consulta = new ConsultasBBDD(); // Esto puede dar problemas puesto que no se actualiza
+	public static ConsultasBBDD consulta = App.Main.consultasBBDD; // Esto puede dar problemas puesto que no se actualiza
 	
 	public Pelicula(String nombre, String genero, int codigo , int duracion) {
 		this.nombre = nombre;

@@ -52,13 +52,14 @@ public class TestConsultasBBDD {
 
 		consultas.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consultas.getPeliculas_totales(), peli));
 		
-		assertEquals("mock consultaPeli", peli, consultas.getPelicula(peli.getCodigo()));
 		assertEquals ("null consultaPeli", null, consultas.getPelicula(peli.getCodigo()-1)); // Le introduzco un código que no existe
+		assertEquals("mock consultaPeli", peli, consultas.getPelicula(peli.getCodigo()));
 
 	}
 	
 	@Test
 	public void testConsultaPeliculasGenero() {
+		consultas = App.Main.consultasBBDD;
 		Pelicula[] pelisgenero = new Pelicula[4];
 		
 		handia = mock(Pelicula.class);
