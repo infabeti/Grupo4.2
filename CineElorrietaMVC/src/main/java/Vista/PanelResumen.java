@@ -37,12 +37,12 @@ public class PanelResumen extends JPanel {
 		btnConfirmar.setBounds(592, 277, 89, 23);
 		add(btnConfirmar);
 		
-		btnCancelar1 = new JButton("Cancelar - Edicion");
-		btnCancelar1.setBounds(592, 316, 117, 23);
+		btnCancelar1 = new JButton("Cancelar -> Edicion");
+		btnCancelar1.setBounds(592, 316, 135, 23);
 		add(btnCancelar1);
 		
-		btnCancelar2 = new JButton("Cancelar - Generos");
-		btnCancelar2.setBounds(592, 350, 125, 23);
+		btnCancelar2 = new JButton("Cancelar -> Generos");
+		btnCancelar2.setBounds(592, 350, 135, 23);
 		add(btnCancelar2);
 		
 		JTextArea textAreaSabado = new JTextArea();

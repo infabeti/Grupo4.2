@@ -1,7 +1,8 @@
 package Controlador;
 
+import javax.swing.JComboBox;
 
-import Modelo.Modelo;
+import Modelo.*;
 import Vista.PanelAnadir;
 import Vista.Vista;
 
@@ -18,9 +19,16 @@ public class ControladorPanelAnadir {
 		this.controlador = controlador;	
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void mostrarPanelAnadir() {
 		this.panelAnadir = new PanelAnadir(this);
 		this.vista.mostrarPanel(this.panelAnadir);
+		
+		System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
+		// Añadir pelis drama
+		for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("drama")) {
+			this.panelAnadir.comboBoxGenero.addItem(peli.getNombre());
+		}
 	}
 	
 	public void accionadoBotonAceptarPanelAnadir() {

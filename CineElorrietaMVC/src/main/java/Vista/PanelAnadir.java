@@ -18,6 +18,7 @@ public class PanelAnadir extends JPanel {
 	private JTextField textField;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
+	public JComboBox comboBoxGenero;
 	private ControladorPanelAnadir controladorPanelAnadir;
 	/**
 	 * Create the panel.
@@ -45,7 +46,7 @@ public class PanelAnadir extends JPanel {
 		lblTitulo.setBounds(86, 115, 90, 61);
 		add(lblTitulo);
 		
-		JComboBox comboBoxGenero = new JComboBox();
+		comboBoxGenero = new JComboBox();
 		comboBoxGenero.setBounds(247, 230, 339, 40);
 		add(comboBoxGenero);
 		

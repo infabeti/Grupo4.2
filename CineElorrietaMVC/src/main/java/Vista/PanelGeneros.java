@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 @SuppressWarnings("serial")
 public class PanelGeneros extends JPanel {
@@ -22,6 +23,7 @@ public class PanelGeneros extends JPanel {
 	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
 	public JTextArea textAreaSabado;
 	private ControladorPanelGeneros controladorPanelGeneros;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
@@ -100,10 +102,12 @@ public class PanelGeneros extends JPanel {
 		add(lblCienciaFiccion);
 		
 		JRadioButton rdbtnSabado = new JRadioButton("Sabado");
+		buttonGroup.add(rdbtnSabado);
 		rdbtnSabado.setBounds(16, 277, 109, 23);
 		add(rdbtnSabado);
 		
 		JRadioButton rdbtnDomingo = new JRadioButton("Domingo");
+		buttonGroup.add(rdbtnDomingo);
 		rdbtnDomingo.setBounds(16, 303, 109, 23);
 		add(rdbtnDomingo);
 		
