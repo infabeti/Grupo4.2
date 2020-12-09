@@ -24,6 +24,7 @@ public class PanelResumen extends JPanel {
 	 */
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

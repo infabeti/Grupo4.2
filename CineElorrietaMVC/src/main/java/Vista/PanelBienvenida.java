@@ -20,6 +20,7 @@ public class PanelBienvenida extends JPanel{
 	
 	public PanelBienvenida(ControladorPanelBienvenida controladorPanelBienvenida) {
 		this.controladorPanelBienvenida = controladorPanelBienvenida;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		///////////////////////////////////////

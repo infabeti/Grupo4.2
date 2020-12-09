@@ -25,6 +25,7 @@ public class PanelGeneros extends JPanel {
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

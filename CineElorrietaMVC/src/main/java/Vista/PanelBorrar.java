@@ -23,17 +23,18 @@ public class PanelBorrar extends JPanel {
 	 */
 	public PanelBorrar(ControladorPanelBorrar controladorPanelBorrar) {
 		this.controladorPanelBorrar = controladorPanelBorrar;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(444, 527, 113, 41);
+		btnAceptar.setBounds(444, 485, 113, 41);
 		add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(588, 527, 113, 41);
+		btnCancelar.setBounds(588, 485, 113, 41);
 		add(btnCancelar);
 		
 		JLabel lblTitulo = new JLabel("T\u00EDtulo:");

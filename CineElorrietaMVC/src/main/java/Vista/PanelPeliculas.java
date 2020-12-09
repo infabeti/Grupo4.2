@@ -24,6 +24,7 @@ public class PanelPeliculas extends JPanel {
 	 */
 	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
 		this.controladorPanelPeliculas = controladorPanelPeliculas;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

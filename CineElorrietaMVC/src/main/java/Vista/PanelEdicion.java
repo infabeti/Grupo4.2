@@ -25,6 +25,7 @@ public class PanelEdicion extends JPanel {
 
 	public PanelEdicion(ControladorPanelEdicion controladorPanelEdicion) {
 		this.controladorPanelEdicion = controladorPanelEdicion;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
@@ -45,12 +46,12 @@ public class PanelEdicion extends JPanel {
 		
 		btnContinuar = new JButton("Continuar");
 		btnContinuar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnContinuar.setBounds(382, 517, 139, 46);
+		btnContinuar.setBounds(444, 485, 139, 46);
 		add(btnContinuar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(599, 517, 127, 46);
+		btnCancelar.setBounds(599, 485, 127, 46);
 		add(btnCancelar);
 		
 		JTextArea textAreaNombre = new JTextArea();

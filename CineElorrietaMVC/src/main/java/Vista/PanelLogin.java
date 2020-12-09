@@ -30,6 +30,7 @@ public class PanelLogin extends JPanel {
 	 */
 	public PanelLogin(ControladorPanelLogin controladorPanelLogin) {
 		this.controladorPanelLogin = controladorPanelLogin;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		

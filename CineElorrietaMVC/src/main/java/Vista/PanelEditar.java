@@ -24,17 +24,18 @@ public class PanelEditar extends JPanel {
 	 */
 	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
 		this.controladorPanelEditar = controladorPanelEditar;
+		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(453, 523, 113, 41);
+		btnAceptar.setBounds(444, 485, 113, 41);
 		add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(597, 523, 113, 41);
+		btnCancelar.setBounds(588, 485, 113, 41);
 		add(btnCancelar);
 		
 		JLabel lblNombre = new JLabel("Nombre");
