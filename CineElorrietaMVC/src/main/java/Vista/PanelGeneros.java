@@ -24,6 +24,13 @@ public class PanelGeneros extends JPanel {
 	public JTextArea textAreaSabado;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JButton btnTerror;
+	private JButton btnComedia;
+	private JButton btnDrama;
+	private JButton btnAnadirDrama;
+	private JButton btnAnadirComedia;
+	private JButton btnAnadirTerror;
+	private JButton btnAnadirCienciaFiccion;
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
@@ -31,17 +38,37 @@ public class PanelGeneros extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		btnAnadirComedia = new JButton("A\u00F1adir");
+		btnAnadirComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAnadirComedia.setBounds(512, 41, 123, 50);
+		add(btnAnadirComedia);
+		
+		btnAnadirDrama = new JButton("A\u00F1adir");
+		btnAnadirDrama.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAnadirDrama.setBounds(512, 41, 123, 50);
+		add(btnAnadirDrama);
+		
+		btnAnadirTerror = new JButton("A\u00F1adir");
+		btnAnadirTerror.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAnadirTerror.setBounds(512, 41, 123, 50);
+		add(btnAnadirTerror);
+		
+		btnAnadirCienciaFiccion = new JButton("A\u00F1adir");
+		btnAnadirCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAnadirCienciaFiccion.setBounds(512, 41, 123, 50);
+		add(btnAnadirCienciaFiccion);
+		
 		comboBoxCienciaFiccion = new JComboBox();
-		comboBoxCienciaFiccion.setBounds(460, 141, 169, 28);
+		comboBoxCienciaFiccion.setBounds(154, 52, 348, 28);
 		add(comboBoxCienciaFiccion);
 		
 		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(494, 214, 162, 228);
+		textAreaDomingo.setBounds(473, 136, 162, 228);
 		add(textAreaDomingo);
 		
 		textAreaSabado = new JTextArea();
 		textAreaSabado.setLineWrap(true);
-		textAreaSabado.setBounds(253, 214, 162, 228);
+		textAreaSabado.setBounds(232, 136, 162, 228);
 		add(textAreaSabado);
 		
 		btnVolver = new JButton("Volver");
@@ -79,74 +106,48 @@ public class PanelGeneros extends JPanel {
 				controladorPanelGeneros.addPelicula((JComboBox) arg0.getSource());
 			}
 		});
-		comboBoxDrama.setBounds(281, 65, 169, 28);
+		comboBoxDrama.setBounds(154, 52, 348, 28);
 		add(comboBoxDrama);
-		
-		JLabel lblDrama = new JLabel("Drama");
-		lblDrama.setForeground(Color.WHITE);
-		lblDrama.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDrama.setBounds(281, 28, 169, 26);
-		add(lblDrama);
 		
 		JLabel lblSabado = new JLabel("Sabado");
 		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSabado.setForeground(Color.WHITE);
-		lblSabado.setBounds(253, 180, 162, 23);
+		lblSabado.setBounds(232, 102, 162, 23);
 		add(lblSabado);
 		
 		JLabel lblDomingo = new JLabel("Domingo");
 		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDomingo.setForeground(Color.WHITE);
-		lblDomingo.setBounds(494, 180, 162, 23);
+		lblDomingo.setBounds(473, 102, 162, 23);
 		add(lblDomingo);
 		
 		comboBoxComedia = new JComboBox();
-		comboBoxComedia.setBounds(460, 65, 169, 28);
+		comboBoxComedia.setBounds(154, 52, 348, 28);
 		add(comboBoxComedia);
 		
-		JLabel lblComedia = new JLabel("Comedia");
-		lblComedia.setForeground(Color.WHITE);
-		lblComedia.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblComedia.setBounds(460, 28, 169, 26);
-		add(lblComedia);
-		
 		comboBoxTerror = new JComboBox();
-		comboBoxTerror.setBounds(281, 141, 169, 28);
+		comboBoxTerror.setBounds(154, 52, 348, 28);
 		add(comboBoxTerror);
 		
-		JLabel lblTerror = new JLabel("Terror\r\n");
-		lblTerror.setForeground(Color.WHITE);
-		lblTerror.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTerror.setBounds(281, 104, 169, 26);
-		add(lblTerror);
+		JButton btnCienciaFiccion = new JButton("Ciencia Ficcion");
+		btnCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnCienciaFiccion.setBounds(30, 314, 123, 50);
+		add(btnCienciaFiccion);
 		
-		JLabel lblCienciaFiccion = new JLabel("Ciencia Ficcion");
-		lblCienciaFiccion.setForeground(Color.WHITE);
-		lblCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCienciaFiccion.setBounds(460, 104, 169, 26);
-		add(lblCienciaFiccion);
+		btnTerror = new JButton("Terror");
+		btnTerror.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnTerror.setBounds(30, 248, 123, 50);
+		add(btnTerror);
 		
-		JRadioButton rdbtnSabado = new JRadioButton("Sabado");
-		buttonGroup.add(rdbtnSabado);
-		rdbtnSabado.setBounds(16, 277, 109, 23);
-		add(rdbtnSabado);
+		btnComedia = new JButton("Comedia");
+		btnComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnComedia.setBounds(30, 187, 123, 50);
+		add(btnComedia);
 		
-		JRadioButton rdbtnDomingo = new JRadioButton("Domingo");
-		buttonGroup.add(rdbtnDomingo);
-		rdbtnDomingo.setBounds(16, 303, 109, 23);
-		add(rdbtnDomingo);
-		
-		JLabel lblSeleccion = new JLabel("Seleccione el dia en el que\r\n");
-		lblSeleccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblSeleccion.setForeground(Color.WHITE);
-		lblSeleccion.setBounds(10, 206, 192, 36);
-		add(lblSeleccion);
-		
-		JLabel lblQuieraMeterLa = new JLabel("quiera meter la pelicula:\r\n");
-		lblQuieraMeterLa.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblQuieraMeterLa.setForeground(Color.WHITE);
-		lblQuieraMeterLa.setBounds(10, 239, 182, 31);
-		add(lblQuieraMeterLa);
+		btnDrama = new JButton("Drama");
+		btnDrama.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnDrama.setBounds(30, 126, 123, 50);
+		add(btnDrama);
 		
 		initializeEvents();
 	}
