@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
+import Controlador.ControladorPanelAnadir;
 import Controlador.ControladorPanelEditar;
 
 @SuppressWarnings("serial")
@@ -18,6 +19,8 @@ public class PanelEditar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	private ControladorPanelEditar controladorPanelEditar;
+	public JComboBox comboBoxGenero, comboBoxNombre;
+
 	/**
 	 * Create the panel.
 	 * @param controladorPanelEditar 
@@ -50,11 +53,11 @@ public class PanelEditar extends JPanel {
 		lblGenero.setBounds(405, 198, 90, 61);
 		add(lblGenero);
 		
-		JComboBox comboBoxNombre = new JComboBox();
+		comboBoxNombre = new JComboBox();
 		comboBoxNombre.setBounds(209, 285, 101, 27);
 		add(comboBoxNombre);
 		
-		JComboBox comboBoxGenero = new JComboBox();
+		comboBoxGenero = new JComboBox();
 		comboBoxGenero.setBounds(405, 285, 101, 27);
 		add(comboBoxGenero);
 		
@@ -72,8 +75,17 @@ public class PanelEditar extends JPanel {
 	private void initializeEvents() {
 		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelEditar));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelEditar));
+		this.comboBoxGenero.addActionListener(listenerComboBoxGeneros(this.controladorPanelEditar));
+
 	}
-	
+	private ActionListener listenerComboBoxGeneros(ControladorPanelEditar controladorPanelAnadir) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelAnadir.cambiarGenero();
+			}
+		};
+	}
 	private ActionListener listenerBotonAceptar(ControladorPanelEditar controladorPanelEditar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

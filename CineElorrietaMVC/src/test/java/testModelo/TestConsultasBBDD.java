@@ -46,6 +46,7 @@ public class TestConsultasBBDD {
 	@Test
 	public void testConsultaPeli() {
 		Pelicula peli = mock(Pelicula.class);
+//		Pelicula pelireal = new Pelicula(null, null, 0,0);
 		Pelicula.consulta = consultas; // la consulta que utiliza en el constructor de Pelicula para añadirla a la lista de pelis totales
 
 		peli = mock(Pelicula.class);
@@ -53,13 +54,17 @@ public class TestConsultasBBDD {
 		consultas.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consultas.getPeliculas_totales(), peli));
 		
 		assertEquals ("null consultaPeli", null, consultas.getPelicula(peli.getCodigo()-1)); // Le introduzco un código que no existe
-		assertEquals("mock consultaPeli", peli, consultas.getPelicula(peli.getCodigo()));
+		
+		
+		when(peli.getCodigo()).thenReturn(0);
+
+		
+		assertEquals("mock consultaPeli", peli, consultas.getPelicula(0));
 
 	}
 	
 	@Test
 	public void testConsultaPeliculasGenero() {
-		consultas = App.Main.consultasBBDD;
 		Pelicula[] pelisgenero = new Pelicula[4];
 		
 		handia = mock(Pelicula.class);
@@ -88,7 +93,8 @@ public class TestConsultasBBDD {
 //		
 //		for(Pelicula x : consultas.getPeliculas_totales())
 //			System.out.println(x.getGenero());
-		
+//		consultas = App.Main.consultasBBDD;
+
 		assertArrayEquals("testconsultaPeliculasGenero", pelisgenero, consultas.consultaPeliculas("drama"));
 		
 	}

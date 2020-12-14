@@ -15,10 +15,11 @@ import Controlador.ControladorPanelAnadir;
 
 @SuppressWarnings("serial")
 public class PanelAnadir extends JPanel {
-	private JTextField textField;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	private ControladorPanelAnadir controladorPanelAnadir;
+	private JComboBox comboBoxGenero;
+	private JTextField jtf_titulo;
 	/**
 	 * Create the panel.
 	 * @param controladorPanelAnadir 
@@ -45,9 +46,9 @@ public class PanelAnadir extends JPanel {
 		lblTitulo.setBounds(86, 115, 90, 61);
 		add(lblTitulo);
 		
-		JComboBox comboBoxGenero = new JComboBox();
-		comboBoxGenero.setBounds(247, 230, 339, 40);
-		add(comboBoxGenero);
+		setComboBoxGenero(new JComboBox());
+		getComboBoxGenero().setBounds(247, 223, 339, 40);
+		add(getComboBoxGenero());
 		
 		JLabel lblAñadir = new JLabel("A\u00F1adir");
 		lblAñadir.setForeground(new Color(255, 255, 255));
@@ -61,10 +62,10 @@ public class PanelAnadir extends JPanel {
 		lblGenero.setBounds(86, 209, 90, 61);
 		add(lblGenero);
 		
-		textField = new JTextField();
-		textField.setBounds(247, 139, 339, 37);
-		add(textField);
-		textField.setColumns(10);
+		setJtf_titulo(new JTextField());
+		getJtf_titulo().setBounds(247, 129, 339, 40);
+		add(getJtf_titulo());
+		getJtf_titulo().setColumns(10);
 		
 		initializeEvents();
 	}
@@ -72,7 +73,9 @@ public class PanelAnadir extends JPanel {
 	private void initializeEvents() {
 		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelAnadir));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelAnadir));
+
 	}
+	
 	
 	private ActionListener listenerBotonAceptar(ControladorPanelAnadir controladorPanelAnadir) {
 		return new ActionListener() {
@@ -91,4 +94,19 @@ public class PanelAnadir extends JPanel {
 		};
 	}
 
+	public JComboBox getComboBoxGenero() {
+		return comboBoxGenero;
+	}
+
+	public void setComboBoxGenero(JComboBox comboBoxGenero) {
+		this.comboBoxGenero = comboBoxGenero;
+	}
+
+	public JTextField getJtf_titulo() {
+		return jtf_titulo;
+	}
+
+	public void setJtf_titulo(JTextField jtf_titulo) {
+		this.jtf_titulo = jtf_titulo;
+	}
 }

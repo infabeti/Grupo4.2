@@ -28,6 +28,13 @@ public class ConsultasBBDD {
 	//Películas totales
 	private Pelicula[] peliculas_totales = new Pelicula[0];
 	
+	//spy hacer new y acceder a métodos
+	// reflection situaciones límites
+	// instanciar array de películas con un constructor / un setter para acceder a sus métodos
+	
+	// ARRAY PELIS UNITARIAS
+	
+	
 	//Drama
 	private Pelicula handia,lista_Schindler, cadena_perpetua, mdb;
 	private Pelicula[] pelis_Drama = new Pelicula[0];
@@ -51,7 +58,7 @@ public class ConsultasBBDD {
 	
 	public Pelicula getPelicula(int codepeli) {
 		for(Pelicula x : consultaPeliculas()) {
-			if(x.getCodigo() == codepeli)
+			if(x.getCodigo() == codepeli) // SPY
 				return x;
 		}
 		return null;
