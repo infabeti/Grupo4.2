@@ -29,6 +29,28 @@ public class PanelEdicion extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCancelar.setBounds(599, 485, 127, 46);
+		add(btnCancelar);
+		
+		btnContinuar = new JButton("Continuar");
+		btnContinuar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnContinuar.setBounds(444, 485, 139, 46);
+		add(btnContinuar);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
+		
 		btnEditar = new JButton("Editar");
 		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEditar.setBounds(35, 173, 127, 53);
@@ -43,16 +65,6 @@ public class PanelEdicion extends JPanel {
 		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnBorrar.setBounds(35, 301, 127, 53);
 		add(btnBorrar);
-		
-		btnContinuar = new JButton("Continuar");
-		btnContinuar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnContinuar.setBounds(444, 485, 139, 46);
-		add(btnContinuar);
-		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(599, 485, 127, 46);
-		add(btnCancelar);
 		
 		JTextArea textAreaNombre = new JTextArea();
 		textAreaNombre.setBounds(214, 173, 104, 207);

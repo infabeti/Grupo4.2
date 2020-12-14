@@ -1,8 +1,10 @@
 package Controlador;
 
+import javax.swing.JComboBox;
 
 import Modelo.Modelo;
 import Modelo.Pelicula;
+import Modelo.*;
 import Vista.PanelAnadir;
 import Vista.Vista;
 
@@ -20,6 +22,7 @@ public class ControladorPanelAnadir {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	public void mostrarPanelAnadir() {
 		this.panelAnadir = new PanelAnadir(this);
 		this.vista.mostrarPanel(this.panelAnadir);
@@ -31,6 +34,11 @@ public class ControladorPanelAnadir {
 			this.panelAnadir.getComboBoxGenero().addItem(genero);
 		
 		
+		System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
+		// Añadir pelis drama
+		for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("drama")) {
+			this.panelAnadir.getComboBoxGenero().addItem(peli.getNombre());
+		}
 	}
 	
 	public void accionadoBotonAceptarPanelAnadir() {

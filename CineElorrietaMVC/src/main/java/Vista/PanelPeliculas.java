@@ -28,36 +28,53 @@ public class PanelPeliculas extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCancelar.setBounds(671, 469, 119, 48);
+		add(btnCancelar);
+		
+		btnContinuar = new JButton("Continuar");
+		btnContinuar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnContinuar.setBounds(504, 469, 119, 48);
+		add(btnContinuar);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
+		
 		JLabel lblNewLabel = new JLabel("Estas son las peliculas disponibles");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel.setBounds(152, 58, 459, 64);
 		add(lblNewLabel);
 		
 		JTextArea textAreaSabado = new JTextArea();
-		textAreaSabado.setBounds(286, 206, 116, 256);
+		textAreaSabado.setBounds(286, 206, 116, 227);
 		add(textAreaSabado);
 		
 		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(454, 206, 116, 256);
+		textAreaDomingo.setBounds(454, 206, 116, 227);
 		add(textAreaDomingo);
 		
 		JLabel lblNewLabelSabado = new JLabel("S\u00E1bado");
+		lblNewLabelSabado.setForeground(Color.WHITE);
 		lblNewLabelSabado.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabelSabado.setBounds(286, 159, 117, 36);
 		add(lblNewLabelSabado);
 		
 		JLabel lblNewLabelDomingo = new JLabel("Domingo");
+		lblNewLabelDomingo.setForeground(Color.WHITE);
 		lblNewLabelDomingo.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabelDomingo.setBounds(454, 159, 117, 36);
 		add(lblNewLabelDomingo);
-		
-		btnContinuar = new JButton("Continuar");
-		btnContinuar.setBounds(595, 494, 89, 23);
-		add(btnContinuar);
-		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(701, 494, 89, 23);
-		add(btnCancelar);
 
 		initializeEvents();
 	}

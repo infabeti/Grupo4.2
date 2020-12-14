@@ -23,26 +23,38 @@ public class PanelBienvenida extends JPanel{
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
 		///////////////////////////////////////
 		
 		
 		JLabel lblBienvenida = new JLabel("Bienvenido/a");
-		lblBienvenida.setBounds(175, 182, 444, 81);
+		lblBienvenida.setBounds(115, 105, 444, 81);
 		lblBienvenida.setForeground(new Color(240, 248, 255));
 		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenida.setFont(new Font("SimSun", Font.BOLD, 70));
 		add(lblBienvenida);
 		
 		JLabel lblAppDiseñada = new JLabel("App dise\u00F1ada para");
-		lblAppDiseñada.setBounds(175, 294, 391, 52);
+		lblAppDiseñada.setBounds(125, 197, 391, 52);
 		lblAppDiseñada.setForeground(new Color(240, 248, 255));
 		lblAppDiseñada.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAppDiseñada.setFont(new Font("SimSun", Font.PLAIN, 45));
 		add(lblAppDiseñada);
 		
 		JLabel lblCineSS = new JLabel("Cine Elorrieta MVC");
-		lblCineSS.setBounds(175, 357, 486, 58);
-		lblCineSS.setForeground(new Color(244, 164, 96));
+		lblCineSS.setBounds(115, 260, 486, 58);
+		lblCineSS.setForeground(new Color(255, 211, 105));
 		lblCineSS.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCineSS.setFont(new Font("SimSun", Font.BOLD, 50));
 		add(lblCineSS);
