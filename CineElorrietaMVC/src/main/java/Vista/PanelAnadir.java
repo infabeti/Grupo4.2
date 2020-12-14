@@ -30,15 +30,27 @@ public class PanelAnadir extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCancelar.setBounds(588, 485, 113, 41);
+		add(btnCancelar);
+		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAceptar.setBounds(444, 485, 113, 41);
 		add(btnAceptar);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(588, 485, 113, 41);
-		add(btnCancelar);
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
 		
 		JLabel lblTitulo = new JLabel("T\u00EDtulo:");
 		lblTitulo.setForeground(new Color(255, 255, 255));

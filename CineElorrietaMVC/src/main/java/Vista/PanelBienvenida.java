@@ -24,10 +24,17 @@ public class PanelBienvenida extends JPanel{
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		JLabel lblLOGO = new JLabel("LOGO");
-		lblLOGO.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4.2\\CineElorrietaMVC\\Imagenes\\LOGO.png"));
-		lblLOGO.setBounds(689, 11, 101, 132);
-		add(lblLOGO);
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
 		///////////////////////////////////////
 		
 		
@@ -59,11 +66,6 @@ public class PanelBienvenida extends JPanel{
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(lblNewLabel);
-		
-		JLabel lblFondo = new JLabel("Fondo");
-		lblFondo.setIcon(new ImageIcon("C:\\eclipse-workspace\\Grupo4.2\\CineElorrietaMVC\\Imagenes\\Forma.png"));
-		lblFondo.setBounds(0, 0, 800, 550);
-		add(lblFondo);
 		
 		///////////////////////////////////////
 		initializeEvents();

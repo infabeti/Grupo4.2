@@ -28,15 +28,35 @@ public class PanelEditar extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		btnAceptar = new JButton("Aceptar");
-		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(444, 485, 113, 41);
-		add(btnAceptar);
+		JLabel lblEditar = new JLabel("se mostrar\u00E1 una nueva ventana en la que ser\u00E1n editables tanto el nombre de una pel\u00EDcula como su g\u00E9nero\r\n");
+		lblEditar.setHorizontalAlignment(SwingConstants.LEFT);
+		lblEditar.setVerticalAlignment(SwingConstants.TOP);
+		lblEditar.setForeground(new Color(255, 255, 255));
+		lblEditar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEditar.setBounds(10, 11, 700, 130);
+		add(lblEditar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCancelar.setBounds(588, 485, 113, 41);
 		add(btnCancelar);
+		
+		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnAceptar.setBounds(444, 485, 113, 41);
+		add(btnAceptar);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(255, 255, 255));
@@ -57,14 +77,6 @@ public class PanelEditar extends JPanel {
 		JComboBox comboBoxGenero = new JComboBox();
 		comboBoxGenero.setBounds(405, 285, 101, 27);
 		add(comboBoxGenero);
-		
-		JLabel lblEditar = new JLabel("se mostrar\u00E1 una nueva ventana en la que ser\u00E1n editables tanto el nombre de una pel\u00EDcula como su g\u00E9nero\r\n");
-		lblEditar.setHorizontalAlignment(SwingConstants.LEFT);
-		lblEditar.setVerticalAlignment(SwingConstants.TOP);
-		lblEditar.setForeground(new Color(255, 255, 255));
-		lblEditar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEditar.setBounds(10, 11, 700, 130);
-		add(lblEditar);
 		
 		initializeEvents();
 	}

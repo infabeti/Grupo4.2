@@ -34,19 +34,32 @@ public class PanelLogin extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		btnEdicion = new JButton("Edicion");
+		btnEdicion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEdicion.setBounds(418, 473, 113, 44);
+		add(btnEdicion);
+		
 		btnGeneros = new JButton("Generos");
 		btnGeneros.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGeneros.setBounds(295, 430, 113, 41);
+		btnGeneros.setBounds(295, 475, 113, 41);
 		add(btnGeneros);
-		
-		btnEdicion = new JButton("Edicion");
-		btnEdicion.setBounds(454, 443, 89, 23);
-		add(btnEdicion);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(592, 430, 113, 41);
+		btnCancelar.setBounds(580, 475, 113, 41);
 		add(btnCancelar);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
 		
 		textFieldUsuario = new JTextField();
 		textFieldUsuario.setBounds(312, 157, 242, 41);
@@ -71,6 +84,12 @@ public class PanelLogin extends JPanel {
 		lblPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPass.setBounds(137, 267, 151, 28);
 		add(lblPass);
+		
+		JLabel lblNewLabel = new JLabel("Login");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setBounds(33, 11, 68, 56);
+		add(lblNewLabel);
 		
 		initializeEvents();
 	}

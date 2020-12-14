@@ -28,29 +28,43 @@ public class PanelResumen extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		btnCancelar1 = new JButton("Cancelar -> Edicion");
+		btnCancelar1.setBounds(590, 350, 135, 50);
+		add(btnCancelar1);
+		
+		btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnConfirmar.setBounds(590, 221, 137, 50);
+		add(btnConfirmar);
+		
+		btnCancelar2 = new JButton("Cancelar -> Generos");
+		btnCancelar2.setBounds(590, 282, 135, 57);
+		add(btnCancelar2);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setBackground(new Color(255, 211, 105));
+		lblFondo.setOpaque(true);
+		lblFondo.setBounds(0, 444, 800, 106);
+		add(lblFondo);
+		
+		JLabel lblFondoNegro = new JLabel("");
+		lblFondoNegro.setOpaque(true);
+		lblFondoNegro.setBackground(new Color(34, 40, 49));
+		lblFondoNegro.setBounds(689, 0, 111, 450);
+		add(lblFondoNegro);
+		
 		JLabel lblResumen = new JLabel("Resumen de la cartelera de semana");
+		lblResumen.setForeground(Color.WHITE);
 		lblResumen.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblResumen.setBounds(108, 97, 532, 39);
 		add(lblResumen);
 		
-		btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.setBounds(592, 277, 89, 23);
-		add(btnConfirmar);
-		
-		btnCancelar1 = new JButton("Cancelar -> Edicion");
-		btnCancelar1.setBounds(592, 316, 135, 23);
-		add(btnCancelar1);
-		
-		btnCancelar2 = new JButton("Cancelar -> Generos");
-		btnCancelar2.setBounds(592, 350, 135, 23);
-		add(btnCancelar2);
-		
 		JTextArea textAreaSabado = new JTextArea();
-		textAreaSabado.setBounds(108, 182, 186, 289);
+		textAreaSabado.setBounds(108, 182, 186, 259);
 		add(textAreaSabado);
 		
 		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(375, 182, 186, 289);
+		textAreaDomingo.setBounds(375, 182, 186, 259);
 		add(textAreaDomingo);
 
 		initializeEvents();
