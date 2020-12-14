@@ -31,12 +31,12 @@ public class PanelEdicion extends JPanel {
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(599, 485, 127, 46);
+		btnCancelar.setBounds(569, 485, 120, 41);
 		add(btnCancelar);
 		
 		btnContinuar = new JButton("Continuar");
 		btnContinuar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnContinuar.setBounds(444, 485, 139, 46);
+		btnContinuar.setBounds(430, 485, 120, 41);
 		add(btnContinuar);
 		
 		JLabel lblFondo = new JLabel("");

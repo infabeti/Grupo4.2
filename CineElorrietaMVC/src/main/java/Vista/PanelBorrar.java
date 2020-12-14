@@ -29,12 +29,12 @@ public class PanelBorrar extends JPanel {
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(444, 485, 113, 41);
+		btnAceptar.setBounds(430, 485, 113, 41);
 		add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(588, 485, 113, 41);
+		btnCancelar.setBounds(575, 485, 113, 41);
 		add(btnCancelar);
 		
 		JLabel lblFondo = new JLabel("");

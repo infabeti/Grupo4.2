@@ -20,6 +20,8 @@ public class PanelAnadir extends JPanel {
 	private ControladorPanelAnadir controladorPanelAnadir;
 	private JComboBox comboBoxGenero;
 	private JTextField jtf_titulo;
+	private JTextField jtf_codigo;
+	private JTextField jtf_duracion;
 	/**
 	 * Create the panel.
 	 * @param controladorPanelAnadir 
@@ -32,12 +34,12 @@ public class PanelAnadir extends JPanel {
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(588, 485, 113, 41);
+		btnCancelar.setBounds(575, 485, 113, 41);
 		add(btnCancelar);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(444, 485, 113, 41);
+		btnAceptar.setBounds(430, 485, 113, 41);
 		add(btnAceptar);
 		
 		JLabel lblFondo = new JLabel("");
@@ -55,11 +57,11 @@ public class PanelAnadir extends JPanel {
 		JLabel lblTitulo = new JLabel("T\u00EDtulo:");
 		lblTitulo.setForeground(new Color(255, 255, 255));
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTitulo.setBounds(86, 115, 90, 61);
+		lblTitulo.setBounds(86, 130, 90, 40);
 		add(lblTitulo);
 		
 		setComboBoxGenero(new JComboBox());
-		getComboBoxGenero().setBounds(247, 223, 339, 40);
+		getComboBoxGenero().setBounds(247, 340, 339, 40);
 		add(getComboBoxGenero());
 
 		JLabel lblAñadir = new JLabel("A\u00F1adir");
@@ -71,13 +73,35 @@ public class PanelAnadir extends JPanel {
 		JLabel lblGenero = new JLabel("G\u00E9nero:");
 		lblGenero.setForeground(Color.WHITE);
 		lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblGenero.setBounds(86, 209, 90, 61);
+		lblGenero.setBounds(86, 340, 90, 40);
 		add(lblGenero);
 		
 		setJtf_titulo(new JTextField());
-		getJtf_titulo().setBounds(247, 129, 339, 40);
+		getJtf_titulo().setBounds(247, 130, 339, 40);
 		add(getJtf_titulo());
 		getJtf_titulo().setColumns(10);
+		
+		JLabel lblCodigo = new JLabel("C\u00F3digo:");
+		lblCodigo.setForeground(Color.WHITE);
+		lblCodigo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCodigo.setBounds(86, 200, 90, 40);
+		add(lblCodigo);
+		
+		JLabel lblDuracion = new JLabel("Duraci\u00F3n:");
+		lblDuracion.setForeground(Color.WHITE);
+		lblDuracion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDuracion.setBounds(86, 270, 90, 40);
+		add(lblDuracion);
+		
+		jtf_codigo = new JTextField();
+		jtf_codigo.setColumns(10);
+		jtf_codigo.setBounds(247, 200, 339, 40);
+		add(jtf_codigo);
+		
+		jtf_duracion = new JTextField();
+		jtf_duracion.setColumns(10);
+		jtf_duracion.setBounds(247, 270, 339, 40);
+		add(jtf_duracion);
 		
 		initializeEvents();
 	}

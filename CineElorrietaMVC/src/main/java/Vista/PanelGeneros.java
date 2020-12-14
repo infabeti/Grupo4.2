@@ -73,12 +73,12 @@ public class PanelGeneros extends JPanel {
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnVolver.setBounds(675, 472, 115, 50);
+		btnVolver.setBounds(575, 485, 115, 41);
 		add(btnVolver);
 		
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnSiguiente.setBounds(520, 476, 115, 50);
+		btnSiguiente.setBounds(430, 485, 115, 41);
 		add(btnSiguiente);
 		
 		JLabel lblFondo = new JLabel("");
