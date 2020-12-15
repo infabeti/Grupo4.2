@@ -17,20 +17,13 @@ import javax.swing.ButtonGroup;
 @SuppressWarnings("serial")
 public class PanelGeneros extends JPanel {
 
-	private JButton btnSiguiente;
-	private JButton btnVolver;
+	private JButton btnSiguiente, btnVolver;
+	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirDrama, btnAnadirComedia, btnAnadirTerror, btnAnadirCienciaFiccion;
 	private JLabel lblGeneros;
 	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
 	public JTextArea textAreaSabado;
 	private ControladorPanelGeneros controladorPanelGeneros;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JButton btnTerror;
-	private JButton btnComedia;
-	private JButton btnDrama;
-	private JButton btnAnadirDrama;
-	private JButton btnAnadirComedia;
-	private JButton btnAnadirTerror;
-	private JButton btnAnadirCienciaFiccion;
+
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
@@ -39,36 +32,46 @@ public class PanelGeneros extends JPanel {
 		setLayout(null);
 		
 		btnAnadirComedia = new JButton("A\u00F1adir");
+		btnAnadirComedia.setVisible(false);
+		btnAnadirComedia.setEnabled(false);
 		btnAnadirComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirComedia.setBounds(512, 41, 123, 50);
+		btnAnadirComedia.setBounds(512, 52, 123, 30);
 		add(btnAnadirComedia);
 		
 		btnAnadirDrama = new JButton("A\u00F1adir");
+		btnAnadirDrama.setVisible(false);
+		btnAnadirDrama.setEnabled(false);
 		btnAnadirDrama.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirDrama.setBounds(512, 41, 123, 50);
+		btnAnadirDrama.setBounds(512, 52, 123, 30);
 		add(btnAnadirDrama);
 		
 		btnAnadirTerror = new JButton("A\u00F1adir");
+		btnAnadirTerror.setEnabled(false);
+		btnAnadirTerror.setVisible(false);
 		btnAnadirTerror.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirTerror.setBounds(512, 41, 123, 50);
+		btnAnadirTerror.setBounds(512, 52, 123, 30);
 		add(btnAnadirTerror);
 		
 		btnAnadirCienciaFiccion = new JButton("A\u00F1adir");
+		btnAnadirCienciaFiccion.setVisible(false);
+		btnAnadirCienciaFiccion.setEnabled(false);
 		btnAnadirCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirCienciaFiccion.setBounds(512, 41, 123, 50);
+		btnAnadirCienciaFiccion.setBounds(512, 52, 123, 30);
 		add(btnAnadirCienciaFiccion);
 		
 		comboBoxCienciaFiccion = new JComboBox();
-		comboBoxCienciaFiccion.setBounds(154, 52, 348, 28);
+		comboBoxCienciaFiccion.setEnabled(false);
+		comboBoxCienciaFiccion.setVisible(false);
+		comboBoxCienciaFiccion.setBounds(154, 52, 348, 30);
 		add(comboBoxCienciaFiccion);
 		
 		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(473, 136, 162, 228);
+		textAreaDomingo.setBounds(473, 135, 162, 228);
 		add(textAreaDomingo);
 		
 		textAreaSabado = new JTextArea();
 		textAreaSabado.setLineWrap(true);
-		textAreaSabado.setBounds(232, 136, 162, 228);
+		textAreaSabado.setBounds(232, 135, 162, 228);
 		add(textAreaSabado);
 		
 		btnVolver = new JButton("Volver");
@@ -101,12 +104,9 @@ public class PanelGeneros extends JPanel {
 		add(lblGeneros);
 		
 		comboBoxDrama = new JComboBox();
-		comboBoxDrama.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelGeneros.addPelicula((JComboBox) arg0.getSource());
-			}
-		});
-		comboBoxDrama.setBounds(154, 52, 348, 28);
+		comboBoxDrama.setVisible(false);
+		comboBoxDrama.setEnabled(false);
+		comboBoxDrama.setBounds(154, 52, 348, 30);
 		add(comboBoxDrama);
 		
 		JLabel lblSabado = new JLabel("Sabado");
@@ -122,31 +122,35 @@ public class PanelGeneros extends JPanel {
 		add(lblDomingo);
 		
 		comboBoxComedia = new JComboBox();
-		comboBoxComedia.setBounds(154, 52, 348, 28);
+		comboBoxComedia.setVisible(false);
+		comboBoxComedia.setEnabled(false);
+		comboBoxComedia.setBounds(154, 52, 348, 30);
 		add(comboBoxComedia);
 		
 		comboBoxTerror = new JComboBox();
-		comboBoxTerror.setBounds(154, 52, 348, 28);
+		comboBoxTerror.setEnabled(false);
+		comboBoxTerror.setVisible(false);
+		comboBoxTerror.setBounds(154, 52, 348, 30);
 		add(comboBoxTerror);
 		
-		JButton btnCienciaFiccion = new JButton("Ciencia Ficcion");
+		btnCienciaFiccion = new JButton("Ciencia Ficcion");
 		btnCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnCienciaFiccion.setBounds(30, 314, 123, 50);
+		btnCienciaFiccion.setBounds(30, 318, 123, 45);
 		add(btnCienciaFiccion);
 		
 		btnTerror = new JButton("Terror");
 		btnTerror.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnTerror.setBounds(30, 248, 123, 50);
+		btnTerror.setBounds(30, 257, 123, 45);
 		add(btnTerror);
 		
 		btnComedia = new JButton("Comedia");
 		btnComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnComedia.setBounds(30, 187, 123, 50);
+		btnComedia.setBounds(30, 196, 123, 45);
 		add(btnComedia);
 		
 		btnDrama = new JButton("Drama");
 		btnDrama.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnDrama.setBounds(30, 126, 123, 50);
+		btnDrama.setBounds(30, 135, 123, 45);
 		add(btnDrama);
 		
 		initializeEvents();
@@ -155,6 +159,14 @@ public class PanelGeneros extends JPanel {
 	private void initializeEvents() {
 		this.btnSiguiente.addActionListener(listenerBotonSiguiente(this.controladorPanelGeneros));
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
+		this.btnDrama.addActionListener(listenerBotonDrama(this.controladorPanelGeneros));
+		this.btnComedia.addActionListener(listenerBotonComedia(this.controladorPanelGeneros));
+		this.btnTerror.addActionListener(listenerBotonTerror(this.controladorPanelGeneros));
+		this.btnCienciaFiccion.addActionListener(listenerBotonCienciaFiccion(this.controladorPanelGeneros));
+		this.btnAnadirDrama.addActionListener(listenerBotonAnadirDrama(this.controladorPanelGeneros));
+		this.btnAnadirComedia.addActionListener(listenerBotonAnadirComedia(this.controladorPanelGeneros));
+		this.btnAnadirTerror.addActionListener(listenerBotonAnadirTerror(this.controladorPanelGeneros));
+		this.btnAnadirCienciaFiccion.addActionListener(listenerBotonAnadirCienciaFiccion(this.controladorPanelGeneros));
 	}
 	
 	private ActionListener listenerBotonSiguiente(ControladorPanelGeneros controladorPanelGeneros) {
@@ -170,6 +182,70 @@ public class PanelGeneros extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Volver en Generos");
 				controladorPanelGeneros.accionadoBotonVolverPanelGeneros();
+			}
+		};
+	}
+	private ActionListener listenerBotonDrama(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Drama en Generos");
+				controladorPanelGeneros.accionadoBotonDramaPanelGeneros();
+			}
+		};
+	}
+	private ActionListener listenerBotonComedia(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Comedia en Generos");
+				controladorPanelGeneros.accionadoBotonComediaPanelGeneros();
+			}
+		};
+	}
+	private ActionListener listenerBotonTerror(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Terror en Generos");
+				controladorPanelGeneros.accionadoBotonTerrorPanelGeneros();
+			}
+		};
+	}
+	private ActionListener listenerBotonCienciaFiccion(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Ciencia Ficción en Generos");
+				controladorPanelGeneros.accionadoBotonCienciaFiccionPanelGeneros();
+			}
+		};
+	}
+	private ActionListener listenerBotonAnadirDrama(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Añadir película Drama");
+				controladorPanelGeneros.addPelicula(comboBoxDrama);
+			}
+		};
+	}
+	private ActionListener listenerBotonAnadirComedia(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Añadir película Comedia");
+				controladorPanelGeneros.addPelicula(comboBoxComedia);
+			}
+		};
+	}
+	private ActionListener listenerBotonAnadirTerror(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Añadir película Terror");
+				controladorPanelGeneros.addPelicula(comboBoxTerror);
+			}
+		};
+	}
+	private ActionListener listenerBotonAnadirCienciaFiccion(ControladorPanelGeneros controladorPanelGeneros) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Añadir película Ciencia Ficción");
+				controladorPanelGeneros.addPelicula(comboBoxCienciaFiccion);
 			}
 		};
 	}

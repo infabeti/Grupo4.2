@@ -47,7 +47,7 @@ public class ControladorPanelAnadir {
 		Pelicula[] addingNuevaPeli = (Pelicula[]) this.modelo.pushObject(modelo.getConsultasBBDD().getPeliculas_totales(), addedPeli);
 		this.modelo.getConsultasBBDD().setPeliculas_totales(addingNuevaPeli);
 		
-		System.out.println("Se ha añadido la nueva peli"+addedPeli.getNombre());
+		System.out.println("Se ha añadido la nueva peli: "+addedPeli.getNombre());
 		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(18).getNombre());
 
 		System.out.println(this.modelo.getConsultasBBDD().getPelicula(47).getCodigo());
