@@ -57,7 +57,10 @@ public class ConsultasBBDD {
 	
 	
 	public Pelicula getPelicula(int codepeli) {
-		for(Pelicula x : consultaPeliculas()) {
+		if(peliculas_totales.length == 0)
+			consultaPeliculas();
+		
+		for(Pelicula x : peliculas_totales) {
 			if(x.getCodigo() == codepeli) // SPY
 				return x;
 		}
@@ -67,7 +70,8 @@ public class ConsultasBBDD {
 	public Pelicula[] consultaPeliculas(String genero_in) {
 		Pelicula[] pelis_genero = new Pelicula[0];
 		
-		consultaPeliculas();
+		if(peliculas_totales.length == 0)
+			consultaPeliculas();
 		
 		for(Pelicula x : getPeliculas_totales()) {
 			if(x.getGenero().equalsIgnoreCase(genero_in))
@@ -79,8 +83,8 @@ public class ConsultasBBDD {
 	
 	//FUNCION QUE RECIBE UN GENERO Y DEVUELVE UNA LISTA DE PELICULAS 
 	public Pelicula[] consultaPeliculas() {
-		Pelicula[] reset = new Pelicula[0];
-		setPeliculas_totales(reset);
+		//Pelicula[] reset = new Pelicula[0];
+		//setPeliculas_totales(reset);
 		
 		//Drama
 		handia = new Pelicula("Handia", "Drama", 1, 6960);
@@ -122,7 +126,7 @@ public class ConsultasBBDD {
 		cisne_negro = new Pelicula("Cisne negro", "Terror", 6600);
 		
 				
-		
+		System.out.println(peliculas_totales.length);
 		return getPeliculas_totales();
 	}
 	

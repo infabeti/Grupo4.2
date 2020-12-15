@@ -40,5 +40,12 @@ public class Modelo {
 	    }
 			
 	    return longer;
+	}
+	
+	//PUSH INT para crear arrays de objetos
+		public static int[] pushInt(int[] array, int push) {
+			int[] longer = Arrays.copyOf(array, array.length + 1);
+		    longer[longer.length - 1] = push;
+		    return longer;
 		}
 }

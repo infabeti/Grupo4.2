@@ -17,8 +17,12 @@ public class Pelicula {
 		
 //		consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
 		
-		//Para añadir la peli a la lista total y la de su género correspondiente
+		
+
+		
+		
 		consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
+		System.out.println(this.getCodigo());
 		switch(genero.toLowerCase()) {
 			case "drama":
 				break;

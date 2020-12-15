@@ -93,10 +93,10 @@ public class PanelAnadir extends JPanel {
 		lblDuracion.setBounds(86, 270, 90, 40);
 		add(lblDuracion);
 		
-		jtf_codigo = new JTextField();
-		jtf_codigo.setColumns(10);
-		jtf_codigo.setBounds(247, 200, 339, 40);
-		add(jtf_codigo);
+		setJtf_codigo(new JTextField());
+		getJtf_codigo().setColumns(10);
+		getJtf_codigo().setBounds(247, 200, 339, 40);
+		add(getJtf_codigo());
 		
 		jtf_duracion = new JTextField();
 		jtf_duracion.setColumns(10);
@@ -144,5 +144,13 @@ public class PanelAnadir extends JPanel {
 
 	public void setJtf_titulo(JTextField jtf_titulo) {
 		this.jtf_titulo = jtf_titulo;
+	}
+
+	public JTextField getJtf_codigo() {
+		return jtf_codigo;
+	}
+
+	public void setJtf_codigo(JTextField jtf_codigo) {
+		this.jtf_codigo = jtf_codigo;
 	}
 }

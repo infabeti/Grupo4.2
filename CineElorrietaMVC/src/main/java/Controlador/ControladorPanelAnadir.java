@@ -34,19 +34,23 @@ public class ControladorPanelAnadir {
 			this.panelAnadir.getComboBoxGenero().addItem(genero);
 		
 		
-		System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
-		// Añadir pelis drama
-		for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("drama")) {
-			this.panelAnadir.getComboBoxGenero().addItem(peli.getNombre());
-		}
+		
 	}
 	
+	@SuppressWarnings("static-access")
 	public void accionadoBotonAceptarPanelAnadir() {
 		String titulo = this.panelAnadir.getJtf_titulo().getText();
 		String genero = this.panelAnadir.getComboBoxGenero().getSelectedItem().toString();
-
-		this.modelo.pushObject(modelo.getConsultasBBDD().getPeliculas_totales(), new Pelicula(titulo, genero, 0));
 		
+		Pelicula addedPeli = new Pelicula(titulo, genero, Integer.parseInt(this.panelAnadir.getJtf_codigo().getText()), 0);
+
+		Pelicula[] addingNuevaPeli = (Pelicula[]) this.modelo.pushObject(modelo.getConsultasBBDD().getPeliculas_totales(), addedPeli);
+		this.modelo.getConsultasBBDD().setPeliculas_totales(addingNuevaPeli);
+		
+		System.out.println("Se ha añadido la nueva peli"+addedPeli.getNombre());
+		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(18).getNombre());
+
+		System.out.println(this.modelo.getConsultasBBDD().getPelicula(47).getCodigo());
 		this.controlador.navegarPanelResumen();
 	}
 	public void accionadoBotonCancelarPanelAnadir() {
