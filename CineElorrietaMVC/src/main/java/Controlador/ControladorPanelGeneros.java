@@ -57,6 +57,7 @@ public class ControladorPanelGeneros {
 	}
 	
 	public void addPelicula(JComboBox source) {
+		Pelicula added_peli = modelo.getConsultasBBDD().getPelicula_toAdd(source.getSelectedItem().toString());
 		System.out.println(source.getSelectedItem().toString());
 
 //		this.panelGeneros.textAreaSabado.setText(this.panelGeneros.textAreaSabado.getText()+source.getSelectedItem().toString()+"\n");
