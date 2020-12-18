@@ -7,10 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Controlador.ControladorPanelGeneros;
+
 import java.awt.Color;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 
@@ -18,10 +22,15 @@ import javax.swing.ButtonGroup;
 public class PanelGeneros extends JPanel {
 
 	private JButton btnSiguiente, btnVolver;
-	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirDrama, btnAnadirComedia, btnAnadirTerror, btnAnadirCienciaFiccion;
-	private JLabel lblGeneros;
+	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirDrama, btnAnadirComedia, btnAnadirTerror, btnAnadirCienciaFiccion, btn_limpiar_sabado, btn_limpiar_domingo;
+	private JLabel lblGeneros, mensajeTiempoSabado, mensajeTiempoDomingo;
+	public static JLabel lb_genero_repetido;
+	public static JLabel lb_seleccione_otro_genero;
 	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
-	public JTextArea textAreaSabado;
+	public static JTextArea textAreaSabado;
+	public static JTextArea textAreaDomingo;
+	public static JTextField tiempoSabado;
+	public static JTextField tiempoDomingo;
 	private ControladorPanelGeneros controladorPanelGeneros;
 
 	
@@ -65,14 +74,68 @@ public class PanelGeneros extends JPanel {
 		comboBoxCienciaFiccion.setBounds(154, 52, 348, 30);
 		add(comboBoxCienciaFiccion);
 		
-		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(473, 135, 162, 228);
+		textAreaDomingo = new JTextArea();
+		textAreaDomingo.setBounds(458, 135, 177, 228);
 		add(textAreaDomingo);
 		
 		textAreaSabado = new JTextArea();
 		textAreaSabado.setLineWrap(true);
-		textAreaSabado.setBounds(232, 135, 162, 228);
+		textAreaSabado.setBounds(217, 135, 177, 228);
 		add(textAreaSabado);
+		
+		mensajeTiempoSabado = new JLabel("Tiempo restante sabado:");
+		mensajeTiempoSabado.setForeground(Color.LIGHT_GRAY);
+		mensajeTiempoSabado.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
+		mensajeTiempoSabado.setBounds(230, 371, 162, 19);
+		add(mensajeTiempoSabado);
+		
+		tiempoSabado = new JTextField(ControladorPanelGeneros.secsToHours(ControladorPanelGeneros.TIEMPO_TOTAL_SABADO));
+		tiempoSabado.setForeground(new Color(0, 0, 0));
+		tiempoSabado.setBackground(new Color(255, 211, 105));
+		tiempoSabado.setEditable(false);
+		tiempoSabado.setColumns(10);
+		tiempoSabado.setBounds(243, 394, 131, 20);
+		add(tiempoSabado);
+
+		mensajeTiempoDomingo = new JLabel("Tiempo restante domingo:");
+		mensajeTiempoDomingo.setForeground(Color.LIGHT_GRAY);
+		mensajeTiempoDomingo.setFont(new Font("Yu Gothic UI Semibold", Font.BOLD | Font.ITALIC, 13));
+		mensajeTiempoDomingo.setBounds(470, 371, 162, 19);
+		add(mensajeTiempoDomingo);
+		
+		tiempoDomingo = new JTextField(ControladorPanelGeneros.secsToHours(ControladorPanelGeneros.TIEMPO_TOTAL_DOMINGO));
+		tiempoDomingo.setForeground(new Color(0, 0, 0));
+		tiempoDomingo.setBackground(new Color(255, 211, 105));
+		tiempoDomingo.setEditable(false);
+		tiempoDomingo.setColumns(10);
+		tiempoDomingo.setBounds(487, 394, 131, 20);
+		add(tiempoDomingo);
+		
+		btn_limpiar_sabado = new JButton("Limpiar lista");
+		btn_limpiar_sabado.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btn_limpiar_sabado.setForeground(new Color(255, 255, 255));
+		btn_limpiar_sabado.setBackground(new Color(255, 0, 0));
+		btn_limpiar_sabado.setBorderPainted(false);
+		btn_limpiar_sabado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ControladorPanelGeneros.limpiarLista("sabado");
+			}
+		});
+		btn_limpiar_sabado.setBounds(266, 421, 87, 20);
+		add(btn_limpiar_sabado);
+		
+		btn_limpiar_domingo = new JButton("Limpiar lista");
+		btn_limpiar_domingo.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btn_limpiar_domingo.setBackground(new Color(255, 0, 0));
+		btn_limpiar_domingo.setBorderPainted(false);
+		btn_limpiar_domingo.setForeground(new Color(255, 255, 255));
+		btn_limpiar_domingo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ControladorPanelGeneros.limpiarLista("domingo");
+			}
+		});
+		btn_limpiar_domingo.setBounds(509, 421, 87, 20);
+		add(btn_limpiar_domingo);
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -109,13 +172,17 @@ public class PanelGeneros extends JPanel {
 		comboBoxDrama.setBounds(154, 52, 348, 30);
 		add(comboBoxDrama);
 		
-		JLabel lblSabado = new JLabel("Sabado");
+		JLabel lblSabado = new JLabel("Pel\u00EDculas s\u00E1bado");
+		lblSabado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSabado.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSabado.setForeground(Color.WHITE);
 		lblSabado.setBounds(232, 102, 162, 23);
 		add(lblSabado);
 		
-		JLabel lblDomingo = new JLabel("Domingo");
+		JLabel lblDomingo = new JLabel("Pel\u00EDculas domingo");
+		lblDomingo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblDomingo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDomingo.setForeground(Color.WHITE);
 		lblDomingo.setBounds(473, 102, 162, 23);
@@ -135,23 +202,40 @@ public class PanelGeneros extends JPanel {
 		
 		btnCienciaFiccion = new JButton("Ciencia Ficcion");
 		btnCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnCienciaFiccion.setBounds(30, 318, 123, 45);
+		btnCienciaFiccion.setBounds(10, 318, 143, 45);
 		add(btnCienciaFiccion);
 		
 		btnTerror = new JButton("Terror");
 		btnTerror.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnTerror.setBounds(30, 257, 123, 45);
+		btnTerror.setBounds(10, 257, 143, 45);
 		add(btnTerror);
 		
 		btnComedia = new JButton("Comedia");
 		btnComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnComedia.setBounds(30, 196, 123, 45);
+		btnComedia.setBounds(10, 196, 143, 45);
 		add(btnComedia);
 		
 		btnDrama = new JButton("Drama");
 		btnDrama.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnDrama.setBounds(30, 135, 123, 45);
+		btnDrama.setBounds(10, 135, 143, 45);
 		add(btnDrama);
+		
+		lb_genero_repetido = new JLabel("G\u00E9nero repetido,");
+		lb_genero_repetido.setBackground(Color.WHITE);
+		lb_genero_repetido.setVisible(false);
+		lb_genero_repetido.setForeground(Color.RED);
+		lb_genero_repetido.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lb_genero_repetido.setBounds(10, 79, 141, 23);
+		add(lb_genero_repetido);
+		
+		lb_seleccione_otro_genero = new JLabel("seleccione otro g\u00E9nero*");
+		lb_seleccione_otro_genero.setBackground(Color.WHITE);
+		lb_seleccione_otro_genero.setBorder(new LineBorder(new Color(255, 0, 0), 1, true));
+		lb_seleccione_otro_genero.setVisible(false);
+		lb_seleccione_otro_genero.setForeground(Color.RED);
+		lb_seleccione_otro_genero.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lb_seleccione_otro_genero.setBounds(10, 79, 141, 44);
+		add(lb_seleccione_otro_genero);
 		
 		initializeEvents();
 	}
