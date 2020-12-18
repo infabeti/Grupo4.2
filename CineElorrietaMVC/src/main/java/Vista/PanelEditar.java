@@ -14,13 +14,17 @@ import javax.swing.SwingConstants;
 import Controlador.ControladorPanelAnadir;
 import Controlador.ControladorPanelEditar;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JSpinner;
 
 @SuppressWarnings("serial")
 public class PanelEditar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	private ControladorPanelEditar controladorPanelEditar;
-	public JComboBox comboBoxGenero, comboBoxNombre;
+	private JComboBox comboBoxGenero, comboBoxNombre,cbCambiarGenero;
+	private JTextField jtfTitulo;
+	private JTextField tfDuracion;
 
 	/**
 	 * Create the panel.
@@ -65,22 +69,51 @@ public class PanelEditar extends JPanel {
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(255, 255, 255));
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNombre.setBounds(209, 198, 90, 61);
+		lblNombre.setBounds(206, 44, 90, 61);
 		add(lblNombre);
 		
 		JLabel lblGenero = new JLabel("Gen\u00E9ro");
 		lblGenero.setForeground(new Color(255, 255, 255));
 		lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblGenero.setBounds(405, 198, 90, 61);
+		lblGenero.setBounds(402, 44, 90, 61);
 		add(lblGenero);
 		
-		comboBoxNombre = new JComboBox();
-		comboBoxNombre.setBounds(209, 285, 101, 27);
-		add(comboBoxNombre);
+		setComboBoxNombre(new JComboBox());
+		getComboBoxNombre().setBounds(206, 131, 101, 27);
+		add(getComboBoxNombre());
 		
-		comboBoxGenero = new JComboBox();
-		comboBoxGenero.setBounds(405, 285, 101, 27);
-		add(comboBoxGenero);
+		setComboBoxGenero(new JComboBox());
+		getComboBoxGenero().setBounds(402, 131, 101, 27);
+		add(getComboBoxGenero());
+		
+		setJtfTitulo(new JTextField());
+		getJtfTitulo().setBounds(386, 207, 86, 20);
+		add(getJtfTitulo());
+		getJtfTitulo().setColumns(10);
+		
+		JLabel lbTitulo = new JLabel("T\u00EDtulo");
+		lbTitulo.setForeground(Color.WHITE);
+		lbTitulo.setBounds(235, 207, 46, 14);
+		add(lbTitulo);
+		
+		setCbCambiarGenero(new JComboBox());
+		getCbCambiarGenero().setBounds(386, 261, 86, 22);
+		add(getCbCambiarGenero());
+		
+		JLabel lblnuevoGenero = new JLabel("G\u00E9nero");
+		lblnuevoGenero.setForeground(Color.WHITE);
+		lblnuevoGenero.setBounds(235, 265, 46, 14);
+		add(lblnuevoGenero);
+		
+		JLabel lbDuracion = new JLabel("Duracion");
+		lbDuracion.setForeground(Color.WHITE);
+		lbDuracion.setBounds(235, 322, 46, 14);
+		add(lbDuracion);
+		
+		setTfDuracion(new JTextField());
+		getTfDuracion().setBounds(386, 319, 86, 20);
+		add(getTfDuracion());
+		getTfDuracion().setColumns(10);
 		
 		initializeEvents();
 	}
@@ -88,7 +121,7 @@ public class PanelEditar extends JPanel {
 	private void initializeEvents() {
 		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelEditar));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelEditar));
-		this.comboBoxGenero.addActionListener(listenerComboBoxGeneros(this.controladorPanelEditar));
+		this.getComboBoxGenero().addActionListener(listenerComboBoxGeneros(this.controladorPanelEditar));
 
 	}
 	private ActionListener listenerComboBoxGeneros(ControladorPanelEditar controladorPanelAnadir) {
@@ -114,5 +147,45 @@ public class PanelEditar extends JPanel {
 				controladorPanelEditar.accionadoBotonCancelarPanelEditar();
 			}
 		};
+	}
+
+	public JComboBox getComboBoxNombre() {
+		return comboBoxNombre;
+	}
+
+	public void setComboBoxNombre(JComboBox comboBoxNombre) {
+		this.comboBoxNombre = comboBoxNombre;
+	}
+
+	public JComboBox getComboBoxGenero() {
+		return comboBoxGenero;
+	}
+
+	public void setComboBoxGenero(JComboBox comboBoxGenero) {
+		this.comboBoxGenero = comboBoxGenero;
+	}
+
+	public JComboBox getCbCambiarGenero() {
+		return cbCambiarGenero;
+	}
+
+	public void setCbCambiarGenero(JComboBox cbCambiarGenero) {
+		this.cbCambiarGenero = cbCambiarGenero;
+	}
+
+	public JTextField getTfDuracion() {
+		return tfDuracion;
+	}
+
+	public void setTfDuracion(JTextField tfDuracion) {
+		this.tfDuracion = tfDuracion;
+	}
+
+	public JTextField getJtfTitulo() {
+		return jtfTitulo;
+	}
+
+	public void setJtfTitulo(JTextField jtfTitulo) {
+		this.jtfTitulo = jtfTitulo;
 	}
 }

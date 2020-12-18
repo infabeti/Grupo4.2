@@ -35,6 +35,8 @@ public class ControladorPanelGeneros {
 		this.panelGeneros = new PanelGeneros(this);
 		this.vista.mostrarPanel(this.panelGeneros);
 		
+		modelo.getConsultasBBDD().consultaPeliculas();
+		
 		System.out.println("generosss");
 		
 		//System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);

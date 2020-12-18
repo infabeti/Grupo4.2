@@ -1,51 +1,27 @@
 package Modelo;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 import App.Main;
 
 public class Pelicula {
-	private String nombre, genero;
-	private int codigo, duracion;
+	private String nombre, genero, codigo;
+	private int duracion;
 	public static ConsultasBBDD consulta = App.Main.consultasBBDD; // Esto puede dar problemas
 	
-	public Pelicula(String nombre, String genero, int codigo , int duracion) {
-		this.nombre = nombre;
-		this.genero = genero;
-		this.duracion = duracion;
-		this.codigo = codigo ;
-		
-//		consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
-		
-		
 
-		
-		
-		consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
-		System.out.println(this.getCodigo());
-		switch(genero.toLowerCase()) {
-			case "drama":
-				break;
-			case "sci-fi":
-				consulta.setPelis_Sci_Fi((Pelicula[]) Modelo.pushObject(consulta.getPelis_Sci_Fi(), this));
-				break;
-			case "terror":
-				consulta.setPelis_Terror((Pelicula[]) Modelo.pushObject(consulta.getPelis_Terror(), this));
-				break;
-			case "comedia":
-				consulta.setPelis_Comedia((Pelicula[]) Modelo.pushObject(consulta.getPelis_Comedia(), this));
-				break;	
-		}
-	}
 	public Pelicula(String nombre, String genero, int duracion) {
 		this.nombre = nombre;
 		this.genero = genero;
 		this.duracion = duracion;
 		//El código de las nuevas pelíuclas será autogenerado (AUTO INCREMENTED)
-		this.codigo =consulta.getPeliculas_totales().length+1 ;
+		this.codigo =  UUID.randomUUID().toString();
+
 		
 		//Para añadir la peli a la lista total y la de su género correspondiente
 				consulta.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consulta.getPeliculas_totales(), this));
+				
 				switch(genero.toLowerCase()) {
 					case "drama":
 						consulta.setPelis_Drama((Pelicula[]) Modelo.pushObject(consulta.getPelis_Drama(), this));
@@ -102,11 +78,11 @@ public class Pelicula {
 		this.genero = genero;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 

@@ -23,7 +23,11 @@ public class ControladorPanelBienvenida {
 	                                                        
 	public void mostrarPanelBienvenida() {                  
 		this.panelBienvenida = new PanelBienvenida(this);   
-		this.vista.mostrarPanel(this.panelBienvenida);      
+		this.vista.mostrarPanel(this.panelBienvenida);    
+		
+		//INICIALIZAMOS DESDE EL PRINCIPIO LAS PELÍCULAS QUE ESTÁN DE SERIE 
+		modelo.getConsultasBBDD().consultaPeliculas();
+
 	}
 	
 	public void timerBienvenida() {

@@ -1,5 +1,7 @@
 package Controlador;
 
+import java.util.Arrays;
+
 import javax.swing.JComboBox;
 
 import Modelo.Modelo;
@@ -41,14 +43,15 @@ public class ControladorPanelAnadir {
 	public void accionadoBotonAceptarPanelAnadir() {
 		String titulo = this.panelAnadir.getJtf_titulo().getText();
 		String genero = this.panelAnadir.getComboBoxGenero().getSelectedItem().toString();
-		
-		Pelicula addedPeli = new Pelicula(titulo, genero, Integer.parseInt(this.panelAnadir.getJtf_codigo().getText()), 0);
+		int tiempo = Integer.parseInt(this.panelAnadir.getJtf_duracion().getText());
+		Pelicula addedPeli = new Pelicula(titulo, genero, tiempo);
 
-		Pelicula[] addingNuevaPeli = (Pelicula[]) this.modelo.pushObject(modelo.getConsultasBBDD().getPeliculas_totales(), addedPeli);
-		this.modelo.getConsultasBBDD().setPeliculas_totales(addingNuevaPeli);
+	
 		
 		System.out.println("Se ha añadido la nueva peli: "+addedPeli.getNombre());
-		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(18).getNombre());
+		for(Pelicula peli : this.modelo.getConsultasBBDD().getPeliculas_totales())
+			System.out.println(peli.getNombre()+" - ");
+			//System.out.println(this.modelo.getConsultasBBDD().getPelicula(18).getNombre());
 
 		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(47).getCodigo());
 		this.controlador.navegarPanelResumen();
