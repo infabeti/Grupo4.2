@@ -82,11 +82,12 @@ public class ConsultasBBDD {
 		
 		if(peliculas_totales.length == 0)
 			consultaPeliculas();
-		
-		for(Pelicula x : getPeliculas_totales()) {
-			if(x.getGenero().equalsIgnoreCase(genero_in))
-				pelis_genero = (Pelicula[]) Modelo.pushObject(pelis_genero, x);
-		}
+		else
+			
+			for(Pelicula x : getPeliculas_totales()) {
+				if(x.getGenero().equalsIgnoreCase(genero_in))
+					pelis_genero = (Pelicula[]) Modelo.pushObject(pelis_genero, x);
+			}
 		
 		return pelis_genero;
 	}
@@ -95,7 +96,8 @@ public class ConsultasBBDD {
 	public Pelicula[] consultaPeliculas() {
 		//Pelicula[] reset = new Pelicula[0];
 		//setPeliculas_totales(reset);
-		
+		if(peliculas_totales.length != 0)
+			return peliculas_totales;
 		//Drama
 		handia = new Pelicula("Handia", "Drama", 1, 6960);
 		

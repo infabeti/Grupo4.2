@@ -43,12 +43,19 @@ public class ControladorPanelBorrar {
 	}
 	
 	public void accionadoBotonAceptarPanelBorrar() {
-		
-		Object[] ar = {1,2,3};
+		//obtener peli
+		System.out.println(modelo.getConsultasBBDD().getPeliculas_totales().length);
+		int cont = 0;
 
-		modelo.removeObjElement(ar, 1);
-		
-		System.out.println(Arrays.toString(ar));
+		for(Pelicula peli : modelo.getConsultasBBDD().getPeliculas_totales()) {
+			if(peli.getNombre().equalsIgnoreCase(this.panelBorrar.getComboBoxTitulo().getSelectedItem().toString())) {
+				modelo.getConsultasBBDD().setPeliculas_totales(modelo.removePeliElement(modelo.getConsultasBBDD().getPeliculas_totales(), cont));
+				System.out.println("borrada peli"+peli.getNombre());
+				break;
+			}
+				cont++;
+		}
+		//System.out.println(Arrays.toString(modelo.getConsultasBBDD().getPeliculas_totales()));
 		
 		this.controlador.navegarPanelResumen();
 	}

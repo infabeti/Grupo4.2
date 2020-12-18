@@ -37,7 +37,7 @@ public class ControladorPanelGeneros {
 		
 		System.out.println("generosss");
 		
-		System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
+		//System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
 			// Añadir pelis drama
 			for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("drama")) {
 				this.panelGeneros.comboBoxDrama.addItem(peli.getNombre());

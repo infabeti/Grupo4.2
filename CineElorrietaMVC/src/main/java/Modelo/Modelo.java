@@ -50,7 +50,16 @@ public class Modelo {
 		}
 		
 	//POP OBJ PARA BORRAR UN OBJETO DE UN ARRAY
-		public static void removeObjElement(Object[] arr, int removedIdx) {
-			System.arraycopy(arr, removedIdx + 1, arr, removedIdx, arr.length - 1 - removedIdx);
+		public static Pelicula[] removePeliElement(Pelicula[] arr, int index) {
+			Pelicula[] arr_new = new Pelicula[arr.length-1];
+			int j=index;
+	        for(int i=0, k=0;i<arr.length;i++){
+	            if(i!=j){
+	                arr_new[k]=arr[i];
+	                k++;
+	            }
+	        }
+	        
+	        return arr_new;
 		}
 	}
