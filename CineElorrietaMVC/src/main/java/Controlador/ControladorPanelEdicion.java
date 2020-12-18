@@ -20,7 +20,9 @@ public class ControladorPanelEdicion {
 	public void mostrarPanelEdicion() {
 		this.panelEdicion = new PanelEdicion(this);
 		this.vista.mostrarPanel(this.panelEdicion);
+		
 	}
+	
 	
 	public void accionadoBotonEditarPanelEdicion() {
 		this.controlador.navegarPanelEditar();

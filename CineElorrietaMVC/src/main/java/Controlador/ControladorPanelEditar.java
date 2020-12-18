@@ -30,9 +30,7 @@ public class ControladorPanelEditar {
 	public void mostrarPanelEditar() {
 		this.panelEditar = new PanelEditar(this);
 		this.vista.mostrarPanel(this.panelEditar);
-		
-		System.out.println("estoy en controlador añadir");
-		
+				
 		String[] generos= {"Drama", "Comedia", "Terror", "Sci-fi"};
 		for(String genero : generos)
 			this.panelEditar.comboBoxGenero.addItem(genero);

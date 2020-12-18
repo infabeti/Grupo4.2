@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 
 import Controlador.ControladorPanelAnadir;
 import Controlador.ControladorPanelEditar;
+import javax.swing.JTable;
 
 @SuppressWarnings("serial")
 public class PanelEditar extends JPanel {

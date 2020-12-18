@@ -132,6 +132,11 @@ public class ConsultasBBDD {
 	
 
 	public Pelicula[] getPelis_Drama() {
+		
+		
+		for(Pelicula peli: peliculas_totales) {
+		//	if(peli.getGenero().equalsIgnoreCase("drama"))
+		}
 		return pelis_Drama;
 	}
 

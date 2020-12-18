@@ -11,12 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controlador.ControladorPanelBorrar;
+import Controlador.ControladorPanelEditar;
 
 @SuppressWarnings("serial")
 public class PanelBorrar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	private ControladorPanelBorrar controladorPanelBorrar;
+	private JComboBox comboBoxTitulo,comboBoxGenero;
 	/**
 	 * Create the panel.
 	 * @param controladorPanelBorrar 
@@ -55,9 +57,13 @@ public class PanelBorrar extends JPanel {
 		lblTitulo.setBounds(89, 216, 90, 61);
 		add(lblTitulo);
 		
-		JComboBox comboBoxTitulo = new JComboBox();
-		comboBoxTitulo.setBounds(247, 230, 339, 40);
-		add(comboBoxTitulo);
+		setComboBoxTitulo(new JComboBox());
+		getComboBoxTitulo().setBounds(247, 230, 339, 40);
+		add(getComboBoxTitulo());
+		
+		comboBoxGenero(new JComboBox());
+		comboBoxGenero().setBounds(341, 140, 101, 27);
+		add(comboBoxGenero());
 		
 		JLabel lblNewLabel = new JLabel("Seleccione el titulo que se desea borrar");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
@@ -71,8 +77,17 @@ public class PanelBorrar extends JPanel {
 	private void initializeEvents() {
 		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelBorrar));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelBorrar));
+		this.comboBoxGenero.addActionListener(listenerComboBoxGeneros(this.controladorPanelBorrar));
+
 	}
-	
+	private ActionListener listenerComboBoxGeneros(ControladorPanelBorrar controladorPanelBorrar) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton hacia Generos");
+				controladorPanelBorrar.cambiarGenero();
+			}
+		};
+	}
 	private ActionListener listenerBotonAceptar(ControladorPanelBorrar controladorPanelBorrar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -88,6 +103,22 @@ public class PanelBorrar extends JPanel {
 				controladorPanelBorrar.accionadoBotonCancelarPanelBorrar();
 			}
 		};
+	}
+
+	public JComboBox comboBoxGenero() {
+		return comboBoxGenero;
+	}
+
+	public void comboBoxGenero(JComboBox comboBoxNombre) {
+		this.comboBoxGenero = comboBoxNombre;
+	}
+
+	public JComboBox getComboBoxTitulo() {
+		return comboBoxTitulo;
+	}
+
+	public void setComboBoxTitulo(JComboBox comboBoxTitulo) {
+		this.comboBoxTitulo = comboBoxTitulo;
 	}
 
 }

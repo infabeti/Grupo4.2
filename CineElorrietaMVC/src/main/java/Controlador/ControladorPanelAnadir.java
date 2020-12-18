@@ -50,7 +50,7 @@ public class ControladorPanelAnadir {
 		System.out.println("Se ha añadido la nueva peli: "+addedPeli.getNombre());
 		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(18).getNombre());
 
-		System.out.println(this.modelo.getConsultasBBDD().getPelicula(47).getCodigo());
+		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(47).getCodigo());
 		this.controlador.navegarPanelResumen();
 	}
 	public void accionadoBotonCancelarPanelAnadir() {

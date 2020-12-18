@@ -48,4 +48,9 @@ public class Modelo {
 		    longer[longer.length - 1] = push;
 		    return longer;
 		}
-}
+		
+	//POP OBJ PARA BORRAR UN OBJETO DE UN ARRAY
+		public static void removeObjElement(Object[] arr, int removedIdx) {
+			System.arraycopy(arr, removedIdx + 1, arr, removedIdx, arr.length - 1 - removedIdx);
+		}
+	}
