@@ -25,10 +25,7 @@ public class ControladorPanelResumen {
 	public void accionadoBotonConfirmarPanelResumen() {
 		this.controlador.navegarPanelBienvenida();
 	}
-	public void accionadoBotonCancelar1PanelResumen() {
-		this.controlador.navegarPanelEdicion();
-	}
-	public void accionadoBotonCancelar2PanelResumen() {
+	public void accionadoBotonCancelarPanelResumen() {
 		this.controlador.navegarPanelGeneros();
 	}
 }

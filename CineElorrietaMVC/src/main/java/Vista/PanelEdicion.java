@@ -86,7 +86,7 @@ public class PanelEdicion extends JPanel {
 		txtpnEditar.setText("Mediante este bot\u00F3n, se mostrar\u00E1 una nueva ventana en la que ser\u00E1n editables tanto el nombre de una pel\u00EDcula como su g\u00E9nero, esta funcionalidad est\u00E1 pensada para aquellos casos en los que se haya cometido una errata a la hora de introducir un largometraje al sistema.");
 		txtpnEditar.setBackground(new Color(57, 62, 70));
 		txtpnEditar.setEditable(false);
-		txtpnEditar.setBounds(284, 80, 301, 74);
+		txtpnEditar.setBounds(284, 65, 301, 98);
 		add(txtpnEditar);
 		
 		JLabel lblLinea1 = new JLabel("");

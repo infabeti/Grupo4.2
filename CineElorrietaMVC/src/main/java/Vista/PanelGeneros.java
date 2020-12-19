@@ -33,6 +33,7 @@ public class PanelGeneros extends JPanel {
 	public static JTextField tiempoDomingo;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private JLabel lblNewLabel;
+	public static JButton btnEdicion;
 
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
@@ -141,18 +142,25 @@ public class PanelGeneros extends JPanel {
 				ControladorPanelGeneros.limpiarLista("domingo");
 			}
 		});
+		btn_limpiar_domingo.setBounds(509, 421, 87, 20);
+		add(btn_limpiar_domingo);
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnVolver.setBounds(569, 485, 120, 40);
 		add(btnVolver);
-		btn_limpiar_domingo.setBounds(509, 421, 87, 20);
-		add(btn_limpiar_domingo);
 		
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnSiguiente.setBounds(430, 485, 120, 40);
 		add(btnSiguiente);
+		
+		btnEdicion = new JButton("Edici\u00F3n");
+		btnEdicion.setEnabled(false);
+		btnEdicion.setVisible(false);
+		btnEdicion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEdicion.setBounds(10, 485, 120, 40);
+		add(btnEdicion);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBackground(new Color(255, 211, 105));

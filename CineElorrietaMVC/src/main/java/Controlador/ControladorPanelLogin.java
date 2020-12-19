@@ -2,8 +2,10 @@ package Controlador;
 
 import Modelo.Modelo;
 import Modelo.Usuario;
+import Vista.PanelGeneros;
 import Vista.PanelLogin;
 import Vista.Vista;
+import Controlador.ControladorPanelGeneros;
 
 public class ControladorPanelLogin {
 
@@ -43,6 +45,7 @@ public class ControladorPanelLogin {
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
 						this.controlador.navegarPanelEdicion();
+						this.habilitarBotonEdicionEnGeneros();
 					}
 					else {
 						System.out.println("password INCORRECTA");
@@ -58,6 +61,7 @@ public class ControladorPanelLogin {
 		if(!usuario_esAdmin) {
 			System.out.println("NO ES admin");
 			this.controlador.navegarPanelGeneros();
+			this.deshabilitarBotonEdicionEnGeneros();
 			
 		}
 		if(!usuario_existe) {
@@ -93,6 +97,14 @@ public class ControladorPanelLogin {
 //	}
 	public void accionadoBotonVolverPanelLogin() {
 		this.controlador.navegarPanelBienvenida();
+	}
+	public void habilitarBotonEdicionEnGeneros() {
+		PanelGeneros.btnEdicion.setEnabled(true);
+		PanelGeneros.btnEdicion.setVisible(true);
+	}
+	public void deshabilitarBotonEdicionEnGeneros() {
+		PanelGeneros.btnEdicion.setEnabled(false);
+		PanelGeneros.btnEdicion.setVisible(false);
 	}
 	
 }
