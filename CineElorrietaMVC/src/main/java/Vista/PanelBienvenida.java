@@ -24,6 +24,27 @@ public class PanelBienvenida extends JPanel{
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		JLabel lblExplicacion2 = new JLabel("o editar las pel\u00EDculas existentes, as\u00ED c\u00F3mo a\u00F1adir nuevas y borrarlas");
+		lblExplicacion2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblExplicacion2.setForeground(Color.RED);
+		lblExplicacion2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblExplicacion2.setBounds(4, 523, 444, 19);
+		add(lblExplicacion2);
+		
+		
+		JLabel lblExplicacion1 = new JLabel("A continuaci\u00F3n podr\u00E1s elegir la cartelera del pr\u00F3ximo fin de semana");
+		lblExplicacion1.setBounds(10, 502, 434, 19);
+		lblExplicacion1.setForeground(new Color(255, 0, 0));
+		lblExplicacion1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblExplicacion1.setHorizontalAlignment(SwingConstants.RIGHT);
+		add(lblExplicacion1);
+		
+		JLabel lblCuadradoFondo = new JLabel("");
+		lblCuadradoFondo.setOpaque(true);
+		lblCuadradoFondo.setBackground(new Color(204, 153, 0));
+		lblCuadradoFondo.setBounds(689, 444, 111, 106);
+		add(lblCuadradoFondo);
+		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBackground(new Color(255, 211, 105));
 		lblFondo.setOpaque(true);
@@ -58,14 +79,6 @@ public class PanelBienvenida extends JPanel{
 		lblCineSS.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCineSS.setFont(new Font("SimSun", Font.BOLD, 50));
 		add(lblCineSS);
-		
-		
-		JLabel lblNewLabel = new JLabel("A continuaci\u00F3n podr\u00E1s elegir la cartelera del pr\u00F3ximo fin de semana");
-		lblNewLabel.setBounds(10, 520, 434, 19);
-		lblNewLabel.setForeground(new Color(255, 0, 0));
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		add(lblNewLabel);
 		
 		///////////////////////////////////////
 		initializeEvents();

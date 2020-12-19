@@ -145,7 +145,7 @@ public class ControladorPanelGeneros {
 	}
 	
 	public void accionadoBotonSiguientePanelGeneros() {
-		this.controlador.navegarPanelPeliculas();
+		this.controlador.navegarPanelResumen();
 	}
 	public void accionadoBotonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();

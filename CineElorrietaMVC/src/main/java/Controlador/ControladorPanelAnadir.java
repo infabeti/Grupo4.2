@@ -43,7 +43,7 @@ public class ControladorPanelAnadir {
 	public void accionadoBotonAceptarPanelAnadir() {
 		String titulo = this.panelAnadir.getJtf_titulo().getText();
 		String genero = this.panelAnadir.getComboBoxGenero().getSelectedItem().toString();
-		int tiempo = Integer.parseInt(this.panelAnadir.getJtf_duracion().getText());
+		int tiempo = (Integer.parseInt(this.panelAnadir.getJtf_duracion().getText()))*60;
 		Pelicula addedPeli = new Pelicula(titulo, genero, tiempo);
 
 	

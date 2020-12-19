@@ -23,8 +23,8 @@ public class ControladorPanelLogin {
 		this.vista.mostrarPanel(this.panelLogin);
 	}
 	
-	public void accionadoBotonEdicionPanelLogin(String usuario_in, String password_in) {
-		System.out.println("Entrando a géneros");
+	public void accionadoBotonLoginPanelLogin(String usuario_in, String password_in) {
+		System.out.println("Ejecutando login en controlador, usuario y contraseña recibidos");
 
 		///////////////////////////////////////////
 		boolean usuario_existe = false;
@@ -57,38 +57,40 @@ public class ControladorPanelLogin {
 		}
 		if(!usuario_esAdmin) {
 			System.out.println("NO ES admin");
-		}
-		if(!usuario_existe) {
-			System.out.println("el usuario no existe");
-		}
-	}
-	public void accionadoBotonGenerosPanelLogin(String usuario_in, String password_in) {
-		System.out.println("Entrando a géneros");
-
-		boolean usuario_existe = false;
-		Usuario[] listaUsers = modelo.getConsultasBBDD().consulta_lista_usuarios();
-		
-		for(Usuario usuario: listaUsers){
-			if(usuario.getUsuario().equals(usuario_in)) {
-				System.out.println("usuarioExiste");
-				usuario_existe = true;
-				if(usuario.getPassword().equals(password_in)) {
-					System.out.println("password CORRECTA");
-					this.controlador.navegarPanelGeneros();
-				}
-				else {
-					System.out.println("password INCORRECTA");
-
-				}
-				
-				break;
-			}
+			this.controlador.navegarPanelGeneros();
 			
 		}
 		if(!usuario_existe) {
 			System.out.println("el usuario no existe");
 		}
 	}
+//	public void accionadoBotonGenerosPanelLogin(String usuario_in, String password_in) {
+//		System.out.println("Entrando a géneros");
+//
+//		boolean usuario_existe = false;
+//		Usuario[] listaUsers = modelo.getConsultasBBDD().consulta_lista_usuarios();
+//		
+//		for(Usuario usuario: listaUsers){
+//			if(usuario.getUsuario().equals(usuario_in)) {
+//				System.out.println("usuarioExiste");
+//				usuario_existe = true;
+//				if(usuario.getPassword().equals(password_in)) {
+//					System.out.println("password CORRECTA");
+//					this.controlador.navegarPanelGeneros();
+//				}
+//				else {
+//					System.out.println("password INCORRECTA");
+//
+//				}
+//				
+//				break;
+//			}
+//			
+//		}
+//		if(!usuario_existe) {
+//			System.out.println("el usuario no existe");
+//		}
+//	}
 	public void accionadoBotonVolverPanelLogin() {
 		this.controlador.navegarPanelBienvenida();
 	}

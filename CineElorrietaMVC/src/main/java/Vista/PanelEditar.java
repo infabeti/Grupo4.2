@@ -36,22 +36,28 @@ public class PanelEditar extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		JLabel lblEditar = new JLabel("se mostrar\u00E1 una nueva ventana en la que ser\u00E1n editables tanto el nombre de una pel\u00EDcula como su g\u00E9nero\r\n");
-		lblEditar.setHorizontalAlignment(SwingConstants.LEFT);
-		lblEditar.setVerticalAlignment(SwingConstants.TOP);
-		lblEditar.setForeground(new Color(255, 255, 255));
-		lblEditar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEditar.setBounds(10, 11, 700, 130);
-		add(lblEditar);
+		JLabel lblCuadradoFondo = new JLabel("");
+		lblCuadradoFondo.setOpaque(true);
+		lblCuadradoFondo.setBackground(new Color(204, 153, 0));
+		lblCuadradoFondo.setBounds(689, 444, 111, 106);
+		add(lblCuadradoFondo);
+		
+		JLabel lblTituloPanel = new JLabel("Editar pel\u00EDculas \r\n");
+		lblTituloPanel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTituloPanel.setVerticalAlignment(SwingConstants.TOP);
+		lblTituloPanel.setForeground(new Color(255, 255, 255));
+		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTituloPanel.setBounds(10, 11, 279, 40);
+		add(lblTituloPanel);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(575, 485, 113, 41);
+		btnCancelar.setBounds(569, 485, 120, 40);
 		add(btnCancelar);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(430, 485, 113, 41);
+		btnAceptar.setBounds(430, 485, 120, 40);
 		add(btnAceptar);
 		
 		JLabel lblFondo = new JLabel("");
