@@ -50,8 +50,5 @@ public class TestLogin {
 		verify(controladorMock, times(1)).navegarPanelGeneros();
 		
 	}
-	
-	
-	
 
 }

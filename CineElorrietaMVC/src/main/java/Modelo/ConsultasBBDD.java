@@ -5,36 +5,13 @@ import java.util.Arrays;
 import App.Main;
 
 public class ConsultasBBDD {
-	
-//	public static void main(String[]ar) {
-////		App.Main.setModelo(new Modelo(App.Main.consultasBBDD)); // creando el modelo para simulacion
-//		
-//		App.Main.main(null); // simular main
-////		System.out.println(App.Main.getModelo().getConsultasBBDD());
-//		ConsultasBBDD consulta = Pelicula.consulta; // simular main, arreglar
-//		
-//		consulta.consultaPeliculas();
-//		
-//		System.out.println(consulta.peliculas_totales.length);
-//		
-//		for(Pelicula x : consulta.peliculas_totales){
-//			System.out.println(x.getCodigo());
-//		}
-//	}
-	
+
 	///////////////////////////////////////////////////////////////////////////////////////////
 	//PELICULAS
 	//////////////////////////////////////////////////////////////////////////////////////////
 	//Películas totales
 	private Pelicula[] peliculas_totales = new Pelicula[0];
-	
-	//spy hacer new y acceder a métodos
-	// reflection situaciones límites
-	// instanciar array de películas con un constructor / un setter para acceder a sus métodos
-	
-	// ARRAY PELIS UNITARIAS
-	
-	
+
 	//Drama
 	private Pelicula handia,lista_Schindler, cadena_perpetua, mdb;
 	private Pelicula[] pelis_Drama = new Pelicula[0];
@@ -203,7 +180,7 @@ public class ConsultasBBDD {
 		//Aquí se crean los usuarios, de momento solo tendíamos el usuario admin
 		Usuario admin = new Usuario("admin", "admin" ,true);
 		Usuario user1 = new Usuario("user1", "12345", false);
-		
+
 		return getLista_usuarios();
 	}
 
