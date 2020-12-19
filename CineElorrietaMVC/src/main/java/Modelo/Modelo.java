@@ -8,6 +8,16 @@ public class Modelo {
 	
 	private ConsultasBBDD consultasBBDD;
 	
+	private Pelicula[] carteleraSabado;
+	private Pelicula [] carteleraDomingo;
+	private Pelicula[] carteleraTotal;
+	
+	private final int TIEMPO_TOTAL_SABADO=28800; 	
+	private final int TIEMPO_TOTAL_DOMINGO=21600; 
+	
+	private int disponibleSabado = TIEMPO_TOTAL_SABADO;
+	private int disponibleDomingo = TIEMPO_TOTAL_DOMINGO;
+	
 	public Modelo(ConsultasBBDD consultasBBDD) {
 		this.setConsultasBBDD(consultasBBDD);
 	}
@@ -41,6 +51,9 @@ public class Modelo {
 			
 	    return longer;
 	}
+	
+	// CARTELERA
+	
 	
 	//PUSH INT para crear arrays de objetos
 		public static int[] pushInt(int[] array, int push) {

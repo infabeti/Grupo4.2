@@ -23,8 +23,8 @@ public class ControladorGeneros {
 		this.vista = vista;
 		this.controlador = controlador;	
 	}
-	public static final int TIEMPO_TOTAL_SABADO=28800; 	//te cambio el nombre porque las constantes se suelen poner en mayúscula, luego para verlo es útil :)
-	public static final int TIEMPO_TOTAL_DOMINGO=21600; //te cambio el nombre porque las constantes se suelen poner en mayúscula, luego para verlo es útil :)
+	public static final int TIEMPO_TOTAL_SABADO=28800; 	
+	public static final int TIEMPO_TOTAL_DOMINGO=21600; 
 	public static ArrayList<Pelicula> totales_seleccionadas = new ArrayList<Pelicula>();
 	public static ArrayList<Pelicula> sabado_seleccionadas = new ArrayList<Pelicula>();
 	public static ArrayList<Pelicula> domingo_seleccionadas = new ArrayList<Pelicula>();
