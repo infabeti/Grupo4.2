@@ -19,129 +19,139 @@ public class ControladorGeneros {
 	private PanelGeneros panelGeneros;
 	
 	public ControladorGeneros(Modelo modelo, Vista vista, Controlador controlador) {
-		this.modelo = modelo;
+		this.setModelo(modelo);
 		this.vista = vista;
 		this.controlador = controlador;	
 	}
-	public static final int TIEMPO_TOTAL_SABADO=28800; 	
-	public static final int TIEMPO_TOTAL_DOMINGO=21600; 
-	public static ArrayList<Pelicula> totales_seleccionadas = new ArrayList<Pelicula>();
-	public static ArrayList<Pelicula> sabado_seleccionadas = new ArrayList<Pelicula>();
-	public static ArrayList<Pelicula> domingo_seleccionadas = new ArrayList<Pelicula>();
-	private static int disponible_sabado = TIEMPO_TOTAL_SABADO;  	//Se inicializa con su máximo valor
-	private static int disponible_domingo = TIEMPO_TOTAL_DOMINGO;	//Se inicializa con su máximo valor
+	
 	
 	@SuppressWarnings("unchecked")
 	public void mostrarPanelGeneros() {
 		this.panelGeneros = new PanelGeneros(this);
 		this.vista.mostrarPanel(this.panelGeneros);
+		getModelo().getConsultasBBDD().consultaPeliculas();
 		
-		modelo.getConsultasBBDD().consultaPeliculas();
-		
-		System.out.println("generosss");
+//		// TEXTFIELDS
+		for(Pelicula peli : modelo.getCarteleraSabado()) {
+			panelGeneros.textAreaSabado.setText(panelGeneros.textAreaSabado.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+		}
+		for(Pelicula peli : modelo.getCarteleraDomingo()) {
+			panelGeneros.textAreaDomingo.setText(panelGeneros.textAreaDomingo.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+		}
 		
 		//System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
 			// Añadir pelis drama
-			for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("drama")) {
+			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("drama")) {
 				this.panelGeneros.comboBoxDrama.addItem(peli.getNombre());
 			}
 			// Añadir pelis comedia
-			for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("comedia")) {
+			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("comedia")) {
 				this.panelGeneros.comboBoxComedia.addItem(peli.getNombre());
 			}
 			// Añadir pelis terror
-			for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("terror")) {
+			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("terror")) {
 				this.panelGeneros.comboBoxTerror.addItem(peli.getNombre());
 			}
 			// Añadir pelis sci-fi
-			for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas("sci-fi")) {
+			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("sci-fi")) {
 				this.panelGeneros.comboBoxCienciaFiccion.addItem(peli.getNombre());
 			}
 	}
 	
 	public void addPelicula(JComboBox source) {
-		Pelicula added_peli = modelo.getConsultasBBDD().getPelicula_toAdd(source.getSelectedItem().toString());
-		System.out.println(source.getSelectedItem().toString());
+		Pelicula added_peli = getModelo().getConsultasBBDD().getPelicula_toAdd(source.getSelectedItem().toString()); // recoge la peli conociendo su nombre
 
 //		this.panelGeneros.textAreaSabado.setText(this.panelGeneros.textAreaSabado.getText()+source.getSelectedItem().toString()+"\n");
 		////////////////////////////////////////////////////////
-		PanelGeneros.lb_seleccione_otro_genero.setVisible(false);
-		PanelGeneros.lb_genero_repetido.setVisible(false); //Las inicializamos a false y ya se mostrarán si se repite el género
+		panelGeneros.lb_seleccione_otro_genero.setVisible(false);
+		panelGeneros.lb_genero_repetido.setVisible(false); //Las inicializamos a false y ya se mostrarán si se repite el género
 		
 		//Manejando el Array
-				if(!ControladorGeneros.totales_seleccionadas.isEmpty()) {
-						if(ControladorGeneros.getDisponible_sabado()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL SÁBADO
-							genero_sabado_repetido = false;
-							for(Pelicula peli : ControladorGeneros.sabado_seleccionadas) { // SI NO SE REPITE EL GÉNERO
-
+				if(!(getModelo().getCarteleraTotal().length == 0)) {
+						if(modelo.getTiempoDisponibleSabado()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL SÁBADO
+							boolean genero_sabado_repetido = false;							
+							for(Pelicula peli : getModelo().getCarteleraSabado()) { // SI NO SE REPITE EL GÉNERO
+								
+								
 								if(peli.getGenero().equals(added_peli.getGenero())) {
+									
+									
+
 									genero_sabado_repetido = true;
 									////////////////////////////////////////////////////////7
-									PanelGeneros.lb_genero_repetido.setVisible(true);
-									PanelGeneros.lb_seleccione_otro_genero.setVisible(true);
+									panelGeneros.lb_genero_repetido.setVisible(true);
+									panelGeneros.lb_seleccione_otro_genero.setVisible(true);
 								}
 							}
 							
 							if(!genero_sabado_repetido) {
-								addingPeli(added_peli,"sabado");
+								addingPeli(added_peli, "sabado");
 							}
 							
 						}
 						else {
-							if(ControladorGeneros.getDisponible_domingo()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL DOMINGO
-								genero_domingo_repetido = false;
-								for(Pelicula peli : ControladorGeneros.domingo_seleccionadas) { // SI NO SE REPITE EL GÉNERO
+							if(getModelo().getTiempoDisponibleDomingo()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL DOMINGO
+								boolean genero_domingo_repetido = false;
+								for(Pelicula peli : getModelo().getCarteleraDomingo()) { // SI NO SE REPITE EL GÉNERO
 									if(peli.getGenero().equals(added_peli.getGenero())) {
 										genero_domingo_repetido = true;
 										////////////////////////////////////////////////////////7
-										PanelGeneros.lb_genero_repetido.setVisible(true);
-										PanelGeneros.lb_seleccione_otro_genero.setVisible(true);
+										panelGeneros.lb_genero_repetido.setVisible(true);
+										panelGeneros.lb_seleccione_otro_genero.setVisible(true);
 									}
 								}
 								if(!genero_domingo_repetido) 
-									addingPeli(added_peli,"domingo");
-							}
+									addingPeli(added_peli, "domingo");
+								}
 
 						}
 					
 						/////////////////////////////////////////////////////////////////////////
-						ControladorGeneros.totales_seleccionadas.add(added_peli);
+						getModelo().setCarteleraTotal((Pelicula[]) getModelo().pushObject(getModelo().getCarteleraTotal(), added_peli));
 						
 				}
 				else {
-					addingPeli(added_peli,"sabado");
-					ControladorGeneros.totales_seleccionadas.add(added_peli);		
+					addingPeli(added_peli, "sabado");
+					getModelo().setCarteleraTotal((Pelicula[]) getModelo().pushObject(getModelo().getCarteleraTotal(), added_peli));
 				}
 
 			}
-	public static void addingPeli(Pelicula added_peli, String dia) {
+	public void addingPeli(Pelicula added_peli, String dia) {
 		//Calculando tiempo restante
-		ControladorGeneros.calcularDisponible(added_peli, dia);
+		getModelo().calcularDisponible(added_peli, dia);
 		int tiempo_restante;
 		String pelis_seleccionadas, str_tiempo_restante;
 		JTextField tiempoDia;
 		JTextArea programacion;
-		ArrayList<Pelicula> lista_dia;
+		Pelicula[] lista_dia;
 		
 		if(dia.equalsIgnoreCase("sabado")) {
-			tiempo_restante = ControladorGeneros.getDisponible_sabado();
-			pelis_seleccionadas = PanelGeneros.textAreaSabado.getText();
-			tiempoDia = PanelGeneros.tiempoSabado;
-			programacion = PanelGeneros.textAreaSabado;
-			lista_dia = ControladorGeneros.sabado_seleccionadas;
+			tiempo_restante = modelo.getTiempoDisponibleSabado();
+			pelis_seleccionadas = panelGeneros.textAreaSabado.getText();
+			tiempoDia = panelGeneros.tiempoSabado;
+			programacion = panelGeneros.textAreaSabado;
+			lista_dia = modelo.getCarteleraSabado();
+			if (lista_dia.length == 0)
+				modelo.setCarteleraSabado((Pelicula[]) modelo.pushObject(new Pelicula[0], added_peli));
+			else
+				modelo.setCarteleraSabado((Pelicula[]) modelo.pushObject(modelo.getCarteleraSabado(), added_peli));
 		}
 		else {
-			tiempo_restante = ControladorGeneros.getDisponible_domingo();
-			pelis_seleccionadas = PanelGeneros.textAreaDomingo.getText();
-			tiempoDia = PanelGeneros.tiempoDomingo;
-			programacion = PanelGeneros.textAreaDomingo;
-			lista_dia = ControladorGeneros.domingo_seleccionadas;
+			tiempo_restante = getModelo().getTiempoDisponibleDomingo();
+			pelis_seleccionadas = panelGeneros.textAreaDomingo.getText();
+			tiempoDia = panelGeneros.tiempoDomingo;
+			programacion = panelGeneros.textAreaDomingo;
+			lista_dia = getModelo().getCarteleraDomingo();
+			if (lista_dia.length == 0)
+				modelo.setCarteleraDomingo((Pelicula[]) modelo.pushObject(new Pelicula[0], added_peli));
+			else
+				modelo.setCarteleraDomingo((Pelicula[]) modelo.pushObject(modelo.getCarteleraDomingo(), added_peli));
+
 		}
 		//Escribiendo
-		str_tiempo_restante = secsToHours(tiempo_restante);
+		str_tiempo_restante = getModelo().secsToHours(tiempo_restante);
 		tiempoDia.setText(str_tiempo_restante);  //tiempoDia.getText(str_Tiempo_restante)
 		programacion.setText(pelis_seleccionadas+added_peli.getGenero()+": "+added_peli.getNombre()+"\n");
-		lista_dia.add(added_peli);
 
 	}
 	
@@ -149,7 +159,10 @@ public class ControladorGeneros {
 		this.controlador.navegarPanelResumen();
 	}
 	public void accionadoBotonVolverPanelGeneros() {
+		limpiarLista("sabado");
+		limpiarLista("domingo");
 		this.controlador.navegarPanelBienvenida();
+		
 	}
 	
 	/*MÉTODOS REFERIDOS A LOS BOTONES PARA MOSTRAR SÓLO LOS ELEMENTOS DE CADA GÉNERO*/
@@ -241,71 +254,45 @@ public class ControladorGeneros {
 		this.panelGeneros.btnAnadirTerror.setEnabled(false);
 		this.panelGeneros.btnAnadirTerror.setVisible(false);
 	}
-	
-	/*MÉTODOS REFERIDOS AL TIEMPO*/
-	public static void calcularDisponible(Pelicula pelicula, String dia) {
-		if(dia.equalsIgnoreCase("sabado")) {
-			setDisponible_sabado((disponible_sabado-pelicula.getDuracion()));
-			}
-		else if (dia.equalsIgnoreCase("domingo")) {
-			setDisponible_domingo((disponible_domingo-pelicula.getDuracion()));
-			}
-	}
-	
-	public static int getDisponible_sabado() {
-		return disponible_sabado;
-	}
-	
-	public static void setDisponible_sabado(int disponible_sabado) {
-		ControladorGeneros.disponible_sabado = disponible_sabado;
-	}
-	
-	public static int getDisponible_domingo() {
-		return disponible_domingo;
-	}
 
-	public static void setDisponible_domingo(int disponible_domingo) {
-		ControladorGeneros.disponible_domingo = disponible_domingo;
-	}
 	
 	/*MÉTODO QUE LIMPIA LAS LISTAS*/
-	public static void limpiarLista(String dia) {
+	public void limpiarLista(String dia) {
 		if(dia.equalsIgnoreCase("sabado")) {
-			sabado_seleccionadas.clear();
-			totales_seleccionadas.clear();
-			totales_seleccionadas.addAll(domingo_seleccionadas);
-			PanelGeneros.textAreaSabado.setText("");
-			disponible_sabado=TIEMPO_TOTAL_SABADO;
-			PanelGeneros.tiempoSabado.setText(ControladorGeneros.secsToHours(TIEMPO_TOTAL_SABADO));
+			modelo.setCarteleraSabado(new Pelicula[0]);
+			modelo.setCarteleraTotal(new Pelicula[0]);
+			modelo.setCarteleraTotal(modelo.getCarteleraDomingo());
+			panelGeneros.textAreaSabado.setText("");
+			modelo.setTiempoDisponibleSabado(modelo.getTIEMPO_TOTAL_SABADO());
+			panelGeneros.tiempoSabado.setText(getModelo().secsToHours(modelo.getTIEMPO_TOTAL_SABADO()));
 		}
 		
 		if(dia.equalsIgnoreCase("domingo")) {
-			domingo_seleccionadas.clear();
-			totales_seleccionadas.clear();
-			totales_seleccionadas.addAll(sabado_seleccionadas);
-			PanelGeneros.textAreaDomingo.setText("");
-			disponible_domingo=TIEMPO_TOTAL_DOMINGO;
-			PanelGeneros.tiempoDomingo.setText(ControladorGeneros.secsToHours(TIEMPO_TOTAL_DOMINGO));
+			modelo.setCarteleraDomingo(new Pelicula[0]);
+			modelo.setCarteleraTotal(new Pelicula[0]);
+			modelo.setCarteleraTotal(modelo.getCarteleraSabado());
+			panelGeneros.textAreaDomingo.setText("");
+			modelo.setTiempoDisponibleDomingo(modelo.getTIEMPO_TOTAL_DOMINGO());
+			panelGeneros.tiempoDomingo.setText(getModelo().secsToHours(modelo.getTIEMPO_TOTAL_DOMINGO()));
 		}
 	}
 	
-	/*MÉTODO QUE PASA LOS SEGUNDOS A HORAS*/
-	public static String secsToHours(int segundos){
-		int horas = (int) Math.floor(segundos/3600);
-		int parte_entera = (int)segundos/3600;
-		//Utilizando el teorema del resto:
-		int minutos = (int) Math.round((((segundos/3600d)-parte_entera)*60));
-		return horas+" horas, "+minutos+" minutos.";
-	}
+
 	
-	/*MÉTODOS REFERIDOS A LAS PELÍCULAS*/
-	public static boolean genero_sabado_repetido;
-	public static boolean genero_domingo_repetido; //Saco estas variables puesto que necesito que sean de alcance público para evaluarlas
+
 	
-    public static void changeButtonStatus(boolean flag) {
-    	PanelGeneros.btnEdicion.setEnabled(flag);
-    	PanelGeneros.btnEdicion.setVisible(flag);
+    public void changeButtonStatus(boolean flag) {
+    	panelGeneros.btnEdicion.setEnabled(flag);
+    	panelGeneros.btnEdicion.setVisible(flag);
     }
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
 	
 	
 }

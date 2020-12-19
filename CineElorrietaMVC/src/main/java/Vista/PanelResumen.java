@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import Controlador.ControladorResumen;
 import javax.swing.SwingConstants;
@@ -18,6 +19,7 @@ public class PanelResumen extends JPanel {
 	private JButton btnConfirmar;
 	private JButton btnCancelar;
 	private ControladorResumen controladorPanelResumen;
+	private JTextArea textAreaSabado, textAreaDomingo;
 	/**
 	 * Create the panel.
 	 * @param controladorPanelResumen 
@@ -62,13 +64,13 @@ public class PanelResumen extends JPanel {
 		lblResumen.setBounds(59, 60, 590, 39);
 		add(lblResumen);
 		
-		JTextArea textAreaSabado = new JTextArea();
-		textAreaSabado.setBounds(106, 157, 186, 259);
-		add(textAreaSabado);
+		setTextAreaSabado(new JTextArea());
+		getTextAreaSabado().setBounds(106, 157, 186, 259);
+		add(getTextAreaSabado());
 		
-		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(393, 157, 186, 259);
-		add(textAreaDomingo);
+		setTextAreaDomingo(new JTextArea());
+		getTextAreaDomingo().setBounds(393, 157, 186, 259);
+		add(getTextAreaDomingo());
 		
 		JLabel lblSabado = new JLabel("Pel\u00EDculas s\u00E1bado");
 		lblSabado.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -109,5 +111,21 @@ public class PanelResumen extends JPanel {
 				controladorPanelResumen.accionadoBotonCancelarPanelResumen();
 			}
 		};
+	}
+
+	public JTextArea getTextAreaSabado() {
+		return textAreaSabado;
+	}
+
+	public void setTextAreaSabado(JTextArea textAreaSabado) {
+		this.textAreaSabado = textAreaSabado;
+	}
+
+	public JTextArea getTextAreaDomingo() {
+		return textAreaDomingo;
+	}
+
+	public void setTextAreaDomingo(JTextArea textAreaDomingo) {
+		this.textAreaDomingo = textAreaDomingo;
 	}
 }

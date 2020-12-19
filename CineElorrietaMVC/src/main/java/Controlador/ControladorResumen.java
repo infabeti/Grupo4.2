@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Modelo;
+import Modelo.Pelicula;
 import Vista.PanelResumen;
 import Vista.Vista;
 
@@ -20,9 +21,19 @@ public class ControladorResumen {
 	public void mostrarPanelResumen() {
 		this.panelResumen = new PanelResumen(this);
 		this.vista.mostrarPanel(this.panelResumen);
+		
+		// TEXTFIELDS
+		for(Pelicula peli : modelo.getCarteleraSabado()) {
+			panelResumen.getTextAreaSabado().setText(panelResumen.getTextAreaSabado().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+		}
+		for(Pelicula peli : modelo.getCarteleraDomingo()) {
+			panelResumen.getTextAreaDomingo().setText(panelResumen.getTextAreaDomingo().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+		}
 	}
 	
 	public void accionadoBotonConfirmarPanelResumen() {
+		controlador.getControladorPanelGeneros().limpiarLista("sabado");
+		controlador.getControladorPanelGeneros().limpiarLista("domingo");
 		this.controlador.navegarPanelBienvenida();
 	}
 	public void accionadoBotonCancelarPanelResumen() {

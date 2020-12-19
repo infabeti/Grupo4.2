@@ -99,12 +99,12 @@ public class ControladorLogin {
 		this.controlador.navegarPanelBienvenida();
 	}
 	public void habilitarBotonEdicionEnGeneros() {
-		PanelGeneros.btnEdicion.setEnabled(true);
-		PanelGeneros.btnEdicion.setVisible(true);
+		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setEnabled(true);
+		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setVisible(true);
 	}
 	public void deshabilitarBotonEdicionEnGeneros() {
-		PanelGeneros.btnEdicion.setEnabled(false);
-		PanelGeneros.btnEdicion.setVisible(false);
+		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setEnabled(false);
+		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setVisible(false);
 	}
 
 	public PanelLogin makePanelLogin(ControladorLogin controlador) {

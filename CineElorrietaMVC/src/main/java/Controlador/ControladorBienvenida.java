@@ -27,7 +27,7 @@ public class ControladorBienvenida {
 		
 		//INICIALIZAMOS DESDE EL PRINCIPIO LAS PELÍCULAS QUE ESTÁN DE SERIE 
 		modelo.getConsultasBBDD().consultaPeliculas();
-
+		
 	}
 	
 	public void timerBienvenida() {

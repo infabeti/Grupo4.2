@@ -24,16 +24,16 @@ public class PanelGeneros extends JPanel {
 	private JButton btnSiguiente, btnVolver;
 	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirDrama, btnAnadirComedia, btnAnadirTerror, btnAnadirCienciaFiccion, btn_limpiar_sabado, btn_limpiar_domingo;
 	private JLabel lblTituloPanel, mensajeTiempoSabado, mensajeTiempoDomingo;
-	public static JLabel lb_genero_repetido;
-	public static JLabel lb_seleccione_otro_genero;
+	public JLabel lb_genero_repetido;
+	public JLabel lb_seleccione_otro_genero;
 	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
-	public static JTextArea textAreaSabado;
-	public static JTextArea textAreaDomingo;
-	public static JTextField tiempoSabado;
-	public static JTextField tiempoDomingo;
+	public JTextArea textAreaSabado;
+	public JTextArea textAreaDomingo;
+	public JTextField tiempoSabado;
+	public JTextField tiempoDomingo;
 	private ControladorGeneros controladorPanelGeneros;
 	private JLabel lblNewLabel;
-	public static JButton btnEdicion;
+	public JButton btnEdicion;
 
 	
 	public PanelGeneros(ControladorGeneros controladorPanelGeneros){
@@ -97,7 +97,7 @@ public class PanelGeneros extends JPanel {
 		mensajeTiempoSabado.setBounds(230, 371, 162, 19);
 		add(mensajeTiempoSabado);
 		
-		tiempoSabado = new JTextField(ControladorGeneros.secsToHours(ControladorGeneros.TIEMPO_TOTAL_SABADO));
+		tiempoSabado = new JTextField(controladorPanelGeneros.getModelo().secsToHours(controladorPanelGeneros.getModelo().getTIEMPO_TOTAL_SABADO()));
 		tiempoSabado.setForeground(new Color(0, 0, 0));
 		tiempoSabado.setBackground(new Color(255, 211, 105));
 		tiempoSabado.setEditable(false);
@@ -111,7 +111,7 @@ public class PanelGeneros extends JPanel {
 		mensajeTiempoDomingo.setBounds(470, 371, 162, 19);
 		add(mensajeTiempoDomingo);
 		
-		tiempoDomingo = new JTextField(ControladorGeneros.secsToHours(ControladorGeneros.TIEMPO_TOTAL_DOMINGO));
+		tiempoDomingo = new JTextField(controladorPanelGeneros.getModelo().secsToHours(controladorPanelGeneros.getModelo().getTIEMPO_TOTAL_DOMINGO()));
 		tiempoDomingo.setForeground(new Color(0, 0, 0));
 		tiempoDomingo.setBackground(new Color(255, 211, 105));
 		tiempoDomingo.setEditable(false);
@@ -126,7 +126,7 @@ public class PanelGeneros extends JPanel {
 		btn_limpiar_sabado.setBorderPainted(false);
 		btn_limpiar_sabado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorGeneros.limpiarLista("sabado");
+				controladorPanelGeneros.limpiarLista("sabado");
 			}
 		});
 		btn_limpiar_sabado.setBounds(266, 421, 87, 20);
@@ -139,7 +139,7 @@ public class PanelGeneros extends JPanel {
 		btn_limpiar_domingo.setForeground(new Color(255, 255, 255));
 		btn_limpiar_domingo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorGeneros.limpiarLista("domingo");
+				controladorPanelGeneros.limpiarLista("domingo");
 			}
 		});
 		btn_limpiar_domingo.setBounds(509, 421, 87, 20);
