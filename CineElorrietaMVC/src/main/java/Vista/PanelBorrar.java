@@ -12,10 +12,11 @@ import javax.swing.JPanel;
 
 import Controlador.ControladorPanelBorrar;
 import Controlador.ControladorPanelEditar;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PanelBorrar extends JPanel {
-	private JButton btnAceptar;
+	private JButton btnBorrar;
 	private JButton btnCancelar;
 	private ControladorPanelBorrar controladorPanelBorrar;
 	private JComboBox comboBoxTitulo,comboBoxGenero;
@@ -29,14 +30,31 @@ public class PanelBorrar extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		btnAceptar = new JButton("Aceptar");
-		btnAceptar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnAceptar.setBounds(430, 485, 113, 41);
-		add(btnAceptar);
+		JLabel lblCuadradoFondo = new JLabel("");
+		lblCuadradoFondo.setOpaque(true);
+		lblCuadradoFondo.setBackground(new Color(204, 153, 0));
+		lblCuadradoFondo.setBounds(689, 444, 111, 106);
+		add(lblCuadradoFondo);
+		
+		btnBorrar = new JButton("BORRAR");
+		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnBorrar.setBounds(430, 485, 120, 40);
+		add(btnBorrar);
+		btnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	btnBorrar.setBackground(Color.RED);
+		    	btnBorrar.setForeground(Color.YELLOW);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	btnBorrar.setBackground(Color.WHITE);
+		    	btnBorrar.setForeground(Color.BLACK);
+		    }
+		});
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(575, 485, 113, 41);
+		btnCancelar.setBounds(569, 485, 120, 40);
 		add(btnCancelar);
 		
 		JLabel lblFondo = new JLabel("");
@@ -65,17 +83,19 @@ public class PanelBorrar extends JPanel {
 		comboBoxGenero().setBounds(341, 140, 101, 27);
 		add(comboBoxGenero());
 		
-		JLabel lblNewLabel = new JLabel("Seleccione el titulo que se desea borrar");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel.setBounds(10, 11, 595, 46);
-		add(lblNewLabel);
+		JLabel lblTituloPanel = new JLabel("Borrar pel\u00EDculas");
+		lblTituloPanel.setVerticalAlignment(SwingConstants.TOP);
+		lblTituloPanel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTituloPanel.setForeground(new Color(255, 255, 255));
+		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTituloPanel.setBounds(10, 11, 595, 40);
+		add(lblTituloPanel);
 		
 		initializeEvents();
 	}
 	
 	private void initializeEvents() {
-		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelBorrar));
+		this.btnBorrar.addActionListener(listenerBotonBorrar(this.controladorPanelBorrar));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelBorrar));
 		this.comboBoxGenero.addActionListener(listenerComboBoxGeneros(this.controladorPanelBorrar));
 
@@ -88,11 +108,11 @@ public class PanelBorrar extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAceptar(ControladorPanelBorrar controladorPanelBorrar) {
+	private ActionListener listenerBotonBorrar(ControladorPanelBorrar controladorPanelBorrar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelBorrar.accionadoBotonAceptarPanelBorrar();
+				System.out.println("Ejecutando evento Boton BORRAR");
+				controladorPanelBorrar.accionadoBotonBorrarPanelBorrar();
 			}
 		};
 	}

@@ -2,8 +2,10 @@ package Controlador;
 
 import Modelo.Modelo;
 import Modelo.Usuario;
+import Vista.PanelGeneros;
 import Vista.PanelLogin;
 import Vista.Vista;
+import Controlador.ControladorPanelGeneros;
 
 public class ControladorPanelLogin {
 
@@ -23,8 +25,8 @@ public class ControladorPanelLogin {
 		this.vista.mostrarPanel(this.panelLogin);
 	}
 	
-	public void accionadoBotonEdicionPanelLogin(String usuario_in, String password_in) {
-		System.out.println("Entrando a géneros");
+	public void accionadoBotonLoginPanelLogin(String usuario_in, String password_in) {
+		System.out.println("Ejecutando login en controlador, usuario y contraseña recibidos");
 
 		///////////////////////////////////////////
 		boolean usuario_existe = false;
@@ -43,6 +45,7 @@ public class ControladorPanelLogin {
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
 						this.controlador.navegarPanelEdicion();
+						this.habilitarBotonEdicionEnGeneros();
 					}
 					else {
 						System.out.println("password INCORRECTA");
@@ -57,40 +60,51 @@ public class ControladorPanelLogin {
 		}
 		if(!usuario_esAdmin) {
 			System.out.println("NO ES admin");
-		}
-		if(!usuario_existe) {
-			System.out.println("el usuario no existe");
-		}
-	}
-	public void accionadoBotonGenerosPanelLogin(String usuario_in, String password_in) {
-		System.out.println("Entrando a géneros");
-
-		boolean usuario_existe = false;
-		Usuario[] listaUsers = modelo.getConsultasBBDD().consulta_lista_usuarios();
-		
-		for(Usuario usuario: listaUsers){
-			if(usuario.getUsuario().equals(usuario_in)) {
-				System.out.println("usuarioExiste");
-				usuario_existe = true;
-				if(usuario.getPassword().equals(password_in)) {
-					System.out.println("password CORRECTA");
-					this.controlador.navegarPanelGeneros();
-				}
-				else {
-					System.out.println("password INCORRECTA");
-
-				}
-				
-				break;
-			}
+			this.controlador.navegarPanelGeneros();
+			this.deshabilitarBotonEdicionEnGeneros();
 			
 		}
 		if(!usuario_existe) {
 			System.out.println("el usuario no existe");
 		}
 	}
+//	public void accionadoBotonGenerosPanelLogin(String usuario_in, String password_in) {
+//		System.out.println("Entrando a géneros");
+//
+//		boolean usuario_existe = false;
+//		Usuario[] listaUsers = modelo.getConsultasBBDD().consulta_lista_usuarios();
+//		
+//		for(Usuario usuario: listaUsers){
+//			if(usuario.getUsuario().equals(usuario_in)) {
+//				System.out.println("usuarioExiste");
+//				usuario_existe = true;
+//				if(usuario.getPassword().equals(password_in)) {
+//					System.out.println("password CORRECTA");
+//					this.controlador.navegarPanelGeneros();
+//				}
+//				else {
+//					System.out.println("password INCORRECTA");
+//
+//				}
+//				
+//				break;
+//			}
+//			
+//		}
+//		if(!usuario_existe) {
+//			System.out.println("el usuario no existe");
+//		}
+//	}
 	public void accionadoBotonVolverPanelLogin() {
 		this.controlador.navegarPanelBienvenida();
+	}
+	public void habilitarBotonEdicionEnGeneros() {
+		PanelGeneros.btnEdicion.setEnabled(true);
+		PanelGeneros.btnEdicion.setVisible(true);
+	}
+	public void deshabilitarBotonEdicionEnGeneros() {
+		PanelGeneros.btnEdicion.setEnabled(false);
+		PanelGeneros.btnEdicion.setVisible(false);
 	}
 	
 }

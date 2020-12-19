@@ -21,6 +21,7 @@ public class PanelLogin extends JPanel {
 	private JTextField textFieldPass;
 	private JButton btnGeneros;
 	private JButton btnEdicion;
+	private JButton btnLogin;
 	private JButton btnCancelar;
 	private ControladorPanelLogin controladorPanelLogin;
 
@@ -34,19 +35,25 @@ public class PanelLogin extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
+		JLabel lblCuadradoFondo = new JLabel("");
+		lblCuadradoFondo.setOpaque(true);
+		lblCuadradoFondo.setBackground(new Color(204, 153, 0));
+		lblCuadradoFondo.setBounds(689, 444, 111, 106);
+		add(lblCuadradoFondo);
+		
 		btnEdicion = new JButton("Edicion");
 		btnEdicion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnEdicion.setBounds(418, 473, 113, 44);
+		btnEdicion.setBounds(449, 372, 113, 44);
 		add(btnEdicion);
 		
 		btnGeneros = new JButton("Generos");
 		btnGeneros.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGeneros.setBounds(295, 475, 113, 41);
+		btnGeneros.setBounds(312, 372, 113, 41);
 		add(btnGeneros);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(580, 475, 113, 41);
+		btnCancelar.setBounds(442, 321, 120, 40);
 		add(btnCancelar);
 		
 		JLabel lblFondo = new JLabel("");
@@ -62,13 +69,13 @@ public class PanelLogin extends JPanel {
 		add(lblFondoNegro);
 		
 		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(312, 157, 242, 41);
+		textFieldUsuario.setBounds(312, 157, 250, 41);
 		add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
 		textFieldPass = new JPasswordField();
 		textFieldPass.setColumns(10);
-		textFieldPass.setBounds(312, 254, 242, 41);
+		textFieldPass.setBounds(312, 254, 250, 41);
 		add(textFieldPass);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
@@ -85,34 +92,49 @@ public class PanelLogin extends JPanel {
 		lblPass.setBounds(137, 267, 151, 28);
 		add(lblPass);
 		
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(33, 11, 68, 56);
-		add(lblNewLabel);
+		btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnLogin.setBounds(312, 321, 120, 40);
+		add(btnLogin);
+		btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+		    public void mouseEntered(java.awt.event.MouseEvent evt) {
+		    	btnLogin.setBackground(Color.GREEN);
+		    }
+
+		    public void mouseExited(java.awt.event.MouseEvent evt) {
+		    	btnLogin.setBackground(Color.WHITE);
+		    	btnLogin.setForeground(Color.BLACK);
+		    }
+		});
+		
+		JLabel lblTituloPanel = new JLabel("Login");
+		lblTituloPanel.setVerticalAlignment(SwingConstants.TOP);
+		lblTituloPanel.setForeground(Color.WHITE);
+		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblTituloPanel.setBounds(10, 11, 595, 40);
+		add(lblTituloPanel);
 		
 		initializeEvents();
 	}
 	
 	private void initializeEvents() {
-		this.btnGeneros.addActionListener(listenerBotonGeneros(this.controladorPanelLogin));
-		this.btnEdicion.addActionListener(listenerBotonEdicion(this.controladorPanelLogin));
+		this.btnLogin.addActionListener(listenerBotonLogin(this.controladorPanelLogin));
 		this.btnCancelar.addActionListener(listenerBotonVolver(this.controladorPanelLogin));
 	}
 	
-	private ActionListener listenerBotonGeneros(ControladorPanelLogin controladorPanelLogin) {
+//	private ActionListener listenerBotonGeneros(ControladorPanelLogin controladorPanelLogin) {
+//		return new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("Ejecutando evento Boton hacia Generos");
+//				controladorPanelLogin.accionadoBotonGenerosPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
+//			}
+//		};
+//	}
+	private ActionListener listenerBotonLogin(ControladorPanelLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelLogin.accionadoBotonGenerosPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
-			}
-		};
-	}
-	private ActionListener listenerBotonEdicion(ControladorPanelLogin controladorPanelLogin) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelLogin.accionadoBotonEdicionPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
+				System.out.println("Ejecutando evento LOGIN");
+				controladorPanelLogin.accionadoBotonLoginPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
 			}
 		};
 	}

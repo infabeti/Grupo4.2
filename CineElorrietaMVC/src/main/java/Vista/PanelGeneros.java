@@ -23,7 +23,7 @@ public class PanelGeneros extends JPanel {
 
 	private JButton btnSiguiente, btnVolver;
 	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirDrama, btnAnadirComedia, btnAnadirTerror, btnAnadirCienciaFiccion, btn_limpiar_sabado, btn_limpiar_domingo;
-	private JLabel lblGeneros, mensajeTiempoSabado, mensajeTiempoDomingo;
+	private JLabel lblTituloPanel, mensajeTiempoSabado, mensajeTiempoDomingo;
 	public static JLabel lb_genero_repetido;
 	public static JLabel lb_seleccione_otro_genero;
 	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
@@ -32,6 +32,8 @@ public class PanelGeneros extends JPanel {
 	public static JTextField tiempoSabado;
 	public static JTextField tiempoDomingo;
 	private ControladorPanelGeneros controladorPanelGeneros;
+	private JLabel lblNewLabel;
+	public static JButton btnEdicion;
 
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
@@ -42,6 +44,12 @@ public class PanelGeneros extends JPanel {
 		
 		btnAnadirComedia = new JButton("A\u00F1adir");
 		btnAnadirComedia.setVisible(false);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(204, 153, 0));
+		lblNewLabel.setBounds(689, 444, 111, 106);
+		add(lblNewLabel);
 		btnAnadirComedia.setEnabled(false);
 		btnAnadirComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnAnadirComedia.setBounds(512, 52, 123, 30);
@@ -139,13 +147,20 @@ public class PanelGeneros extends JPanel {
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnVolver.setBounds(575, 485, 115, 41);
+		btnVolver.setBounds(569, 485, 120, 40);
 		add(btnVolver);
 		
 		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnSiguiente.setBounds(430, 485, 115, 41);
+		btnSiguiente.setBounds(430, 485, 120, 40);
 		add(btnSiguiente);
+		
+		btnEdicion = new JButton("Edici\u00F3n");
+		btnEdicion.setEnabled(false);
+		btnEdicion.setVisible(false);
+		btnEdicion.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEdicion.setBounds(10, 485, 120, 40);
+		add(btnEdicion);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBackground(new Color(255, 211, 105));
@@ -160,11 +175,11 @@ public class PanelGeneros extends JPanel {
 		add(lblFondoNegro);
 		
 		
-		lblGeneros = new JLabel("Panel Generos");
-		lblGeneros.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblGeneros.setForeground(Color.WHITE);
-		lblGeneros.setBounds(10, 11, 115, 14);
-		add(lblGeneros);
+		lblTituloPanel = new JLabel("Panel Generos");
+		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTituloPanel.setForeground(Color.WHITE);
+		lblTituloPanel.setBounds(10, 11, 115, 14);
+		add(lblTituloPanel);
 		
 		comboBoxDrama = new JComboBox();
 		comboBoxDrama.setVisible(false);
@@ -177,7 +192,7 @@ public class PanelGeneros extends JPanel {
 		lblSabado.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSabado.setForeground(Color.WHITE);
-		lblSabado.setBounds(232, 102, 162, 23);
+		lblSabado.setBounds(230, 101, 150, 23);
 		add(lblSabado);
 		
 		JLabel lblDomingo = new JLabel("Pel\u00EDculas domingo");
@@ -185,7 +200,7 @@ public class PanelGeneros extends JPanel {
 		lblDomingo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblDomingo.setForeground(Color.WHITE);
-		lblDomingo.setBounds(473, 102, 162, 23);
+		lblDomingo.setBounds(470, 101, 150, 23);
 		add(lblDomingo);
 		
 		comboBoxComedia = new JComboBox();

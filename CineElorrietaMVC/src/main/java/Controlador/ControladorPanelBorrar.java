@@ -42,7 +42,7 @@ public class ControladorPanelBorrar {
 	
 	}
 	
-	public void accionadoBotonAceptarPanelBorrar() {
+	public void accionadoBotonBorrarPanelBorrar() {
 		//obtener peli
 		System.out.println(modelo.getConsultasBBDD().getPeliculas_totales().length);
 		int cont = 0;

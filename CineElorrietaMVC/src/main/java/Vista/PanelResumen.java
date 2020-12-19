@@ -11,12 +11,12 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 
 import Controlador.ControladorPanelResumen;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PanelResumen extends JPanel {
 	private JButton btnConfirmar;
-	private JButton btnCancelar1;
-	private JButton btnCancelar2;
+	private JButton btnCancelar;
 	private ControladorPanelResumen controladorPanelResumen;
 	/**
 	 * Create the panel.
@@ -28,18 +28,21 @@ public class PanelResumen extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		btnCancelar1 = new JButton("Cancelar -> Edicion");
-		btnCancelar1.setBounds(590, 350, 135, 50);
-		add(btnCancelar1);
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCancelar.setBounds(569, 485, 120, 40);
+		add(btnCancelar);
+		
+		JLabel lblCuadradoFondo = new JLabel("");
+		lblCuadradoFondo.setBackground(new Color(204, 153, 0));
+		lblCuadradoFondo.setOpaque(true);
+		lblCuadradoFondo.setBounds(689, 444, 111, 106);
+		add(lblCuadradoFondo);
 		
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnConfirmar.setBounds(590, 221, 137, 50);
+		btnConfirmar.setBounds(424, 485, 126, 40);
 		add(btnConfirmar);
-		
-		btnCancelar2 = new JButton("Cancelar -> Generos");
-		btnCancelar2.setBounds(590, 282, 135, 57);
-		add(btnCancelar2);
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBackground(new Color(255, 211, 105));
@@ -53,52 +56,58 @@ public class PanelResumen extends JPanel {
 		lblFondoNegro.setBounds(689, 0, 111, 450);
 		add(lblFondoNegro);
 		
-		JLabel lblResumen = new JLabel("Resumen de la cartelera de semana");
+		JLabel lblResumen = new JLabel("Resumen de la cartelera del fin de semana");
 		lblResumen.setForeground(Color.WHITE);
 		lblResumen.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblResumen.setBounds(108, 97, 532, 39);
+		lblResumen.setBounds(59, 60, 590, 39);
 		add(lblResumen);
 		
 		JTextArea textAreaSabado = new JTextArea();
-		textAreaSabado.setBounds(108, 182, 186, 259);
+		textAreaSabado.setBounds(106, 157, 186, 259);
 		add(textAreaSabado);
 		
 		JTextArea textAreaDomingo = new JTextArea();
-		textAreaDomingo.setBounds(375, 182, 186, 259);
+		textAreaDomingo.setBounds(393, 157, 186, 259);
 		add(textAreaDomingo);
+		
+		JLabel lblSabado = new JLabel("Pel\u00EDculas s\u00E1bado");
+		lblSabado.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblSabado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSabado.setForeground(Color.WHITE);
+		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSabado.setBounds(125, 121, 150, 23);
+		add(lblSabado);
+		
+		JLabel lblDomingo = new JLabel("Pel\u00EDculas domingo");
+		lblDomingo.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblDomingo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDomingo.setForeground(Color.WHITE);
+		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblDomingo.setBounds(412, 123, 150, 23);
+		add(lblDomingo);
 
 		initializeEvents();
 	}
 	
 	private void initializeEvents() {
 		this.btnConfirmar.addActionListener(listenerBotonConfirmar(this.controladorPanelResumen));
-		this.btnCancelar1.addActionListener(listenerBotonCancelar1(this.controladorPanelResumen));
-		this.btnCancelar2.addActionListener(listenerBotonCancelar2(this.controladorPanelResumen));
+		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelResumen));
 	}
 	
 	private ActionListener listenerBotonConfirmar(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton hacia Generos");
+				System.out.println("Ejecutando evento FIN del programa");
 				controladorPanelResumen.accionadoBotonConfirmarPanelResumen();
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar1(ControladorPanelResumen controladorPanelResumen) {
+	private ActionListener listenerBotonCancelar(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelResumen.accionadoBotonCancelar1PanelResumen();
+				controladorPanelResumen.accionadoBotonCancelarPanelResumen();
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar2(ControladorPanelResumen controladorPanelResumen) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton hacia Generos");
-				controladorPanelResumen.accionadoBotonCancelar2PanelResumen();
-			}
-		};
-	}
-
 }

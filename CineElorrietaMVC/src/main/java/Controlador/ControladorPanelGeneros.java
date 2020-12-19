@@ -3,6 +3,7 @@ package Controlador;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -145,7 +146,7 @@ public class ControladorPanelGeneros {
 	}
 	
 	public void accionadoBotonSiguientePanelGeneros() {
-		this.controlador.navegarPanelPeliculas();
+		this.controlador.navegarPanelResumen();
 	}
 	public void accionadoBotonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
@@ -300,5 +301,11 @@ public class ControladorPanelGeneros {
 	/*MÉTODOS REFERIDOS A LAS PELÍCULAS*/
 	public static boolean genero_sabado_repetido;
 	public static boolean genero_domingo_repetido; //Saco estas variables puesto que necesito que sean de alcance público para evaluarlas
+	
+    public static void changeButtonStatus(boolean flag) {
+    	PanelGeneros.btnEdicion.setEnabled(flag);
+    	PanelGeneros.btnEdicion.setVisible(flag);
+    }
+	
 	
 }
