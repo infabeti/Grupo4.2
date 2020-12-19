@@ -11,14 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Controlador.ControladorPanelAnadir;
+import Controlador.ControladorAnadir;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PanelAnadir extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
-	private ControladorPanelAnadir controladorPanelAnadir;
+	private ControladorAnadir controladorPanelAnadir;
 	private JComboBox comboBoxGenero;
 	private JTextField jtf_titulo;
 	private JTextField jtf_duracion;
@@ -26,7 +26,7 @@ public class PanelAnadir extends JPanel {
 	 * Create the panel.
 	 * @param controladorPanelAnadir 
 	 */
-	public PanelAnadir(ControladorPanelAnadir controladorPanelAnadir) {
+	public PanelAnadir(ControladorAnadir controladorPanelAnadir) {
 		this.controladorPanelAnadir = controladorPanelAnadir;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -114,7 +114,7 @@ public class PanelAnadir extends JPanel {
 	}
 	
 	
-	private ActionListener listenerBotonAceptar(ControladorPanelAnadir controladorPanelAnadir) {
+	private ActionListener listenerBotonAceptar(ControladorAnadir controladorPanelAnadir) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
@@ -122,7 +122,7 @@ public class PanelAnadir extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar(ControladorPanelAnadir controladorPanelAnadir) {
+	private ActionListener listenerBotonCancelar(ControladorAnadir controladorPanelAnadir) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");

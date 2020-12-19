@@ -6,13 +6,13 @@ import Vista.PanelAnadir;
 import Vista.PanelEditar;
 import Vista.Vista;
 
-public class ControladorPanelEditar {
+public class ControladorEditar {
 
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
 	private PanelEditar panelEditar;
-	public ControladorPanelEditar(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorEditar(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	

@@ -10,14 +10,14 @@ import Modelo.*;
 import Vista.PanelAnadir;
 import Vista.Vista;
 
-public class ControladorPanelAnadir {
+public class ControladorAnadir {
 
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
 	private PanelAnadir panelAnadir;
 	
-	public ControladorPanelAnadir(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorAnadir(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	

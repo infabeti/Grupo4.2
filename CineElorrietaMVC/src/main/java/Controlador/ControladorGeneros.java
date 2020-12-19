@@ -11,14 +11,14 @@ import Modelo.*;
 import Vista.PanelGeneros;
 import Vista.Vista;
 
-public class ControladorPanelGeneros {
+public class ControladorGeneros {
 
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
 	private PanelGeneros panelGeneros;
 	
-	public ControladorPanelGeneros(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorGeneros(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	
@@ -69,10 +69,10 @@ public class ControladorPanelGeneros {
 		PanelGeneros.lb_genero_repetido.setVisible(false); //Las inicializamos a false y ya se mostrarán si se repite el género
 		
 		//Manejando el Array
-				if(!ControladorPanelGeneros.totales_seleccionadas.isEmpty()) {
-						if(ControladorPanelGeneros.getDisponible_sabado()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL SÁBADO
+				if(!ControladorGeneros.totales_seleccionadas.isEmpty()) {
+						if(ControladorGeneros.getDisponible_sabado()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL SÁBADO
 							genero_sabado_repetido = false;
-							for(Pelicula peli : ControladorPanelGeneros.sabado_seleccionadas) { // SI NO SE REPITE EL GÉNERO
+							for(Pelicula peli : ControladorGeneros.sabado_seleccionadas) { // SI NO SE REPITE EL GÉNERO
 
 								if(peli.getGenero().equals(added_peli.getGenero())) {
 									genero_sabado_repetido = true;
@@ -88,9 +88,9 @@ public class ControladorPanelGeneros {
 							
 						}
 						else {
-							if(ControladorPanelGeneros.getDisponible_domingo()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL DOMINGO
+							if(ControladorGeneros.getDisponible_domingo()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL DOMINGO
 								genero_domingo_repetido = false;
-								for(Pelicula peli : ControladorPanelGeneros.domingo_seleccionadas) { // SI NO SE REPITE EL GÉNERO
+								for(Pelicula peli : ControladorGeneros.domingo_seleccionadas) { // SI NO SE REPITE EL GÉNERO
 									if(peli.getGenero().equals(added_peli.getGenero())) {
 										genero_domingo_repetido = true;
 										////////////////////////////////////////////////////////7
@@ -105,18 +105,18 @@ public class ControladorPanelGeneros {
 						}
 					
 						/////////////////////////////////////////////////////////////////////////
-						ControladorPanelGeneros.totales_seleccionadas.add(added_peli);
+						ControladorGeneros.totales_seleccionadas.add(added_peli);
 						
 				}
 				else {
 					addingPeli(added_peli,"sabado");
-					ControladorPanelGeneros.totales_seleccionadas.add(added_peli);		
+					ControladorGeneros.totales_seleccionadas.add(added_peli);		
 				}
 
 			}
 	public static void addingPeli(Pelicula added_peli, String dia) {
 		//Calculando tiempo restante
-		ControladorPanelGeneros.calcularDisponible(added_peli, dia);
+		ControladorGeneros.calcularDisponible(added_peli, dia);
 		int tiempo_restante;
 		String pelis_seleccionadas, str_tiempo_restante;
 		JTextField tiempoDia;
@@ -124,18 +124,18 @@ public class ControladorPanelGeneros {
 		ArrayList<Pelicula> lista_dia;
 		
 		if(dia.equalsIgnoreCase("sabado")) {
-			tiempo_restante = ControladorPanelGeneros.getDisponible_sabado();
+			tiempo_restante = ControladorGeneros.getDisponible_sabado();
 			pelis_seleccionadas = PanelGeneros.textAreaSabado.getText();
 			tiempoDia = PanelGeneros.tiempoSabado;
 			programacion = PanelGeneros.textAreaSabado;
-			lista_dia = ControladorPanelGeneros.sabado_seleccionadas;
+			lista_dia = ControladorGeneros.sabado_seleccionadas;
 		}
 		else {
-			tiempo_restante = ControladorPanelGeneros.getDisponible_domingo();
+			tiempo_restante = ControladorGeneros.getDisponible_domingo();
 			pelis_seleccionadas = PanelGeneros.textAreaDomingo.getText();
 			tiempoDia = PanelGeneros.tiempoDomingo;
 			programacion = PanelGeneros.textAreaDomingo;
-			lista_dia = ControladorPanelGeneros.domingo_seleccionadas;
+			lista_dia = ControladorGeneros.domingo_seleccionadas;
 		}
 		//Escribiendo
 		str_tiempo_restante = secsToHours(tiempo_restante);
@@ -257,7 +257,7 @@ public class ControladorPanelGeneros {
 	}
 	
 	public static void setDisponible_sabado(int disponible_sabado) {
-		ControladorPanelGeneros.disponible_sabado = disponible_sabado;
+		ControladorGeneros.disponible_sabado = disponible_sabado;
 	}
 	
 	public static int getDisponible_domingo() {
@@ -265,7 +265,7 @@ public class ControladorPanelGeneros {
 	}
 
 	public static void setDisponible_domingo(int disponible_domingo) {
-		ControladorPanelGeneros.disponible_domingo = disponible_domingo;
+		ControladorGeneros.disponible_domingo = disponible_domingo;
 	}
 	
 	/*MÉTODO QUE LIMPIA LAS LISTAS*/
@@ -276,7 +276,7 @@ public class ControladorPanelGeneros {
 			totales_seleccionadas.addAll(domingo_seleccionadas);
 			PanelGeneros.textAreaSabado.setText("");
 			disponible_sabado=TIEMPO_TOTAL_SABADO;
-			PanelGeneros.tiempoSabado.setText(ControladorPanelGeneros.secsToHours(TIEMPO_TOTAL_SABADO));
+			PanelGeneros.tiempoSabado.setText(ControladorGeneros.secsToHours(TIEMPO_TOTAL_SABADO));
 		}
 		
 		if(dia.equalsIgnoreCase("domingo")) {
@@ -285,7 +285,7 @@ public class ControladorPanelGeneros {
 			totales_seleccionadas.addAll(sabado_seleccionadas);
 			PanelGeneros.textAreaDomingo.setText("");
 			disponible_domingo=TIEMPO_TOTAL_DOMINGO;
-			PanelGeneros.tiempoDomingo.setText(ControladorPanelGeneros.secsToHours(TIEMPO_TOTAL_DOMINGO));
+			PanelGeneros.tiempoDomingo.setText(ControladorGeneros.secsToHours(TIEMPO_TOTAL_DOMINGO));
 		}
 	}
 	

@@ -10,15 +10,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import Controlador.ControladorPanelBienvenida;
+import Controlador.ControladorBienvenida;
 import java.awt.Color;
 
 @SuppressWarnings("serial")
 public class PanelBienvenida extends JPanel{
 	private JLabel lblBienvenida;
-	private ControladorPanelBienvenida controladorPanelBienvenida;
+	private ControladorBienvenida controladorPanelBienvenida;
 	
-	public PanelBienvenida(ControladorPanelBienvenida controladorPanelBienvenida) {
+	public PanelBienvenida(ControladorBienvenida controladorPanelBienvenida) {
 		this.controladorPanelBienvenida = controladorPanelBienvenida;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));

@@ -5,7 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import Controlador.ControladorPanelEdicion;
+import Controlador.ControladorEdicion;
 
 
 import java.awt.Font;
@@ -22,9 +22,9 @@ public class PanelEdicion extends JPanel {
 	private JButton btnBorrar;
 	private JButton btnContinuar;
 	private JButton btnCancelar;
-	private ControladorPanelEdicion controladorPanelEdicion;
+	private ControladorEdicion controladorPanelEdicion;
 
-	public PanelEdicion(ControladorPanelEdicion controladorPanelEdicion) {
+	public PanelEdicion(ControladorEdicion controladorPanelEdicion) {
 		this.controladorPanelEdicion = controladorPanelEdicion;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -128,7 +128,7 @@ public class PanelEdicion extends JPanel {
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelEdicion));
 	}
 	
-	private ActionListener listenerBotonEditar(ControladorPanelEdicion controladorPanelEdicion) {
+	private ActionListener listenerBotonEditar(ControladorEdicion controladorPanelEdicion) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Editar");
@@ -136,7 +136,7 @@ public class PanelEdicion extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadir(ControladorPanelEdicion controladorPanelEdicion) {
+	private ActionListener listenerBotonAnadir(ControladorEdicion controladorPanelEdicion) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Añadir");
@@ -144,7 +144,7 @@ public class PanelEdicion extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonBorrar(ControladorPanelEdicion controladorPanelEdicion) {
+	private ActionListener listenerBotonBorrar(ControladorEdicion controladorPanelEdicion) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Borrar");
@@ -152,7 +152,7 @@ public class PanelEdicion extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonContinuar(ControladorPanelEdicion controladorPanelEdicion) {
+	private ActionListener listenerBotonContinuar(ControladorEdicion controladorPanelEdicion) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Continuar");
@@ -160,7 +160,7 @@ public class PanelEdicion extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar(ControladorPanelEdicion controladorPanelEdicion) {
+	private ActionListener listenerBotonCancelar(ControladorEdicion controladorPanelEdicion) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Cancelar");

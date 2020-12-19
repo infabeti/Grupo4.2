@@ -10,19 +10,19 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
-import Controlador.ControladorPanelResumen;
+import Controlador.ControladorResumen;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PanelResumen extends JPanel {
 	private JButton btnConfirmar;
 	private JButton btnCancelar;
-	private ControladorPanelResumen controladorPanelResumen;
+	private ControladorResumen controladorPanelResumen;
 	/**
 	 * Create the panel.
 	 * @param controladorPanelResumen 
 	 */
-	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
+	public PanelResumen(ControladorResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -94,7 +94,7 @@ public class PanelResumen extends JPanel {
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelResumen));
 	}
 	
-	private ActionListener listenerBotonConfirmar(ControladorPanelResumen controladorPanelResumen) {
+	private ActionListener listenerBotonConfirmar(ControladorResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento FIN del programa");
@@ -102,7 +102,7 @@ public class PanelResumen extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar(ControladorPanelResumen controladorPanelResumen) {
+	private ActionListener listenerBotonCancelar(ControladorResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");

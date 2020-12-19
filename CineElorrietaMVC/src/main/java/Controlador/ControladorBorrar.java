@@ -9,14 +9,14 @@ import Modelo.Pelicula;
 import Vista.PanelBorrar;
 import Vista.Vista;
 
-public class ControladorPanelBorrar {
+public class ControladorBorrar {
 
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
 	private PanelBorrar panelBorrar;
 	
-	public ControladorPanelBorrar(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorBorrar(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	

@@ -7,26 +7,26 @@ public class Controlador {
 
 	private Modelo modelo;
 	private Vista vista;
-	private ControladorPanelBienvenida controladorPanelBienvenida;
-	private ControladorPanelLogin controladorPanelLogin;
-	private ControladorPanelGeneros controladorPanelGeneros;
-	private ControladorPanelEdicion controladorPanelEdicion;
-	private ControladorPanelEditar controladorPanelEditar;
-	private ControladorPanelBorrar controladorPanelBorrar;
-	private ControladorPanelAnadir controladorPanelAnadir;
-	private ControladorPanelResumen controladorPanelResumen;
+	private ControladorBienvenida controladorPanelBienvenida;
+	private ControladorLogin controladorPanelLogin;
+	private ControladorGeneros controladorPanelGeneros;
+	private ControladorEdicion controladorPanelEdicion;
+	private ControladorEditar controladorPanelEditar;
+	private ControladorBorrar controladorPanelBorrar;
+	private ControladorAnadir controladorPanelAnadir;
+	private ControladorResumen controladorPanelResumen;
 	
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
 		this.vista = vista;
-		this.controladorPanelBienvenida = new ControladorPanelBienvenida(this.modelo, this.vista, this);
-		this.controladorPanelLogin = new ControladorPanelLogin(this.modelo, this.vista, this);
-		this.controladorPanelGeneros = new ControladorPanelGeneros(this.modelo, this.vista, this);
-		this.controladorPanelEdicion = new ControladorPanelEdicion(this.modelo, this.vista, this);
-		this.controladorPanelEditar = new ControladorPanelEditar(this.modelo, this.vista, this);
-		this.controladorPanelBorrar = new ControladorPanelBorrar(this.modelo, this.vista, this);
-		this.controladorPanelAnadir = new ControladorPanelAnadir(this.modelo, this.vista, this);
-		this.controladorPanelResumen = new ControladorPanelResumen(this.modelo, this.vista, this);
+		this.controladorPanelBienvenida = new ControladorBienvenida(this.modelo, this.vista, this);
+		this.controladorPanelLogin = new ControladorLogin(this.modelo, this.vista, this);
+		this.controladorPanelGeneros = new ControladorGeneros(this.modelo, this.vista, this);
+		this.controladorPanelEdicion = new ControladorEdicion(this.modelo, this.vista, this);
+		this.controladorPanelEditar = new ControladorEditar(this.modelo, this.vista, this);
+		this.controladorPanelBorrar = new ControladorBorrar(this.modelo, this.vista, this);
+		this.controladorPanelAnadir = new ControladorAnadir(this.modelo, this.vista, this);
+		this.controladorPanelResumen = new ControladorResumen(this.modelo, this.vista, this);
 		
 		this.navegarPanelBienvenida();
 	}

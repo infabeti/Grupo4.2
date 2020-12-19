@@ -5,16 +5,16 @@ import Modelo.Usuario;
 import Vista.PanelGeneros;
 import Vista.PanelLogin;
 import Vista.Vista;
-import Controlador.ControladorPanelGeneros;
+import Controlador.ControladorGeneros;
 
-public class ControladorPanelLogin {
+public class ControladorLogin {
 
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
 	private PanelLogin panelLogin;
 	
-	public ControladorPanelLogin(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorLogin(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	
@@ -105,6 +105,11 @@ public class ControladorPanelLogin {
 	public void deshabilitarBotonEdicionEnGeneros() {
 		PanelGeneros.btnEdicion.setEnabled(false);
 		PanelGeneros.btnEdicion.setVisible(false);
+	}
+
+	public PanelLogin makePanelLogin(ControladorLogin controlador) {
+		return new PanelLogin(controlador);
+		
 	}
 	
 }

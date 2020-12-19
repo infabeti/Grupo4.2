@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import Controlador.ControladorPanelGeneros;
+import Controlador.ControladorGeneros;
 
 import java.awt.Color;
 import javax.swing.JComboBox;
@@ -31,12 +31,12 @@ public class PanelGeneros extends JPanel {
 	public static JTextArea textAreaDomingo;
 	public static JTextField tiempoSabado;
 	public static JTextField tiempoDomingo;
-	private ControladorPanelGeneros controladorPanelGeneros;
+	private ControladorGeneros controladorPanelGeneros;
 	private JLabel lblNewLabel;
 	public static JButton btnEdicion;
 
 	
-	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros){
+	public PanelGeneros(ControladorGeneros controladorPanelGeneros){
 		this.controladorPanelGeneros = controladorPanelGeneros;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -97,7 +97,7 @@ public class PanelGeneros extends JPanel {
 		mensajeTiempoSabado.setBounds(230, 371, 162, 19);
 		add(mensajeTiempoSabado);
 		
-		tiempoSabado = new JTextField(ControladorPanelGeneros.secsToHours(ControladorPanelGeneros.TIEMPO_TOTAL_SABADO));
+		tiempoSabado = new JTextField(ControladorGeneros.secsToHours(ControladorGeneros.TIEMPO_TOTAL_SABADO));
 		tiempoSabado.setForeground(new Color(0, 0, 0));
 		tiempoSabado.setBackground(new Color(255, 211, 105));
 		tiempoSabado.setEditable(false);
@@ -111,7 +111,7 @@ public class PanelGeneros extends JPanel {
 		mensajeTiempoDomingo.setBounds(470, 371, 162, 19);
 		add(mensajeTiempoDomingo);
 		
-		tiempoDomingo = new JTextField(ControladorPanelGeneros.secsToHours(ControladorPanelGeneros.TIEMPO_TOTAL_DOMINGO));
+		tiempoDomingo = new JTextField(ControladorGeneros.secsToHours(ControladorGeneros.TIEMPO_TOTAL_DOMINGO));
 		tiempoDomingo.setForeground(new Color(0, 0, 0));
 		tiempoDomingo.setBackground(new Color(255, 211, 105));
 		tiempoDomingo.setEditable(false);
@@ -126,7 +126,7 @@ public class PanelGeneros extends JPanel {
 		btn_limpiar_sabado.setBorderPainted(false);
 		btn_limpiar_sabado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorPanelGeneros.limpiarLista("sabado");
+				ControladorGeneros.limpiarLista("sabado");
 			}
 		});
 		btn_limpiar_sabado.setBounds(266, 421, 87, 20);
@@ -139,7 +139,7 @@ public class PanelGeneros extends JPanel {
 		btn_limpiar_domingo.setForeground(new Color(255, 255, 255));
 		btn_limpiar_domingo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorPanelGeneros.limpiarLista("domingo");
+				ControladorGeneros.limpiarLista("domingo");
 			}
 		});
 		btn_limpiar_domingo.setBounds(509, 421, 87, 20);
@@ -268,7 +268,7 @@ public class PanelGeneros extends JPanel {
 		this.btnAnadirCienciaFiccion.addActionListener(listenerBotonAnadirCienciaFiccion(this.controladorPanelGeneros));
 	}
 	
-	private ActionListener listenerBotonSiguiente(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonSiguiente(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Siguiente en Generos");
@@ -276,7 +276,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonVolver(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonVolver(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Volver en Generos");
@@ -284,7 +284,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonDrama(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonDrama(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Drama en Generos");
@@ -292,7 +292,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonComedia(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonComedia(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Comedia en Generos");
@@ -300,7 +300,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonTerror(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonTerror(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Terror en Generos");
@@ -308,7 +308,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonCienciaFiccion(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonCienciaFiccion(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Ciencia Ficción en Generos");
@@ -316,7 +316,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadirDrama(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonAnadirDrama(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Añadir película Drama");
@@ -324,7 +324,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadirComedia(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonAnadirComedia(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Añadir película Comedia");
@@ -332,7 +332,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadirTerror(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonAnadirTerror(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Añadir película Terror");
@@ -340,7 +340,7 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadirCienciaFiccion(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonAnadirCienciaFiccion(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Añadir película Ciencia Ficción");

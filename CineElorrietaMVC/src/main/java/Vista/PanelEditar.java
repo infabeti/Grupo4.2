@@ -11,8 +11,8 @@ import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
-import Controlador.ControladorPanelAnadir;
-import Controlador.ControladorPanelEditar;
+import Controlador.ControladorAnadir;
+import Controlador.ControladorEditar;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
@@ -21,7 +21,7 @@ import javax.swing.JSpinner;
 public class PanelEditar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
-	private ControladorPanelEditar controladorPanelEditar;
+	private ControladorEditar controladorPanelEditar;
 	private JComboBox comboBoxGenero, comboBoxNombre,cbCambiarGenero;
 	private JTextField jtfTitulo;
 	private JTextField tfDuracion;
@@ -30,7 +30,7 @@ public class PanelEditar extends JPanel {
 	 * Create the panel.
 	 * @param controladorPanelEditar 
 	 */
-	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
+	public PanelEditar(ControladorEditar controladorPanelEditar) {
 		this.controladorPanelEditar = controladorPanelEditar;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -130,7 +130,7 @@ public class PanelEditar extends JPanel {
 		this.getComboBoxGenero().addActionListener(listenerComboBoxGeneros(this.controladorPanelEditar));
 
 	}
-	private ActionListener listenerComboBoxGeneros(ControladorPanelEditar controladorPanelAnadir) {
+	private ActionListener listenerComboBoxGeneros(ControladorEditar controladorPanelAnadir) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
@@ -138,7 +138,7 @@ public class PanelEditar extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonAceptar(ControladorPanelEditar controladorPanelEditar) {
+	private ActionListener listenerBotonAceptar(ControladorEditar controladorPanelEditar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
@@ -146,7 +146,7 @@ public class PanelEditar extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar(ControladorPanelEditar controladorPanelEditar) {
+	private ActionListener listenerBotonCancelar(ControladorEditar controladorPanelEditar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");

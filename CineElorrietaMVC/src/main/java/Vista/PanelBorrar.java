@@ -10,21 +10,21 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Controlador.ControladorPanelBorrar;
-import Controlador.ControladorPanelEditar;
+import Controlador.ControladorBorrar;
+import Controlador.ControladorEditar;
 import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class PanelBorrar extends JPanel {
 	private JButton btnBorrar;
 	private JButton btnCancelar;
-	private ControladorPanelBorrar controladorPanelBorrar;
+	private ControladorBorrar controladorPanelBorrar;
 	private JComboBox comboBoxTitulo,comboBoxGenero;
 	/**
 	 * Create the panel.
 	 * @param controladorPanelBorrar 
 	 */
-	public PanelBorrar(ControladorPanelBorrar controladorPanelBorrar) {
+	public PanelBorrar(ControladorBorrar controladorPanelBorrar) {
 		this.controladorPanelBorrar = controladorPanelBorrar;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -100,7 +100,7 @@ public class PanelBorrar extends JPanel {
 		this.comboBoxGenero.addActionListener(listenerComboBoxGeneros(this.controladorPanelBorrar));
 
 	}
-	private ActionListener listenerComboBoxGeneros(ControladorPanelBorrar controladorPanelBorrar) {
+	private ActionListener listenerComboBoxGeneros(ControladorBorrar controladorPanelBorrar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
@@ -108,7 +108,7 @@ public class PanelBorrar extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonBorrar(ControladorPanelBorrar controladorPanelBorrar) {
+	private ActionListener listenerBotonBorrar(ControladorBorrar controladorPanelBorrar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton BORRAR");
@@ -116,7 +116,7 @@ public class PanelBorrar extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonCancelar(ControladorPanelBorrar controladorPanelBorrar) {
+	private ActionListener listenerBotonCancelar(ControladorBorrar controladorPanelBorrar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");

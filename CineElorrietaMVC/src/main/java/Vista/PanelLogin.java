@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import Controlador.ControladorPanelLogin;
+import Controlador.ControladorLogin;
 
 import java.awt.Color;
 
@@ -23,13 +23,13 @@ public class PanelLogin extends JPanel {
 	private JButton btnEdicion;
 	private JButton btnLogin;
 	private JButton btnCancelar;
-	private ControladorPanelLogin controladorPanelLogin;
+	private ControladorLogin controladorPanelLogin;
 
 	/**
 	 * Create the panel.
 	 * @param controladorPanelLogin 
 	 */
-	public PanelLogin(ControladorPanelLogin controladorPanelLogin) {
+	public PanelLogin(ControladorLogin controladorPanelLogin) {
 		this.controladorPanelLogin = controladorPanelLogin;
 		setBounds(100, 100, 800, 550);
 		setBackground(new Color(57, 62, 70));
@@ -130,7 +130,7 @@ public class PanelLogin extends JPanel {
 //			}
 //		};
 //	}
-	private ActionListener listenerBotonLogin(ControladorPanelLogin controladorPanelLogin) {
+	private ActionListener listenerBotonLogin(ControladorLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento LOGIN");
@@ -138,7 +138,7 @@ public class PanelLogin extends JPanel {
 			}
 		};
 	}
-	private ActionListener listenerBotonVolver(ControladorPanelLogin controladorPanelLogin) {
+	private ActionListener listenerBotonVolver(ControladorLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Volver en Generos");

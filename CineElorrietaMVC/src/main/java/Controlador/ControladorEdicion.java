@@ -4,14 +4,14 @@ import Modelo.Modelo;
 import Vista.PanelEdicion;
 import Vista.Vista;
 
-public class ControladorPanelEdicion {
+public class ControladorEdicion {
 
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
 	private PanelEdicion panelEdicion;
 	
-	public ControladorPanelEdicion(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorEdicion(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	

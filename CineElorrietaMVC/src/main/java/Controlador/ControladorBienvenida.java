@@ -7,7 +7,7 @@ import Modelo.Modelo;
 import Vista.PanelBienvenida;
 import Vista.Vista;
 
-public class ControladorPanelBienvenida {
+public class ControladorBienvenida {
 
 	@SuppressWarnings("unused")
 	private Modelo modelo;
@@ -15,7 +15,7 @@ public class ControladorPanelBienvenida {
 	private Controlador controlador;
 	private PanelBienvenida panelBienvenida;
 	
-	public ControladorPanelBienvenida(Modelo modelo, Vista vista, Controlador controlador) {
+	public ControladorBienvenida(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
 		this.controlador = controlador;	
@@ -50,5 +50,10 @@ public class ControladorPanelBienvenida {
 				// TODO Auto-generated method stub
 			}
 		},5000);
+	}
+
+		public PanelBienvenida makePanelBienvenida(ControladorBienvenida controlador) {
+			return new PanelBienvenida(controlador);
+		
 	}
 }
