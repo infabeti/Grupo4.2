@@ -56,12 +56,12 @@ public class ConsultasBBDD {
 	private Usuario[] lista_usuarios = new Usuario[0];
 	
 	
-	public Pelicula getPelicula(int codepeli) {
+	public Pelicula getPelicula(String string) {
 		if(peliculas_totales.length == 0)
 			consultaPeliculas();
 		
 		for(Pelicula x : peliculas_totales) {
-			if(x.getCodigo().equals(codepeli)) // SPY
+			if(x.getCodigo().equals(string)) // SPY
 				return x;
 		}
 		return null;

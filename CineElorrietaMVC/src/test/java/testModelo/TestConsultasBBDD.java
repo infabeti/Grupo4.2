@@ -53,13 +53,13 @@ public class TestConsultasBBDD {
 
 		consultas.setPeliculas_totales((Pelicula[]) Modelo.pushObject(consultas.getPeliculas_totales(), peli));
 		
-		assertEquals ("null consultaPeli", null, consultas.getPelicula(peli.getCodigo()-1)); // Le introduzco un código que no existe
+		assertEquals ("null consultaPeli", null, consultas.getPelicula(peli.getCodigo()+"aa")); // Le introduzco un código que no existe
 		
 		
-		when(peli.getCodigo()).thenReturn(0);
+		when(peli.getCodigo()).thenReturn(null);
 
 		
-		assertEquals("mock consultaPeli", peli, consultas.getPelicula(0));
+		assertEquals("mock consultaPeli", peli, consultas.getPelicula(null));
 
 	}
 	
