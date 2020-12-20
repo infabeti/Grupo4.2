@@ -1,7 +1,8 @@
 package Controlador;
 
-import Modelo.Modelo;
-import Modelo.Pelicula;
+import javax.swing.JComboBox;
+
+import Modelo.*;
 import Vista.PanelAnadir;
 import Vista.PanelEditar;
 import Vista.Vista;
@@ -27,9 +28,13 @@ public class ControladorEditar {
 				this.panelEditar.getComboBoxNombre().addItem(peli.getNombre());
 		}
 	}
+//	public int duracionAntigua(JComboBox source) {
+//		return getModelo().getConsultasBBDD().getDuracionEditar(source.getSelectedItem().toString());
+//	}
 	public void mostrarPanelEditar() {
 		this.panelEditar = new PanelEditar(this);
 		this.vista.mostrarPanel(this.panelEditar);
+		getModelo().getConsultasBBDD().consultaPeliculas();
 				
 		String[] generos= {"Drama", "Comedia", "Terror", "Sci-fi"};
 		for(String genero : generos) {
@@ -41,10 +46,24 @@ public class ControladorEditar {
 	
 	public void editarPeli() {
 		String titulo = this.panelEditar.getComboBoxNombre().getSelectedItem().toString();
-		String tituloNuevo = this.panelEditar.getJtfTitulo().getText();
+		String tituloNuevo;
+			if (this.panelEditar.getJtfTitulo().getText().equals("")) {
+				System.out.println("título nuevo está vacío");
+				tituloNuevo = titulo;
+			}else {
+				tituloNuevo = this.panelEditar.getJtfTitulo().getText();
+			}
 		String genero = this.panelEditar.getComboBoxGenero().getSelectedItem().toString();
 		String generoNuevo = this.panelEditar.getCbCambiarGenero().getSelectedItem().toString();
-		int duracionNueva = Integer.parseInt(this.panelEditar.getTfDuracion().getText());
+		
+		int duracion = getModelo().getConsultasBBDD().getDuracionEditar(titulo);
+		int duracionNueva;
+			if (this.panelEditar.getTfDuracion().getText().equals("")) {
+				System.out.println("duración nueva está vacía");
+				duracionNueva = duracion;
+			}else {
+				duracionNueva = (Integer.parseInt(this.panelEditar.getTfDuracion().getText()))*60;
+			}
 		
 		for(Pelicula peli : modelo.getConsultasBBDD().getPeliculas_totales()) {
 			if(peli.getNombre().equals(titulo)) {
@@ -53,6 +72,8 @@ public class ControladorEditar {
 				peli.setDuracion(duracionNueva);
 			}
 		}
+
+		
 	}
 	public void accionadoBotonAceptarPanelEditar() {
 		editarPeli();
@@ -65,5 +86,11 @@ public class ControladorEditar {
 	public PanelEditar makePanelEditar(ControladorEditar controlador) {
 		return new PanelEditar(controlador);
 		
+	}
+	public Modelo getModelo() {
+		return modelo;
+	}
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
 	}
 }

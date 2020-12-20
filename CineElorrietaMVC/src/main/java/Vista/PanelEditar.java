@@ -22,7 +22,9 @@ public class PanelEditar extends JPanel {
 	private JButton btnAceptar;
 	private JButton btnCancelar;
 	private ControladorEditar controladorPanelEditar;
-	private JComboBox comboBoxGenero, comboBoxNombre,cbCambiarGenero;
+	private JComboBox comboBoxGenero;
+	public static JComboBox comboBoxNombre;
+	private JComboBox cbCambiarGenero;
 	private JTextField jtfTitulo;
 	private JTextField tfDuracion;
 
@@ -120,6 +122,11 @@ public class PanelEditar extends JPanel {
 		getTfDuracion().setBounds(386, 319, 86, 20);
 		add(getTfDuracion());
 		getTfDuracion().setColumns(10);
+		
+		JLabel lblMinutos = new JLabel("*en MINUTOS");
+		lblMinutos.setForeground(Color.WHITE);
+		lblMinutos.setBounds(235, 337, 72, 14);
+		add(lblMinutos);
 		
 		initializeEvents();
 	}

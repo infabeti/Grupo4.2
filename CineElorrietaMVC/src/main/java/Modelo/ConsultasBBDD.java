@@ -53,6 +53,17 @@ public class ConsultasBBDD {
 		}
 		return null;
 	}
+	public int getDuracionEditar(String nombre_peli) {
+		if(peliculas_totales.length == 0)
+			consultaPeliculas();
+		
+		for(Pelicula x : peliculas_totales) {
+			if(x.getNombre() == nombre_peli) // SPY
+				return x.getDuracion();
+		}
+		return (Integer) null;
+	}
+	
 	
 	public Pelicula[] consultaPeliculas(String genero_in) {
 		Pelicula[] pelis_genero = new Pelicula[0];
