@@ -22,11 +22,11 @@ import javax.swing.ButtonGroup;
 public class PanelGeneros extends JPanel {
 
 	private JButton btnSiguiente, btnVolver;
-	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirDrama, btnAnadirComedia, btnAnadirTerror, btnAnadirCienciaFiccion, btn_limpiar_sabado, btn_limpiar_domingo;
+	public JButton btnDrama, btnComedia, btnTerror, btnCienciaFiccion, btnAnadirPeli, btn_limpiar_sabado, btn_limpiar_domingo;
 	private JLabel lblTituloPanel, mensajeTiempoSabado, mensajeTiempoDomingo;
 	public JLabel lb_genero_repetido;
 	public JLabel lb_seleccione_otro_genero;
-	public JComboBox comboBoxDrama, comboBoxComedia, comboBoxCienciaFiccion, comboBoxTerror;
+	public JComboBox comboBoxTitulos;
 	public JTextArea textAreaSabado;
 	public JTextArea textAreaDomingo;
 	public JTextField tiempoSabado;
@@ -42,45 +42,19 @@ public class PanelGeneros extends JPanel {
 		setBackground(new Color(57, 62, 70));
 		setLayout(null);
 		
-		btnAnadirComedia = new JButton("A\u00F1adir");
-		btnAnadirComedia.setVisible(false);
-		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setBackground(new Color(204, 153, 0));
 		lblNewLabel.setBounds(689, 444, 111, 106);
 		add(lblNewLabel);
-		btnAnadirComedia.setEnabled(false);
-		btnAnadirComedia.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirComedia.setBounds(512, 52, 123, 30);
-		add(btnAnadirComedia);
-		
-		btnAnadirDrama = new JButton("A\u00F1adir");
-		btnAnadirDrama.setVisible(false);
-		btnAnadirDrama.setEnabled(false);
-		btnAnadirDrama.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirDrama.setBounds(512, 52, 123, 30);
-		add(btnAnadirDrama);
-		
-		btnAnadirTerror = new JButton("A\u00F1adir");
-		btnAnadirTerror.setEnabled(false);
-		btnAnadirTerror.setVisible(false);
-		btnAnadirTerror.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirTerror.setBounds(512, 52, 123, 30);
-		add(btnAnadirTerror);
-		
-		btnAnadirCienciaFiccion = new JButton("A\u00F1adir");
-		btnAnadirCienciaFiccion.setVisible(false);
-		btnAnadirCienciaFiccion.setEnabled(false);
-		btnAnadirCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnAnadirCienciaFiccion.setBounds(512, 52, 123, 30);
-		add(btnAnadirCienciaFiccion);
-		
-		comboBoxCienciaFiccion = new JComboBox();
-		comboBoxCienciaFiccion.setEnabled(false);
-		comboBoxCienciaFiccion.setVisible(false);
-		comboBoxCienciaFiccion.setBounds(154, 52, 348, 30);
-		add(comboBoxCienciaFiccion);
+
+		btnAnadirPeli = new JButton("A\u00F1adir");
+		btnAnadirPeli.setVisible(false);
+		btnAnadirPeli.setEnabled(false);
+		btnAnadirPeli.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAnadirPeli.setBounds(512, 52, 123, 30);
+		add(btnAnadirPeli);
+
 		
 		textAreaDomingo = new JTextArea();
 		textAreaDomingo.setBounds(458, 135, 177, 228);
@@ -181,11 +155,11 @@ public class PanelGeneros extends JPanel {
 		lblTituloPanel.setBounds(10, 11, 115, 14);
 		add(lblTituloPanel);
 		
-		comboBoxDrama = new JComboBox();
-		comboBoxDrama.setVisible(false);
-		comboBoxDrama.setEnabled(false);
-		comboBoxDrama.setBounds(154, 52, 348, 30);
-		add(comboBoxDrama);
+		comboBoxTitulos = new JComboBox();
+		comboBoxTitulos.setVisible(false);
+		comboBoxTitulos.setEnabled(false);
+		comboBoxTitulos.setBounds(154, 52, 348, 30);
+		add(comboBoxTitulos);
 		
 		JLabel lblSabado = new JLabel("Pel\u00EDculas s\u00E1bado");
 		lblSabado.setHorizontalAlignment(SwingConstants.CENTER);
@@ -202,19 +176,7 @@ public class PanelGeneros extends JPanel {
 		lblDomingo.setForeground(Color.WHITE);
 		lblDomingo.setBounds(470, 101, 150, 23);
 		add(lblDomingo);
-		
-		comboBoxComedia = new JComboBox();
-		comboBoxComedia.setVisible(false);
-		comboBoxComedia.setEnabled(false);
-		comboBoxComedia.setBounds(154, 52, 348, 30);
-		add(comboBoxComedia);
-		
-		comboBoxTerror = new JComboBox();
-		comboBoxTerror.setEnabled(false);
-		comboBoxTerror.setVisible(false);
-		comboBoxTerror.setBounds(154, 52, 348, 30);
-		add(comboBoxTerror);
-		
+
 		btnCienciaFiccion = new JButton("Ciencia Ficcion");
 		btnCienciaFiccion.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnCienciaFiccion.setBounds(10, 318, 143, 45);
@@ -262,10 +224,8 @@ public class PanelGeneros extends JPanel {
 		this.btnComedia.addActionListener(listenerBotonComedia(this.controladorPanelGeneros));
 		this.btnTerror.addActionListener(listenerBotonTerror(this.controladorPanelGeneros));
 		this.btnCienciaFiccion.addActionListener(listenerBotonCienciaFiccion(this.controladorPanelGeneros));
-		this.btnAnadirDrama.addActionListener(listenerBotonAnadirDrama(this.controladorPanelGeneros));
-		this.btnAnadirComedia.addActionListener(listenerBotonAnadirComedia(this.controladorPanelGeneros));
-		this.btnAnadirTerror.addActionListener(listenerBotonAnadirTerror(this.controladorPanelGeneros));
-		this.btnAnadirCienciaFiccion.addActionListener(listenerBotonAnadirCienciaFiccion(this.controladorPanelGeneros));
+		this.btnAnadirPeli.addActionListener(listenerBotonAnadirPeli(this.controladorPanelGeneros));
+		
 	}
 	
 	private ActionListener listenerBotonSiguiente(ControladorGeneros controladorPanelGeneros) {
@@ -288,7 +248,9 @@ public class PanelGeneros extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Drama en Generos");
-				controladorPanelGeneros.accionadoBotonDramaPanelGeneros();
+				System.out.println(arg0.getSource());
+				controladorPanelGeneros.titulosDelGenero(btnDrama);
+//				controladorPanelGeneros.accionadoBotonDramaPanelGeneros();
 			}
 		};
 	}
@@ -296,7 +258,7 @@ public class PanelGeneros extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Comedia en Generos");
-				controladorPanelGeneros.accionadoBotonComediaPanelGeneros();
+				controladorPanelGeneros.titulosDelGenero(btnComedia);
 			}
 		};
 	}
@@ -304,7 +266,7 @@ public class PanelGeneros extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Terror en Generos");
-				controladorPanelGeneros.accionadoBotonTerrorPanelGeneros();
+				controladorPanelGeneros.titulosDelGenero(btnTerror);
 			}
 		};
 	}
@@ -312,40 +274,17 @@ public class PanelGeneros extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Ciencia Ficción en Generos");
-				controladorPanelGeneros.accionadoBotonCienciaFiccionPanelGeneros();
+				controladorPanelGeneros.titulosDelGenero(btnCienciaFiccion);
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadirDrama(ControladorGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonAnadirPeli(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Añadir película Drama");
-				controladorPanelGeneros.addPelicula(comboBoxDrama);
+				controladorPanelGeneros.addPelicula(comboBoxTitulos);
 			}
 		};
 	}
-	private ActionListener listenerBotonAnadirComedia(ControladorGeneros controladorPanelGeneros) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton Añadir película Comedia");
-				controladorPanelGeneros.addPelicula(comboBoxComedia);
-			}
-		};
-	}
-	private ActionListener listenerBotonAnadirTerror(ControladorGeneros controladorPanelGeneros) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton Añadir película Terror");
-				controladorPanelGeneros.addPelicula(comboBoxTerror);
-			}
-		};
-	}
-	private ActionListener listenerBotonAnadirCienciaFiccion(ControladorGeneros controladorPanelGeneros) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton Añadir película Ciencia Ficción");
-				controladorPanelGeneros.addPelicula(comboBoxCienciaFiccion);
-			}
-		};
-	}
+
 }

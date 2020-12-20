@@ -2,11 +2,11 @@ package Controlador;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import Modelo.*;
 import Vista.PanelGeneros;
 import Vista.Vista;
@@ -23,15 +23,13 @@ public class ControladorGeneros {
 		this.vista = vista;
 		this.controlador = controlador;	
 	}
-	
-	
 	@SuppressWarnings("unchecked")
 	public void mostrarPanelGeneros() {
 		this.panelGeneros = new PanelGeneros(this);
 		this.vista.mostrarPanel(this.panelGeneros);
 		getModelo().getConsultasBBDD().consultaPeliculas();
 		
-//		// TEXTFIELDS
+		// TEXTFIELDS (NECESARIO PARA NO PERDER LAS CARTELERAS AL VOLVER DEL RESUMEN)
 		for(Pelicula peli : modelo.getCarteleraSabado()) {
 			panelGeneros.textAreaSabado.setText(panelGeneros.textAreaSabado.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
 		}
@@ -39,29 +37,10 @@ public class ControladorGeneros {
 			panelGeneros.textAreaDomingo.setText(panelGeneros.textAreaDomingo.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
 		}
 		
-		//System.out.println(modelo.getConsultasBBDD().consultaPeliculas().length);
-			// Añadir pelis drama
-			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("drama")) {
-				this.panelGeneros.comboBoxDrama.addItem(peli.getNombre());
-			}
-			// Añadir pelis comedia
-			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("comedia")) {
-				this.panelGeneros.comboBoxComedia.addItem(peli.getNombre());
-			}
-			// Añadir pelis terror
-			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("terror")) {
-				this.panelGeneros.comboBoxTerror.addItem(peli.getNombre());
-			}
-			// Añadir pelis sci-fi
-			for(Pelicula peli : getModelo().getConsultasBBDD().consultaPeliculas("sci-fi")) {
-				this.panelGeneros.comboBoxCienciaFiccion.addItem(peli.getNombre());
-			}
 	}
-	
 	public void addPelicula(JComboBox source) {
 		Pelicula added_peli = getModelo().getConsultasBBDD().getPelicula_toAdd(source.getSelectedItem().toString()); // recoge la peli conociendo su nombre
 
-//		this.panelGeneros.textAreaSabado.setText(this.panelGeneros.textAreaSabado.getText()+source.getSelectedItem().toString()+"\n");
 		////////////////////////////////////////////////////////
 		panelGeneros.lb_seleccione_otro_genero.setVisible(false);
 		panelGeneros.lb_genero_repetido.setVisible(false); //Las inicializamos a false y ya se mostrarán si se repite el género
@@ -72,12 +51,8 @@ public class ControladorGeneros {
 							boolean genero_sabado_repetido = false;							
 							for(Pelicula peli : getModelo().getCarteleraSabado()) { // SI NO SE REPITE EL GÉNERO
 								
-								
 								if(peli.getGenero().equals(added_peli.getGenero())) {
-									
-									
-
-									genero_sabado_repetido = true;
+								genero_sabado_repetido = true;
 									////////////////////////////////////////////////////////7
 									panelGeneros.lb_genero_repetido.setVisible(true);
 									panelGeneros.lb_seleccione_otro_genero.setVisible(true);
@@ -86,8 +61,7 @@ public class ControladorGeneros {
 							
 							if(!genero_sabado_repetido) {
 								addingPeli(added_peli, "sabado");
-							}
-							
+							}	
 						}
 						else {
 							if(getModelo().getTiempoDisponibleDomingo()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL DOMINGO
@@ -103,12 +77,10 @@ public class ControladorGeneros {
 								if(!genero_domingo_repetido) 
 									addingPeli(added_peli, "domingo");
 								}
-
 						}
 					
 						/////////////////////////////////////////////////////////////////////////
-						getModelo().setCarteleraTotal((Pelicula[]) getModelo().pushObject(getModelo().getCarteleraTotal(), added_peli));
-						
+						getModelo().setCarteleraTotal((Pelicula[]) getModelo().pushObject(getModelo().getCarteleraTotal(), added_peli));	
 				}
 				else {
 					addingPeli(added_peli, "sabado");
@@ -146,7 +118,6 @@ public class ControladorGeneros {
 				modelo.setCarteleraDomingo((Pelicula[]) modelo.pushObject(new Pelicula[0], added_peli));
 			else
 				modelo.setCarteleraDomingo((Pelicula[]) modelo.pushObject(modelo.getCarteleraDomingo(), added_peli));
-
 		}
 		//Escribiendo
 		str_tiempo_restante = getModelo().secsToHours(tiempo_restante);
@@ -162,100 +133,38 @@ public class ControladorGeneros {
 		limpiarLista("sabado");
 		limpiarLista("domingo");
 		this.controlador.navegarPanelBienvenida();
-		
 	}
 	
-	/*MÉTODOS REFERIDOS A LOS BOTONES PARA MOSTRAR SÓLO LOS ELEMENTOS DE CADA GÉNERO*/
-	public void accionadoBotonDramaPanelGeneros() {
-		this.panelGeneros.comboBoxDrama.setEnabled(true);
-		this.panelGeneros.comboBoxDrama.setVisible(true);
-		this.panelGeneros.btnAnadirDrama.setEnabled(true);
-		this.panelGeneros.btnAnadirDrama.setVisible(true);
-		///////////////////////////////////////////////////
-		this.panelGeneros.comboBoxComedia.setEnabled(false);
-		this.panelGeneros.comboBoxComedia.setVisible(false);
-		this.panelGeneros.btnAnadirComedia.setEnabled(false);
-		this.panelGeneros.btnAnadirComedia.setVisible(false);
+/*MÉTODOS REFERIDOS A LOS BOTONES PARA MOSTRAR SÓLO LOS ELEMENTOS DE CADA GÉNERO*/
+	//CAMBIADO PARA ACORTARLO PUESTO QUE ESTA ES UNA CLASE MUY LARGA
+	public void titulosDelGenero(JButton source){
+		this.panelGeneros.comboBoxTitulos.setEnabled(true);
+		this.panelGeneros.comboBoxTitulos.setVisible(true);
+		this.panelGeneros.btnAnadirPeli.setEnabled(true);
+		this.panelGeneros.btnAnadirPeli.setVisible(true);
 		
-		this.panelGeneros.comboBoxTerror.setEnabled(false);
-		this.panelGeneros.comboBoxTerror.setVisible(false);
-		this.panelGeneros.btnAnadirTerror.setEnabled(false);
-		this.panelGeneros.btnAnadirTerror.setVisible(false);
+		this.panelGeneros.comboBoxTitulos.removeAllItems();
 		
-		this.panelGeneros.comboBoxCienciaFiccion.setEnabled(false);
-		this.panelGeneros.comboBoxCienciaFiccion.setVisible(false);
-		this.panelGeneros.btnAnadirCienciaFiccion.setEnabled(false);
-		this.panelGeneros.btnAnadirCienciaFiccion.setVisible(false);
-	}
+		String genero = "";
+		
+		if(source == this.panelGeneros.btnDrama) 
+			genero = "drama";
 
-	public void accionadoBotonComediaPanelGeneros() {
-		this.panelGeneros.comboBoxComedia.setEnabled(true);
-		this.panelGeneros.comboBoxComedia.setVisible(true);
-		this.panelGeneros.btnAnadirComedia.setEnabled(true);
-		this.panelGeneros.btnAnadirComedia.setVisible(true);
-		///////////////////////////////////////////////////
-		this.panelGeneros.comboBoxDrama.setEnabled(false);
-		this.panelGeneros.comboBoxDrama.setVisible(false);
-		this.panelGeneros.btnAnadirDrama.setEnabled(false);
-		this.panelGeneros.btnAnadirDrama.setVisible(false);
-		
-		this.panelGeneros.comboBoxTerror.setEnabled(false);
-		this.panelGeneros.comboBoxTerror.setVisible(false);
-		this.panelGeneros.btnAnadirTerror.setEnabled(false);
-		this.panelGeneros.btnAnadirTerror.setVisible(false);
-		
-		this.panelGeneros.comboBoxCienciaFiccion.setEnabled(false);
-		this.panelGeneros.comboBoxCienciaFiccion.setVisible(false);
-		this.panelGeneros.btnAnadirCienciaFiccion.setEnabled(false);
-		this.panelGeneros.btnAnadirCienciaFiccion.setVisible(false);
-	}
-
-	public void accionadoBotonTerrorPanelGeneros() {
-		this.panelGeneros.comboBoxTerror.setEnabled(true);
-		this.panelGeneros.comboBoxTerror.setVisible(true);
-		this.panelGeneros.btnAnadirTerror.setEnabled(true);
-		this.panelGeneros.btnAnadirTerror.setVisible(true);
-		///////////////////////////////////////////////////
-		this.panelGeneros.comboBoxDrama.setEnabled(false);
-		this.panelGeneros.comboBoxDrama.setVisible(false);
-		this.panelGeneros.btnAnadirDrama.setEnabled(false);
-		this.panelGeneros.btnAnadirDrama.setVisible(false);
-		
-		this.panelGeneros.comboBoxComedia.setEnabled(false);
-		this.panelGeneros.comboBoxComedia.setVisible(false);
-		this.panelGeneros.btnAnadirComedia.setEnabled(false);
-		this.panelGeneros.btnAnadirComedia.setVisible(false);
-		
-		this.panelGeneros.comboBoxCienciaFiccion.setEnabled(false);
-		this.panelGeneros.comboBoxCienciaFiccion.setVisible(false);
-		this.panelGeneros.btnAnadirCienciaFiccion.setEnabled(false);
-		this.panelGeneros.btnAnadirCienciaFiccion.setVisible(false);
-	}
-
-	public void accionadoBotonCienciaFiccionPanelGeneros() {
-
-		this.panelGeneros.comboBoxCienciaFiccion.setEnabled(true);
-		this.panelGeneros.comboBoxCienciaFiccion.setVisible(true);
-		this.panelGeneros.btnAnadirCienciaFiccion.setEnabled(true);
-		this.panelGeneros.btnAnadirCienciaFiccion.setVisible(true);
-		///////////////////////////////////////////////////
-		this.panelGeneros.comboBoxDrama.setEnabled(false);
-		this.panelGeneros.comboBoxDrama.setVisible(false);
-		this.panelGeneros.btnAnadirDrama.setEnabled(false);
-		this.panelGeneros.btnAnadirDrama.setVisible(false);
-		
-		this.panelGeneros.comboBoxComedia.setEnabled(false);
-		this.panelGeneros.comboBoxComedia.setVisible(false);
-		this.panelGeneros.btnAnadirComedia.setEnabled(false);
-		this.panelGeneros.btnAnadirComedia.setVisible(false);
-		
-		this.panelGeneros.comboBoxTerror.setEnabled(false);
-		this.panelGeneros.comboBoxTerror.setVisible(false);
-		this.panelGeneros.btnAnadirTerror.setEnabled(false);
-		this.panelGeneros.btnAnadirTerror.setVisible(false);
-	}
-
+		else if(source == this.panelGeneros.btnComedia) 
+			genero = "comedia";	
 	
+		else if(source == this.panelGeneros.btnCienciaFiccion) 
+			genero = "sci-fi";
+		
+		else if(source == this.panelGeneros.btnTerror) 
+			genero = "terror";
+	
+		System.out.println(modelo.getConsultasBBDD().consultaPeliculas(genero).length);
+		for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas(genero)) {
+			this.panelGeneros.comboBoxTitulos.addItem(peli.getNombre());
+		}	
+	}
+
 	/*MÉTODO QUE LIMPIA LAS LISTAS*/
 	public void limpiarLista(String dia) {
 		if(dia.equalsIgnoreCase("sabado")) {
@@ -276,23 +185,10 @@ public class ControladorGeneros {
 			panelGeneros.tiempoDomingo.setText(getModelo().secsToHours(modelo.getTIEMPO_TOTAL_DOMINGO()));
 		}
 	}
-	
-
-	
-
-	
-    public void changeButtonStatus(boolean flag) {
-    	panelGeneros.btnEdicion.setEnabled(flag);
-    	panelGeneros.btnEdicion.setVisible(flag);
-    }
-
 	public Modelo getModelo() {
 		return modelo;
 	}
-
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
-	
-	
 }
