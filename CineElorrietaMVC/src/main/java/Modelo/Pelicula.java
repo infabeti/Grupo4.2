@@ -7,7 +7,7 @@ import App.Main;
 
 public class Pelicula {
 	private String nombre, genero, codigo;
-	private int duracion;
+	private static int duracion;
 	public static ConsultasBBDD consulta = App.Main.consultasBBDD; // Esto puede dar problemas
 	
 
@@ -86,7 +86,7 @@ public class Pelicula {
 		this.codigo = codigo;
 	}
 
-	public int getDuracion() {
+	public static int getDuracion() {
 		return duracion;
 	}
 
