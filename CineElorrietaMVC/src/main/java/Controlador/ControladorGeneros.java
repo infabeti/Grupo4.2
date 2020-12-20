@@ -7,7 +7,6 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import Modelo.*;
 import Vista.PanelGeneros;
 import Vista.Vista;
@@ -39,7 +38,6 @@ public class ControladorGeneros {
 		}
 		
 	}
-	
 	public void addPelicula(JComboBox source) {
 		Pelicula added_peli = getModelo().getConsultasBBDD().getPelicula_toAdd(source.getSelectedItem().toString()); // recoge la peli conociendo su nombre
 
@@ -63,8 +61,7 @@ public class ControladorGeneros {
 							
 							if(!genero_sabado_repetido) {
 								addingPeli(added_peli, "sabado");
-							}
-							
+							}	
 						}
 						else {
 							if(getModelo().getTiempoDisponibleDomingo()>=added_peli.getDuracion()) { // SI LA PELÍCULA CABE EN EL DOMINGO
@@ -136,7 +133,6 @@ public class ControladorGeneros {
 		limpiarLista("sabado");
 		limpiarLista("domingo");
 		this.controlador.navegarPanelBienvenida();
-		
 	}
 	
 /*MÉTODOS REFERIDOS A LOS BOTONES PARA MOSTRAR SÓLO LOS ELEMENTOS DE CADA GÉNERO*/
@@ -169,7 +165,6 @@ public class ControladorGeneros {
 		}	
 	}
 
-	
 	/*MÉTODO QUE LIMPIA LAS LISTAS*/
 	public void limpiarLista(String dia) {
 		if(dia.equalsIgnoreCase("sabado")) {
@@ -190,23 +185,10 @@ public class ControladorGeneros {
 			panelGeneros.tiempoDomingo.setText(getModelo().secsToHours(modelo.getTIEMPO_TOTAL_DOMINGO()));
 		}
 	}
-	
-
-	
-
-	
-    public void changeButtonStatus(boolean flag) {
-    	panelGeneros.btnEdicion.setEnabled(flag);
-    	panelGeneros.btnEdicion.setVisible(flag);
-    }
-
 	public Modelo getModelo() {
 		return modelo;
 	}
-
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
-	
-	
 }
