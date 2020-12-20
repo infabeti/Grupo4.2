@@ -30,7 +30,7 @@ public class ControladorResumen {
 			panelResumen.getTextAreaDomingo().setText(panelResumen.getTextAreaDomingo().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
 		}
 	}
-	
+	// comentario
 	public void accionadoBotonConfirmarPanelResumen() {
 		controlador.getControladorPanelGeneros().limpiarLista("sabado");
 		controlador.getControladorPanelGeneros().limpiarLista("domingo");
@@ -39,4 +39,11 @@ public class ControladorResumen {
 	public void accionadoBotonCancelarPanelResumen() {
 		this.controlador.navegarPanelGeneros();
 	}
+
+	public PanelResumen makePanelResumen(ControladorResumen controlador) {
+		return new PanelResumen(controlador);
+		
+	}
+
+	
 }

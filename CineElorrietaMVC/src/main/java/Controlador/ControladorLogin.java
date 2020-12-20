@@ -15,14 +15,14 @@ public class ControladorLogin {
 	private PanelLogin panelLogin;
 	
 	public ControladorLogin(Modelo modelo, Vista vista, Controlador controlador) {
-		this.modelo = modelo;
-		this.vista = vista;
-		this.controlador = controlador;	
+		this.setModelo(modelo);
+		this.setVista(vista);
+		this.setControlador(controlador);	
 	}
 	
 	public void mostrarPanelLogin() {
 		this.panelLogin = new PanelLogin(this);
-		this.vista.mostrarPanel(this.panelLogin);
+		this.getVista().mostrarPanel(this.panelLogin);
 	}
 	
 	public void accionadoBotonLoginPanelLogin(String usuario_in, String password_in) {
@@ -32,7 +32,7 @@ public class ControladorLogin {
 		boolean usuario_existe = false;
 		boolean usuario_esAdmin = false;
 
-		Usuario[] listaUsers = modelo.getConsultasBBDD().consulta_lista_usuarios();
+		Usuario[] listaUsers = getModelo().getConsultasBBDD().consulta_lista_usuarios();
 		
 		for(Usuario usuario: listaUsers){							//recorrer lista
 			if(usuario.getUsuario().equals(usuario_in)) {			//usuario existe
@@ -44,7 +44,7 @@ public class ControladorLogin {
 					System.out.println("ES admin");
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
-						this.controlador.navegarPanelEdicion();
+						this.getControlador().navegarPanelEdicion();
 						this.habilitarBotonEdicionEnGeneros();
 					}
 					else {
@@ -60,7 +60,7 @@ public class ControladorLogin {
 		}
 		if(!usuario_esAdmin) {
 			System.out.println("NO ES admin");
-			this.controlador.navegarPanelGeneros();
+			this.getControlador().navegarPanelGeneros();
 			this.deshabilitarBotonEdicionEnGeneros();
 			
 		}
@@ -96,20 +96,44 @@ public class ControladorLogin {
 //		}
 //	}
 	public void accionadoBotonVolverPanelLogin() {
-		this.controlador.navegarPanelBienvenida();
+		this.getControlador().navegarPanelBienvenida();
 	}
 	public void habilitarBotonEdicionEnGeneros() {
-		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setEnabled(true);
-		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setVisible(true);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setEnabled(true);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setVisible(true);
 	}
 	public void deshabilitarBotonEdicionEnGeneros() {
-		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setEnabled(false);
-		new PanelGeneros(new ControladorGeneros(modelo, vista, controlador)).btnEdicion.setVisible(false);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setEnabled(false);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setVisible(false);
 	}
 
 	public PanelLogin makePanelLogin(ControladorLogin controlador) {
 		return new PanelLogin(controlador);
 		
+	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public void setVista(Vista vista) {
+		this.vista = vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
 	}
 	
 }

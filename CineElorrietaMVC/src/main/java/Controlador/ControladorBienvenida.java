@@ -16,17 +16,17 @@ public class ControladorBienvenida {
 	private PanelBienvenida panelBienvenida;
 	
 	public ControladorBienvenida(Modelo modelo, Vista vista, Controlador controlador) {
-		this.modelo = modelo;
-		this.vista = vista;
-		this.controlador = controlador;	
+		this.setModelo(modelo);
+		this.setVista(vista);
+		this.setControlador(controlador);	
 	}
 	                                                        
 	public void mostrarPanelBienvenida() {                  
 		this.panelBienvenida = new PanelBienvenida(this);   
-		this.vista.mostrarPanel(this.panelBienvenida);    
+		this.getVista().mostrarPanel(this.panelBienvenida);    
 		
 		//INICIALIZAMOS DESDE EL PRINCIPIO LAS PELÍCULAS QUE ESTÁN DE SERIE 
-		modelo.getConsultasBBDD().consultaPeliculas();
+		getModelo().getConsultasBBDD().consultaPeliculas();
 		
 	}
 	
@@ -37,7 +37,7 @@ public class ControladorBienvenida {
             
 	        public void run(){    
 	        	System.out.println("Ejecutado timer hacia Login");
-	        	controlador.navegarPanelLogin();
+	        	getControlador().navegarPanelLogin();
 	        	this.setVisible(false);
 	        	this.dispose();
 	        }
@@ -56,4 +56,28 @@ public class ControladorBienvenida {
 			return new PanelBienvenida(controlador);
 		
 	}
+
+		public Modelo getModelo() {
+			return modelo;
+		}
+
+		public void setModelo(Modelo modelo) {
+			this.modelo = modelo;
+		}
+
+		public Vista getVista() {
+			return vista;
+		}
+
+		public void setVista(Vista vista) {
+			this.vista = vista;
+		}
+
+		public Controlador getControlador() {
+			return controlador;
+		}
+
+		public void setControlador(Controlador controlador) {
+			this.controlador = controlador;
+		}
 }

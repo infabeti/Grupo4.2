@@ -12,31 +12,60 @@ public class ControladorEdicion {
 	private PanelEdicion panelEdicion;
 	
 	public ControladorEdicion(Modelo modelo, Vista vista, Controlador controlador) {
-		this.modelo = modelo;
-		this.vista = vista;
-		this.controlador = controlador;	
+		this.setModelo(modelo);
+		this.setVista(vista);
+		this.setControlador(controlador);	
 	}
 	
 	public void mostrarPanelEdicion() {
 		this.panelEdicion = new PanelEdicion(this);
-		this.vista.mostrarPanel(this.panelEdicion);
+		this.getVista().mostrarPanel(this.panelEdicion);
 		
 	}
 	
 	
 	public void accionadoBotonEditarPanelEdicion() {
-		this.controlador.navegarPanelEditar();
+		this.getControlador().navegarPanelEditar();
 	}
 	public void accionadoBotonAnadirPanelEdicion() {
-		this.controlador.navegarPanelAnadir();
+		this.getControlador().navegarPanelAnadir();
 	}
 	public void accionadoBotonBorrarPanelEdicion() {
-		this.controlador.navegarPanelBorrar();
+		this.getControlador().navegarPanelBorrar();
 	}
 	public void accionadoBotonContinuarPanelEdicion() {
-		this.controlador.navegarPanelResumen();
+		this.getControlador().navegarPanelResumen();
 	}
 	public void accionadoBotonCancelarPanelEdicion() {
-		this.controlador.navegarPanelBienvenida();
+		this.getControlador().navegarPanelBienvenida();
+	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(Modelo modelo) {
+		this.modelo = modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public void setVista(Vista vista) {
+		this.vista = vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
+	public PanelEdicion makePanelEdicion(ControladorEdicion controlador) {
+		return new PanelEdicion(controlador);
+		
 	}
 }

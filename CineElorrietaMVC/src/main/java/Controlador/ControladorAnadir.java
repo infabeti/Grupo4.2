@@ -59,4 +59,10 @@ public class ControladorAnadir {
 	public void accionadoBotonCancelarPanelAnadir() {
 		this.controlador.navegarPanelResumen();
 	}
+
+
+	public PanelAnadir makePanelEditar(ControladorAnadir controlador) {
+		return new PanelAnadir(controlador);
+		
+	}
 }

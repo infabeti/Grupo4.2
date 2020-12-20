@@ -62,4 +62,8 @@ public class ControladorBorrar {
 	public void accionadoBotonCancelarPanelBorrar() {
 		this.controlador.navegarPanelResumen();
 	}
+
+	public PanelBorrar makePanelBorrar(ControladorBorrar controlador) {
+		return new PanelBorrar(controlador);
+	}
 }

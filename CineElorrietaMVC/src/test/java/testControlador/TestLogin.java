@@ -30,6 +30,13 @@ public class TestLogin {
 	private ControladorLogin spyControladorLogin = spy(new ControladorLogin(modeloMock, vistaMock, controladorMock)); 
 	
 	@Test
+	public void login() {
+		ControladorLogin ctrl = new ControladorLogin(modeloMock, vistaMock, controladorMock);
+		assertEquals("modelo contructor controlador Bienvenida", ctrl.getModelo().getClass(), modeloMock.getClass());
+		assertEquals("vista contructor controlador Bienvenida", ctrl.getVista().getClass(), vistaMock.getClass());
+		assertEquals("controlador contructor controlador Bienvenida", ctrl.getControlador().getClass(), controladorMock.getClass());
+	}
+	@Test
 	public void mostrarPanelPeliculas() {
 		doReturn(panelLoginMock)
 	    	.when(spyControladorLogin)

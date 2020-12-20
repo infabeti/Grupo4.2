@@ -61,4 +61,9 @@ public class ControladorEditar {
 	public void accionadoBotonCancelarPanelEditar() {
 		this.controlador.navegarPanelResumen();
 	}
+
+	public PanelEditar makePanelEditar(ControladorEditar controlador) {
+		return new PanelEditar(controlador);
+		
+	}
 }
