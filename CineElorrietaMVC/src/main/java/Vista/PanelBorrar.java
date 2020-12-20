@@ -38,7 +38,7 @@ public class PanelBorrar extends JPanel {
 		
 		btnBorrar = new JButton("BORRAR");
 		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnBorrar.setBounds(430, 485, 120, 40);
+		btnBorrar.setBounds(466, 325, 120, 40);
 		add(btnBorrar);
 		btnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -54,7 +54,7 @@ public class PanelBorrar extends JPanel {
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(569, 485, 120, 40);
+		btnCancelar.setBounds(567, 485, 120, 40);
 		add(btnCancelar);
 		
 		JLabel lblFondo = new JLabel("");
@@ -72,15 +72,15 @@ public class PanelBorrar extends JPanel {
 		JLabel lblTitulo = new JLabel("T\u00EDtulo:");
 		lblTitulo.setForeground(new Color(255, 255, 255));
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTitulo.setBounds(89, 216, 90, 61);
+		lblTitulo.setBounds(89, 246, 90, 61);
 		add(lblTitulo);
 		
 		setComboBoxTitulo(new JComboBox());
-		getComboBoxTitulo().setBounds(247, 230, 339, 40);
+		getComboBoxTitulo().setBounds(247, 260, 339, 27);
 		add(getComboBoxTitulo());
 		
 		comboBoxGenero(new JComboBox());
-		comboBoxGenero().setBounds(341, 140, 101, 27);
+		comboBoxGenero().setBounds(247, 195, 339, 27);
 		add(comboBoxGenero());
 		
 		JLabel lblTituloPanel = new JLabel("Borrar pel\u00EDculas");
@@ -88,8 +88,20 @@ public class PanelBorrar extends JPanel {
 		lblTituloPanel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblTituloPanel.setForeground(new Color(255, 255, 255));
 		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblTituloPanel.setBounds(10, 11, 595, 40);
+		lblTituloPanel.setBounds(10, 11, 172, 40);
 		add(lblTituloPanel);
+		
+		JLabel lblGenero = new JLabel("G\u00E9nero:");
+		lblGenero.setForeground(Color.WHITE);
+		lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblGenero.setBounds(89, 174, 90, 61);
+		add(lblGenero);
+		
+		JLabel lblNewLabel = new JLabel("Seleccione el G\u00E9nero y el Titulo que desea borrar");
+		lblNewLabel.setForeground(Color.GRAY);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(89, 133, 500, 27);
+		add(lblNewLabel);
 		
 		initializeEvents();
 	}

@@ -47,12 +47,12 @@ public class PanelEditar extends JPanel {
 		lblTituloPanel.setVerticalAlignment(SwingConstants.TOP);
 		lblTituloPanel.setForeground(new Color(255, 255, 255));
 		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblTituloPanel.setBounds(10, 11, 279, 40);
+		lblTituloPanel.setBounds(10, 11, 181, 40);
 		add(lblTituloPanel);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(569, 485, 120, 40);
+		btnCancelar.setBounds(560, 485, 120, 40);
 		add(btnCancelar);
 		
 		btnAceptar = new JButton("Aceptar");
@@ -74,52 +74,67 @@ public class PanelEditar extends JPanel {
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setForeground(new Color(255, 255, 255));
-		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNombre.setBounds(206, 44, 90, 61);
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNombre.setBounds(122, 90, 90, 61);
 		add(lblNombre);
 		
-		JLabel lblGenero = new JLabel("Gen\u00E9ro");
+		JLabel lblGenero = new JLabel("G\u00E9nero");
 		lblGenero.setForeground(new Color(255, 255, 255));
-		lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblGenero.setBounds(402, 44, 90, 61);
+		lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblGenero.setBounds(375, 90, 90, 61);
 		add(lblGenero);
 		
 		setComboBoxNombre(new JComboBox());
-		getComboBoxNombre().setBounds(206, 131, 101, 27);
+		getComboBoxNombre().setBounds(122, 145, 192, 27);
 		add(getComboBoxNombre());
 		
 		setComboBoxGenero(new JComboBox());
-		getComboBoxGenero().setBounds(402, 131, 101, 27);
+		getComboBoxGenero().setBounds(347, 145, 192, 27);
 		add(getComboBoxGenero());
 		
 		setJtfTitulo(new JTextField());
-		getJtfTitulo().setBounds(386, 207, 86, 20);
+		getJtfTitulo().setBounds(348, 246, 173, 27);
 		add(getJtfTitulo());
 		getJtfTitulo().setColumns(10);
 		
 		JLabel lbTitulo = new JLabel("T\u00EDtulo");
+		lbTitulo.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lbTitulo.setForeground(Color.WHITE);
-		lbTitulo.setBounds(235, 207, 46, 14);
+		lbTitulo.setBounds(243, 249, 46, 14);
 		add(lbTitulo);
 		
 		setCbCambiarGenero(new JComboBox());
-		getCbCambiarGenero().setBounds(386, 261, 86, 22);
+		getCbCambiarGenero().setBounds(348, 300, 173, 27);
 		add(getCbCambiarGenero());
 		
 		JLabel lblnuevoGenero = new JLabel("G\u00E9nero");
+		lblnuevoGenero.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblnuevoGenero.setForeground(Color.WHITE);
-		lblnuevoGenero.setBounds(235, 265, 46, 14);
+		lblnuevoGenero.setBounds(243, 303, 53, 14);
 		add(lblnuevoGenero);
 		
-		JLabel lbDuracion = new JLabel("Duracion");
+		JLabel lbDuracion = new JLabel("Duraci\u00F3n");
+		lbDuracion.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lbDuracion.setForeground(Color.WHITE);
-		lbDuracion.setBounds(235, 322, 46, 14);
+		lbDuracion.setBounds(243, 361, 66, 14);
 		add(lbDuracion);
 		
 		setTfDuracion(new JTextField());
-		getTfDuracion().setBounds(386, 319, 86, 20);
+		getTfDuracion().setBounds(348, 358, 173, 27);
 		add(getTfDuracion());
 		getTfDuracion().setColumns(10);
+		
+		JLabel lblSeleccioneNG = new JLabel("Selecione el Nombre y el Genero de la pelicula que desea editar");
+		lblSeleccioneNG.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSeleccioneNG.setForeground(Color.GRAY);
+		lblSeleccioneNG.setBounds(122, 79, 471, 27);
+		add(lblSeleccioneNG);
+		
+		JLabel lblCambiaInfo = new JLabel("Cambia la Informacion");
+		lblCambiaInfo.setForeground(Color.GRAY);
+		lblCambiaInfo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCambiaInfo.setBounds(122, 203, 192, 14);
+		add(lblCambiaInfo);
 		
 		initializeEvents();
 	}

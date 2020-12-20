@@ -100,9 +100,15 @@ public class PanelAnadir extends JPanel {
 		add(getJtf_duracion());
 		
 		JLabel lblMinutos = new JLabel("*en MINUTOS");
-		lblMinutos.setForeground(Color.WHITE);
-		lblMinutos.setBounds(86, 255, 74, 14);
+		lblMinutos.setForeground(Color.GRAY);
+		lblMinutos.setBounds(86, 254, 74, 14);
 		add(lblMinutos);
+		
+		JLabel lblNewLabel = new JLabel("A\u00F1ada un t\u00EDtulo, la duraci\u00F3n y escoja el g\u00E9nero");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setForeground(Color.GRAY);
+		lblNewLabel.setBounds(86, 82, 502, 22);
+		add(lblNewLabel);
 		
 		initializeEvents();
 	}

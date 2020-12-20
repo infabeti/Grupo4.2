@@ -41,19 +41,9 @@ public class PanelLogin extends JPanel {
 		lblCuadradoFondo.setBounds(689, 444, 111, 106);
 		add(lblCuadradoFondo);
 		
-		btnEdicion = new JButton("Edicion");
-		btnEdicion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnEdicion.setBounds(449, 372, 113, 44);
-		add(btnEdicion);
-		
-		btnGeneros = new JButton("Generos");
-		btnGeneros.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnGeneros.setBounds(312, 372, 113, 41);
-		add(btnGeneros);
-		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCancelar.setBounds(442, 321, 120, 40);
+		btnCancelar.setBounds(559, 499, 120, 40);
 		add(btnCancelar);
 		
 		JLabel lblFondo = new JLabel("");
@@ -69,32 +59,32 @@ public class PanelLogin extends JPanel {
 		add(lblFondoNegro);
 		
 		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(312, 157, 250, 41);
+		textFieldUsuario.setBounds(312, 152, 250, 41);
 		add(textFieldUsuario);
 		textFieldUsuario.setColumns(10);
 		
 		textFieldPass = new JPasswordField();
 		textFieldPass.setColumns(10);
-		textFieldPass.setBounds(312, 254, 250, 41);
+		textFieldPass.setBounds(312, 204, 250, 41);
 		add(textFieldPass);
 		
 		JLabel lblUsuario = new JLabel("Usuario:");
 		lblUsuario.setForeground(new Color(255, 255, 255));
 		lblUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblUsuario.setBounds(137, 159, 151, 28);
+		lblUsuario.setBounds(137, 154, 151, 28);
 		add(lblUsuario);
 		
 		JLabel lblPass = new JLabel("Contrase\u00F1a:");
 		lblPass.setForeground(new Color(255, 255, 255));
 		lblPass.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPass.setBounds(137, 267, 151, 28);
+		lblPass.setBounds(137, 217, 151, 28);
 		add(lblPass);
 		
 		btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnLogin.setBounds(312, 321, 120, 40);
+		btnLogin.setBounds(442, 304, 120, 40);
 		add(btnLogin);
 		btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -111,8 +101,20 @@ public class PanelLogin extends JPanel {
 		lblTituloPanel.setVerticalAlignment(SwingConstants.TOP);
 		lblTituloPanel.setForeground(Color.WHITE);
 		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblTituloPanel.setBounds(10, 11, 595, 40);
+		lblTituloPanel.setBounds(10, 11, 60, 40);
 		add(lblTituloPanel);
+		
+		JLabel lblBienvenidaLogin = new JLabel("Bienvenido\r\n");
+		lblBienvenidaLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblBienvenidaLogin.setForeground(Color.GRAY);
+		lblBienvenidaLogin.setBounds(179, 85, 109, 33);
+		add(lblBienvenidaLogin);
+		
+		JLabel lblPorfavorIntroduzca = new JLabel(", Porfavor introduzca un Usuario y Contrase\u00F1a");
+		lblPorfavorIntroduzca.setForeground(Color.WHITE);
+		lblPorfavorIntroduzca.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPorfavorIntroduzca.setBounds(278, 87, 284, 33);
+		add(lblPorfavorIntroduzca);
 		
 		initializeEvents();
 	}

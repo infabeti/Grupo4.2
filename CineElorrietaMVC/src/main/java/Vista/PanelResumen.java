@@ -58,10 +58,10 @@ public class PanelResumen extends JPanel {
 		lblFondoNegro.setBounds(689, 0, 111, 450);
 		add(lblFondoNegro);
 		
-		JLabel lblResumen = new JLabel("Resumen de la cartelera del fin de semana");
+		JLabel lblResumen = new JLabel("de la cartelera del fin de semana");
 		lblResumen.setForeground(Color.WHITE);
 		lblResumen.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblResumen.setBounds(59, 60, 590, 39);
+		lblResumen.setBounds(210, 33, 437, 39);
 		add(lblResumen);
 		
 		setTextAreaSabado(new JTextArea());
@@ -73,20 +73,26 @@ public class PanelResumen extends JPanel {
 		add(getTextAreaDomingo());
 		
 		JLabel lblSabado = new JLabel("Pel\u00EDculas s\u00E1bado");
-		lblSabado.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblSabado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSabado.setHorizontalTextPosition(SwingConstants.LEFT);
+		lblSabado.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSabado.setForeground(Color.WHITE);
-		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblSabado.setBounds(125, 121, 150, 23);
+		lblSabado.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblSabado.setBounds(106, 123, 126, 23);
 		add(lblSabado);
 		
 		JLabel lblDomingo = new JLabel("Pel\u00EDculas domingo");
-		lblDomingo.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblDomingo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDomingo.setHorizontalTextPosition(SwingConstants.LEFT);
+		lblDomingo.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDomingo.setForeground(Color.WHITE);
-		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblDomingo.setBounds(412, 123, 150, 23);
+		lblDomingo.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDomingo.setBounds(393, 123, 132, 23);
 		add(lblDomingo);
+		
+		JLabel lblResumen_2 = new JLabel("Resumen");
+		lblResumen_2.setForeground(Color.GRAY);
+		lblResumen_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblResumen_2.setBounds(78, 33, 126, 39);
+		add(lblResumen_2);
 
 		initializeEvents();
 	}

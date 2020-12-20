@@ -121,7 +121,7 @@ public class PanelGeneros extends JPanel {
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnVolver.setBounds(569, 485, 120, 40);
+		btnVolver.setBounds(560, 485, 120, 40);
 		add(btnVolver);
 		
 		btnSiguiente = new JButton("Siguiente");
@@ -150,9 +150,9 @@ public class PanelGeneros extends JPanel {
 		
 		
 		lblTituloPanel = new JLabel("Panel Generos");
-		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblTituloPanel.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblTituloPanel.setForeground(Color.WHITE);
-		lblTituloPanel.setBounds(10, 11, 115, 14);
+		lblTituloPanel.setBounds(10, 11, 170, 30);
 		add(lblTituloPanel);
 		
 		comboBoxTitulos = new JComboBox();
