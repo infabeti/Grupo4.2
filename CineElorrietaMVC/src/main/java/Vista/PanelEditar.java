@@ -126,7 +126,6 @@ public class PanelEditar extends JPanel {
 		add(getTfDuracion());
 		getTfDuracion().setColumns(10);
 		
-<<<<<<< HEAD
 		JLabel lblSeleccioneNG = new JLabel("Selecione el Nombre y el Genero de la pelicula que desea editar");
 		lblSeleccioneNG.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSeleccioneNG.setForeground(Color.GRAY);
@@ -138,12 +137,11 @@ public class PanelEditar extends JPanel {
 		lblCambiaInfo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCambiaInfo.setBounds(122, 203, 192, 14);
 		add(lblCambiaInfo);
-=======
+
 		JLabel lblMinutos = new JLabel("*en MINUTOS");
 		lblMinutos.setForeground(Color.WHITE);
-		lblMinutos.setBounds(235, 337, 72, 14);
+		lblMinutos.setBounds(242, 382, 72, 14);
 		add(lblMinutos);
->>>>>>> 3d66cc5fe04d6a0f1711439024aa07a732db2444
 		
 		initializeEvents();
 	}
