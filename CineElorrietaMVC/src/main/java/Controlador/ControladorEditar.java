@@ -1,14 +1,14 @@
 package Controlador;
 
+import Modelo.Modelo;
+import Modelo.Pelicula;
 import javax.swing.JComboBox;
 
 import Modelo.*;
 import Vista.PanelAnadir;
 import Vista.PanelEditar;
 import Vista.Vista;
-
 public class ControladorEditar {
-
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
@@ -34,8 +34,8 @@ public class ControladorEditar {
 	public void mostrarPanelEditar() {
 		this.panelEditar = new PanelEditar(this);
 		this.vista.mostrarPanel(this.panelEditar);
-		getModelo().getConsultasBBDD().consultaPeliculas();
-				
+		//getModelo().getConsultasBBDD().consultaPeliculas();
+
 		String[] generos= {"Drama", "Comedia", "Terror", "Sci-fi"};
 		for(String genero : generos) {
 			this.panelEditar.getComboBoxGenero().addItem(genero);
@@ -43,7 +43,7 @@ public class ControladorEditar {
 		}
 		
 	}
-	
+
 	public void editarPeli() {
 		String titulo = this.panelEditar.getComboBoxNombre().getSelectedItem().toString();
 		String tituloNuevo;
@@ -56,15 +56,15 @@ public class ControladorEditar {
 		String genero = this.panelEditar.getComboBoxGenero().getSelectedItem().toString();
 		String generoNuevo = this.panelEditar.getCbCambiarGenero().getSelectedItem().toString();
 		
-		int duracion = getModelo().getConsultasBBDD().getDuracionEditar(titulo);
+		int duracion = modelo.getConsultasBBDD().getDuracionEditar(titulo);
 		int duracionNueva;
 			if (this.panelEditar.getTfDuracion().getText().equals("")) {
 				System.out.println("duración nueva está vacía");
-				duracionNueva = duracion;
+				duracionNueva = 0;
 			}else {
 				duracionNueva = (Integer.parseInt(this.panelEditar.getTfDuracion().getText()))*60;
 			}
-		
+
 		for(Pelicula peli : modelo.getConsultasBBDD().getPeliculas_totales()) {
 			if(peli.getNombre().equals(titulo)) {
 				peli.setNombre(tituloNuevo);
@@ -73,7 +73,7 @@ public class ControladorEditar {
 			}
 		}
 
-		
+
 	}
 	public void accionadoBotonAceptarPanelEditar() {
 		editarPeli();
@@ -82,10 +82,9 @@ public class ControladorEditar {
 	public void accionadoBotonCancelarPanelEditar() {
 		this.controlador.navegarPanelResumen();
 	}
-
 	public PanelEditar makePanelEditar(ControladorEditar controlador) {
 		return new PanelEditar(controlador);
-		
+
 	}
 	public Modelo getModelo() {
 		return modelo;
@@ -93,4 +92,4 @@ public class ControladorEditar {
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
-}
+} 

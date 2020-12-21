@@ -39,13 +39,15 @@ public class ControladorLogin {
 				System.out.println("usuarioExiste");
 				usuario_existe = true;
 
-				if(usuario.isAdmin()) {								//usuario es admin	
+				if(usuario.isAdmin()) {					//usuario es admin	
 					usuario_esAdmin = true;
 					System.out.println("ES admin");
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
 						this.getControlador().navegarPanelEdicion();
 						this.habilitarBotonEdicionEnGeneros();
+						
+							
 					}
 					else {
 						System.out.println("password INCORRECTA");
@@ -55,18 +57,24 @@ public class ControladorLogin {
 					break;
 				}
 				
+				else if(!usuario_esAdmin) { // Si no es admin
+					if(usuario.getPassword().equals(password_in)) {	//Password correcta
+						System.out.println("NO ES admin");
+						this.getControlador().navegarPanelGeneros();
+						this.deshabilitarBotonEdicionEnGeneros();
+					}
+					
+				}
+				
 			}
 					
-		}
-		if(!usuario_esAdmin) {
-			System.out.println("NO ES admin");
-			this.getControlador().navegarPanelGeneros();
-			this.deshabilitarBotonEdicionEnGeneros();
-			
 		}
 		if(!usuario_existe) {
 			System.out.println("el usuario no existe");
 		}
+		
+		
+		
 	}
 //	public void accionadoBotonGenerosPanelLogin(String usuario_in, String password_in) {
 //		System.out.println("Entrando a géneros");
