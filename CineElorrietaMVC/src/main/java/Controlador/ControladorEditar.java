@@ -15,8 +15,8 @@ public class ControladorEditar {
 	private PanelEditar panelEditar;
 	public ControladorEditar(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
-		this.vista = vista;
-		this.controlador = controlador;	
+		this.setVista(vista);
+		this.setControlador(controlador);	
 	}
 	
 	public void cambiarGenero() {
@@ -24,16 +24,14 @@ public class ControladorEditar {
 		this.panelEditar.getComboBoxNombre().removeAllItems();
 		System.out.println("cambiando de género");
 		for(Pelicula peli : modelo.getConsultasBBDD().consultaPeliculas()) {
-			if(peli.getGenero().equalsIgnoreCase(this.panelEditar.getComboBoxGenero().getSelectedItem().toString()))
+			if(peli.getGenero().equalsIgnoreCase(this.panelEditar.getComboBoxGenero().getSelectedItem().toString())) //si el género es el que recoje del cb
 				this.panelEditar.getComboBoxNombre().addItem(peli.getNombre());
 		}
 	}
-//	public int duracionAntigua(JComboBox source) {
-//		return getModelo().getConsultasBBDD().getDuracionEditar(source.getSelectedItem().toString());
-//	}
+
 	public void mostrarPanelEditar() {
 		this.panelEditar = new PanelEditar(this);
-		this.vista.mostrarPanel(this.panelEditar);
+		this.getVista().mostrarPanel(this.panelEditar);
 		//getModelo().getConsultasBBDD().consultaPeliculas();
 
 		String[] generos= {"Drama", "Comedia", "Terror", "Sci-fi"};
@@ -77,10 +75,10 @@ public class ControladorEditar {
 	}
 	public void accionadoBotonAceptarPanelEditar() {
 		editarPeli();
-		this.controlador.navegarPanelResumen();
+		this.getControlador().navegarPanelResumen();
 	}
 	public void accionadoBotonCancelarPanelEditar() {
-		this.controlador.navegarPanelResumen();
+		this.getControlador().navegarPanelResumen();
 	}
 	public PanelEditar makePanelEditar(ControladorEditar controlador) {
 		return new PanelEditar(controlador);
@@ -91,5 +89,25 @@ public class ControladorEditar {
 	}
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public void setVista(Vista vista) {
+		this.vista = vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	public void setControlador(Controlador controlador) {
+		this.controlador = controlador;
+	}
+
+	public PanelEditar makePanelEdicion(ControladorEditar controlador) {
+		return new PanelEditar(controlador);
 	}
 } 
