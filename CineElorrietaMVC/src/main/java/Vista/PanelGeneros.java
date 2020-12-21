@@ -61,7 +61,6 @@ public class PanelGeneros extends JPanel {
 		add(textAreaDomingo);
 		
 		textAreaSabado = new JTextArea();
-		textAreaSabado.setLineWrap(true);
 		textAreaSabado.setBounds(217, 135, 177, 228);
 		add(textAreaSabado);
 		
@@ -220,6 +219,7 @@ public class PanelGeneros extends JPanel {
 	private void initializeEvents() {
 		this.btnSiguiente.addActionListener(listenerBotonSiguiente(this.controladorPanelGeneros));
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
+		this.btnEdicion.addActionListener(listenerBotonEdicion(this.controladorPanelGeneros));
 		this.btnDrama.addActionListener(listenerBotonDrama(this.controladorPanelGeneros));
 		this.btnComedia.addActionListener(listenerBotonComedia(this.controladorPanelGeneros));
 		this.btnTerror.addActionListener(listenerBotonTerror(this.controladorPanelGeneros));
@@ -228,6 +228,7 @@ public class PanelGeneros extends JPanel {
 		
 	}
 	
+
 	private ActionListener listenerBotonSiguiente(ControladorGeneros controladorPanelGeneros) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -241,6 +242,14 @@ public class PanelGeneros extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Volver en Generos");
 				controladorPanelGeneros.accionadoBotonVolverPanelGeneros();
+			}
+		};
+	}
+	private ActionListener listenerBotonEdicion(ControladorGeneros controladorPanelGeneros2) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Ejecutando evento Boton Edición en Generos");
+				controladorPanelGeneros.accionadoBotonEdicionPanelGeneros();
 			}
 		};
 	}

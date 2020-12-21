@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Modelo;
 import Modelo.Pelicula;
+import Vista.PanelGeneros;
 import Vista.PanelResumen;
 import Vista.Vista;
 
@@ -24,10 +25,10 @@ public class ControladorResumen {
 		
 		// TEXTFIELDS
 		for(Pelicula peli : modelo.getCarteleraSabado()) {
-			panelResumen.getTextAreaSabado().setText(panelResumen.getTextAreaSabado().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+			panelResumen.getTextAreaSabado().setText(panelResumen.getTextAreaSabado().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre()+"\n");
 		}
 		for(Pelicula peli : modelo.getCarteleraDomingo()) {
-			panelResumen.getTextAreaDomingo().setText(panelResumen.getTextAreaDomingo().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+			panelResumen.getTextAreaDomingo().setText(panelResumen.getTextAreaDomingo().getText()+"\n"+peli.getGenero()+" - "+peli.getNombre()+"\n");
 		}
 	}
 	// comentario
@@ -37,9 +38,9 @@ public class ControladorResumen {
 		this.controlador.navegarPanelBienvenida();
 	}
 	public void accionadoBotonCancelarPanelResumen() {
-		this.controlador.navegarPanelGeneros();
+			this.controlador.navegarPanelGeneros();
 	}
-
+	
 	public PanelResumen makePanelResumen(ControladorResumen controlador) {
 		return new PanelResumen(controlador);
 		

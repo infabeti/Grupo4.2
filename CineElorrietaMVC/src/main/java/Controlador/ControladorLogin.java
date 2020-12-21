@@ -24,7 +24,6 @@ public class ControladorLogin {
 		this.panelLogin = new PanelLogin(this);
 		this.getVista().mostrarPanel(this.panelLogin);
 	}
-	
 	public void accionadoBotonLoginPanelLogin(String usuario_in, String password_in) {
 		System.out.println("Ejecutando login en controlador, usuario y contraseña recibidos");
 
@@ -44,10 +43,8 @@ public class ControladorLogin {
 					System.out.println("ES admin");
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
-						this.getControlador().navegarPanelEdicion();
 						this.habilitarBotonEdicionEnGeneros();
-						
-							
+						this.getControlador().navegarPanelEdicion();
 					}
 					else {
 						System.out.println("password INCORRECTA");
@@ -60,8 +57,8 @@ public class ControladorLogin {
 				else if(!usuario_esAdmin) { // Si no es admin
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("NO ES admin");
-						this.getControlador().navegarPanelGeneros();
 						this.deshabilitarBotonEdicionEnGeneros();
+						this.getControlador().navegarPanelGeneros();
 					}
 					
 				}

@@ -31,10 +31,12 @@ public class ControladorGeneros {
 		
 		// TEXTFIELDS (NECESARIO PARA NO PERDER LAS CARTELERAS AL VOLVER DEL RESUMEN)
 		for(Pelicula peli : modelo.getCarteleraSabado()) {
-			panelGeneros.textAreaSabado.setText(panelGeneros.textAreaSabado.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+			panelGeneros.textAreaSabado.setText(panelGeneros.textAreaSabado.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre()+"\n");
+			panelGeneros.tiempoSabado.setText(getModelo().secsToHours(modelo.tiempoDisponibleSabado));
 		}
 		for(Pelicula peli : modelo.getCarteleraDomingo()) {
-			panelGeneros.textAreaDomingo.setText(panelGeneros.textAreaDomingo.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre());
+			panelGeneros.textAreaDomingo.setText(panelGeneros.textAreaDomingo.getText()+"\n"+peli.getGenero()+" - "+peli.getNombre()+"\n");
+			panelGeneros.tiempoDomingo.setText(getModelo().secsToHours(modelo.tiempoDisponibleDomingo));
 		}
 		
 	}
@@ -134,6 +136,9 @@ public class ControladorGeneros {
 		limpiarLista("domingo");
 		this.controlador.navegarPanelBienvenida();
 	}
+	public void accionadoBotonEdicionPanelGeneros() {
+		this.controlador.navegarPanelEdicion();
+	}
 	
 /*MÉTODOS REFERIDOS A LOS BOTONES PARA MOSTRAR SÓLO LOS ELEMENTOS DE CADA GÉNERO*/
 	//CAMBIADO PARA ACORTARLO PUESTO QUE ESTA ES UNA CLASE MUY LARGA
@@ -191,4 +196,5 @@ public class ControladorGeneros {
 	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
+
 }

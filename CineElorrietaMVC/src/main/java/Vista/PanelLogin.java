@@ -110,10 +110,10 @@ public class PanelLogin extends JPanel {
 		lblBienvenidaLogin.setBounds(179, 85, 109, 33);
 		add(lblBienvenidaLogin);
 		
-		JLabel lblPorfavorIntroduzca = new JLabel(", Porfavor introduzca un Usuario y Contrase\u00F1a");
+		JLabel lblPorfavorIntroduzca = new JLabel(", Por favor, introduzca un Usuario y Contrase\u00F1a");
 		lblPorfavorIntroduzca.setForeground(Color.WHITE);
 		lblPorfavorIntroduzca.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPorfavorIntroduzca.setBounds(278, 87, 284, 33);
+		lblPorfavorIntroduzca.setBounds(278, 87, 313, 33);
 		add(lblPorfavorIntroduzca);
 		
 		initializeEvents();
@@ -124,14 +124,6 @@ public class PanelLogin extends JPanel {
 		this.btnCancelar.addActionListener(listenerBotonVolver(this.controladorPanelLogin));
 	}
 	
-//	private ActionListener listenerBotonGeneros(ControladorPanelLogin controladorPanelLogin) {
-//		return new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				System.out.println("Ejecutando evento Boton hacia Generos");
-//				controladorPanelLogin.accionadoBotonGenerosPanelLogin(textFieldUsuario.getText(), textFieldPass.getText());
-//			}
-//		};
-//	}
 	private ActionListener listenerBotonLogin(ControladorLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -60,7 +60,7 @@ public class ControladorEditar {
 		int duracionNueva;
 			if (this.panelEditar.getTfDuracion().getText().equals("")) {
 				System.out.println("duración nueva está vacía");
-				duracionNueva = 0;
+				duracionNueva = duracion;
 			}else {
 				duracionNueva = (Integer.parseInt(this.panelEditar.getTfDuracion().getText()))*60;
 			}

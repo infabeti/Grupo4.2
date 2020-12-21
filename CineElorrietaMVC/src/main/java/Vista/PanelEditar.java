@@ -140,7 +140,7 @@ public class PanelEditar extends JPanel {
 
 		JLabel lblMinutos = new JLabel("*en MINUTOS");
 		lblMinutos.setForeground(Color.WHITE);
-		lblMinutos.setBounds(242, 382, 72, 14);
+		lblMinutos.setBounds(242, 382, 83, 14);
 		add(lblMinutos);
 		
 		initializeEvents();

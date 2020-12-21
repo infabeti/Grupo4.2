@@ -15,8 +15,8 @@ public class Modelo {
 	private final int TIEMPO_TOTAL_SABADO=28800; 	
 	private final int TIEMPO_TOTAL_DOMINGO=21600; 
 	
-	private int tiempoDisponibleSabado = getTIEMPO_TOTAL_SABADO();
-	private int tiempoDisponibleDomingo = getTIEMPO_TOTAL_DOMINGO();
+	public int tiempoDisponibleSabado = getTIEMPO_TOTAL_SABADO();
+	public int tiempoDisponibleDomingo = getTIEMPO_TOTAL_DOMINGO();
 	
 	public Modelo(ConsultasBBDD consultasBBDD) {
 		this.setConsultasBBDD(consultasBBDD);
