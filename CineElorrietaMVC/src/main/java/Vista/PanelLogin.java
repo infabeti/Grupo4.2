@@ -3,6 +3,7 @@ package Vista;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,11 +20,11 @@ import java.awt.Color;
 public class PanelLogin extends JPanel {
 	private JTextField textFieldUsuario;
 	private JTextField textFieldPass;
-	private JButton btnGeneros;
-	private JButton btnEdicion;
 	private JButton btnLogin;
 	private JButton btnCancelar;
 	private ControladorLogin controladorPanelLogin;
+	public static JLabel lblUsuarioValidoContraseñaNoValida;
+	public static JLabel lblUsuarioNoValido;
 
 	/**
 	 * Create the panel.
@@ -107,18 +108,34 @@ public class PanelLogin extends JPanel {
 		JLabel lblBienvenidaLogin = new JLabel("Bienvenido\r\n");
 		lblBienvenidaLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblBienvenidaLogin.setForeground(Color.GRAY);
-		lblBienvenidaLogin.setBounds(179, 85, 109, 33);
+		lblBienvenidaLogin.setBounds(177, 65, 109, 33);
 		add(lblBienvenidaLogin);
 		
 		JLabel lblPorfavorIntroduzca = new JLabel(", Por favor, introduzca un Usuario y Contrase\u00F1a");
 		lblPorfavorIntroduzca.setForeground(Color.WHITE);
 		lblPorfavorIntroduzca.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPorfavorIntroduzca.setBounds(278, 87, 313, 33);
+		lblPorfavorIntroduzca.setBounds(276, 67, 313, 33);
 		add(lblPorfavorIntroduzca);
+		
+		setlblUsuarioNoValido(new JLabel("No existe usuario con ese nombre"));
+		getlblUsuarioNoValido().setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		getlblUsuarioNoValido().setForeground(Color.RED);
+		getlblUsuarioNoValido().setBounds(234, 114, 328, 40);
+		getlblUsuarioNoValido().setVisible(false);
+		add(lblUsuarioNoValido);
+		
+		setlblUsuarioValidoContraseñaNoValida(new JLabel("Contraseña no válida para ese usuario"));
+		getlblUsuarioValidoContraseñaNoValida().setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		getlblUsuarioValidoContraseñaNoValida().setForeground(Color.RED);
+		getlblUsuarioValidoContraseñaNoValida().setBounds(234, 114, 328, 40);
+		getlblUsuarioValidoContraseñaNoValida().setVisible(false);
+		add(lblUsuarioValidoContraseñaNoValida);
+		
 		
 		initializeEvents();
 	}
 	
+
 	private void initializeEvents() {
 		this.btnLogin.addActionListener(listenerBotonLogin(this.controladorPanelLogin));
 		this.btnCancelar.addActionListener(listenerBotonVolver(this.controladorPanelLogin));
@@ -140,4 +157,20 @@ public class PanelLogin extends JPanel {
 			}
 		};
 	}
+	public static JLabel getlblUsuarioNoValido() {
+		return lblUsuarioNoValido;
+	}
+
+	public void setlblUsuarioNoValido(JLabel lblUsuarioNoValido) {
+		this.lblUsuarioNoValido = lblUsuarioNoValido;
+	}
+
+	public static JLabel getlblUsuarioValidoContraseñaNoValida() {
+		return lblUsuarioValidoContraseñaNoValida;
+	}
+	public void setlblUsuarioValidoContraseñaNoValida(JLabel lblUsuarioValidoContraseñaNoValida) {
+		this.lblUsuarioValidoContraseñaNoValida = lblUsuarioValidoContraseñaNoValida;
+		
+	}
+
 }

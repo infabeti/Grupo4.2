@@ -5,8 +5,15 @@ import Modelo.Usuario;
 import Vista.PanelGeneros;
 import Vista.PanelLogin;
 import Vista.Vista;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JLabel;
+
 import Controlador.ControladorGeneros;
 
+@SuppressWarnings("static-access")
 public class ControladorLogin {
 
 	private Modelo modelo;
@@ -44,12 +51,13 @@ public class ControladorLogin {
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
 						modelo.setUsuario_activo(usuario);
-
+						usuarioValido();
 						this.habilitarBotonEdicionEnGeneros();
 						this.getControlador().navegarPanelEdicion();
 					}
 					else {
 						System.out.println("password INCORRECTA");
+						usuarioValidoContraseñaNoValida();
 
 					}
 					
@@ -72,6 +80,7 @@ public class ControladorLogin {
 		}
 		if(!usuario_existe) {
 			System.out.println("el usuario no existe");
+			usuarioNoValido();
 		}
 		
 		
@@ -114,6 +123,19 @@ public class ControladorLogin {
 	public void deshabilitarBotonEdicionEnGeneros() {
 		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).getBtnEdicion().setEnabled(false);
 		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).getBtnEdicion().setVisible(false);
+	}
+	
+	public void usuarioValido() {
+		PanelLogin.getlblUsuarioNoValido().setVisible(false);
+		PanelLogin.getlblUsuarioValidoContraseñaNoValida().setVisible(false);
+	}
+	public void usuarioNoValido() {
+		PanelLogin.getlblUsuarioValidoContraseñaNoValida().setVisible(false);
+		PanelLogin.getlblUsuarioNoValido().setVisible(true);
+	}
+	public void usuarioValidoContraseñaNoValida() {
+		PanelLogin.getlblUsuarioNoValido().setVisible(false);
+		PanelLogin.getlblUsuarioValidoContraseñaNoValida().setVisible(true);
 	}
 
 	public PanelLogin makePanelLogin(ControladorLogin controlador) {
