@@ -33,7 +33,7 @@ public class PanelGeneros extends JPanel {
 	public JTextField tiempoDomingo;
 	private ControladorGeneros controladorPanelGeneros;
 	private JLabel lblNewLabel;
-	public JButton btnEdicion;
+	private JButton btnEdicion;
 
 	
 	public PanelGeneros(ControladorGeneros controladorPanelGeneros){
@@ -128,12 +128,12 @@ public class PanelGeneros extends JPanel {
 		btnSiguiente.setBounds(430, 485, 120, 40);
 		add(btnSiguiente);
 		
-		btnEdicion = new JButton("Edici\u00F3n");
-		btnEdicion.setEnabled(false);
-		btnEdicion.setVisible(false);
-		btnEdicion.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnEdicion.setBounds(10, 485, 120, 40);
-		add(btnEdicion);
+		setBtnEdicion(new JButton("Edici\u00F3n"));
+		getBtnEdicion().setEnabled(false);
+		getBtnEdicion().setVisible(false);
+		getBtnEdicion().setFont(new Font("Tahoma", Font.PLAIN, 20));
+		getBtnEdicion().setBounds(10, 485, 120, 40);
+		add(getBtnEdicion());
 		
 		JLabel lblFondo = new JLabel("");
 		lblFondo.setBackground(new Color(255, 211, 105));
@@ -219,7 +219,7 @@ public class PanelGeneros extends JPanel {
 	private void initializeEvents() {
 		this.btnSiguiente.addActionListener(listenerBotonSiguiente(this.controladorPanelGeneros));
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
-		this.btnEdicion.addActionListener(listenerBotonEdicion(this.controladorPanelGeneros));
+		this.getBtnEdicion().addActionListener(listenerBotonEdicion(this.controladorPanelGeneros));
 		this.btnDrama.addActionListener(listenerBotonDrama(this.controladorPanelGeneros));
 		this.btnComedia.addActionListener(listenerBotonComedia(this.controladorPanelGeneros));
 		this.btnTerror.addActionListener(listenerBotonTerror(this.controladorPanelGeneros));
@@ -294,6 +294,14 @@ public class PanelGeneros extends JPanel {
 				controladorPanelGeneros.addPelicula(comboBoxTitulos);
 			}
 		};
+	}
+
+	public JButton getBtnEdicion() {
+		return btnEdicion;
+	}
+
+	public void setBtnEdicion(JButton btnEdicion) {
+		this.btnEdicion = btnEdicion;
 	}
 
 }

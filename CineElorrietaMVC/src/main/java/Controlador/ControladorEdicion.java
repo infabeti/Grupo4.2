@@ -34,7 +34,7 @@ public class ControladorEdicion {
 		this.getControlador().navegarPanelBorrar();
 	}
 	public void accionadoBotonContinuarPanelEdicion() {
-		this.getControlador().navegarPanelResumen();
+		this.getControlador().navegarPanelGeneros();
 	}
 	public void accionadoBotonCancelarPanelEdicion() {
 		this.getControlador().navegarPanelBienvenida();

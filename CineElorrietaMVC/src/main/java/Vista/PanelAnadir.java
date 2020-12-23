@@ -101,7 +101,7 @@ public class PanelAnadir extends JPanel {
 		
 		JLabel lblMinutos = new JLabel("*en MINUTOS");
 		lblMinutos.setForeground(Color.GRAY);
-		lblMinutos.setBounds(86, 254, 74, 14);
+		lblMinutos.setBounds(86, 254, 111, 14);
 		add(lblMinutos);
 		
 		JLabel lblNewLabel = new JLabel("A\u00F1ada un t\u00EDtulo, la duraci\u00F3n y escoja el g\u00E9nero");

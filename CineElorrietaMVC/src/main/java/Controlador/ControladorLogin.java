@@ -43,6 +43,8 @@ public class ControladorLogin {
 					System.out.println("ES admin");
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("password CORRECTA");
+						modelo.setUsuario_activo(usuario);
+
 						this.habilitarBotonEdicionEnGeneros();
 						this.getControlador().navegarPanelEdicion();
 					}
@@ -58,6 +60,8 @@ public class ControladorLogin {
 					if(usuario.getPassword().equals(password_in)) {	//Password correcta
 						System.out.println("NO ES admin");
 						this.deshabilitarBotonEdicionEnGeneros();
+						modelo.setUsuario_activo(usuario);
+
 						this.getControlador().navegarPanelGeneros();
 					}
 					
@@ -104,12 +108,12 @@ public class ControladorLogin {
 		this.getControlador().navegarPanelBienvenida();
 	}
 	public void habilitarBotonEdicionEnGeneros() {
-		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setEnabled(true);
-		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setVisible(true);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).getBtnEdicion().setEnabled(true);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).getBtnEdicion().setVisible(true);
 	}
 	public void deshabilitarBotonEdicionEnGeneros() {
-		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setEnabled(false);
-		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).btnEdicion.setVisible(false);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).getBtnEdicion().setEnabled(false);
+		new PanelGeneros(new ControladorGeneros(getModelo(), getVista(), getControlador())).getBtnEdicion().setVisible(false);
 	}
 
 	public PanelLogin makePanelLogin(ControladorLogin controlador) {

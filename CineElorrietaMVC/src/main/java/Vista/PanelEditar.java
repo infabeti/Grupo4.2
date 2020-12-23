@@ -150,6 +150,7 @@ public class PanelEditar extends JPanel {
 		this.btnAceptar.addActionListener(listenerBotonAceptar(this.controladorPanelEditar));
 		this.btnCancelar.addActionListener(listenerBotonCancelar(this.controladorPanelEditar));
 		this.getComboBoxGenero().addActionListener(listenerComboBoxGeneros(this.controladorPanelEditar));
+		this.comboBoxNombre.addActionListener(listenerComboBoxNombre(this.controladorPanelEditar));
 
 	}
 	private ActionListener listenerComboBoxGeneros(ControladorEditar controladorPanelAnadir) {
@@ -173,6 +174,14 @@ public class PanelEditar extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton hacia Generos");
 				controladorPanelEditar.accionadoBotonCancelarPanelEditar();
+			}
+		};
+	}
+	
+	private ActionListener listenerComboBoxNombre(ControladorEditar controladorPanelEditar) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelEditar.cambiarPelicula();
 			}
 		};
 	}

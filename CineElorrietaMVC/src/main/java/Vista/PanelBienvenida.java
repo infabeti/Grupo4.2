@@ -60,7 +60,7 @@ public class PanelBienvenida extends JPanel{
 		
 		
 		JLabel lblBienvenida = new JLabel("Bienvenido/a");
-		lblBienvenida.setBounds(115, 105, 444, 81);
+		lblBienvenida.setBounds(115, 105, 525, 81);
 		lblBienvenida.setForeground(new Color(240, 248, 255));
 		lblBienvenida.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenida.setFont(new Font("SimSun", Font.BOLD, 70));

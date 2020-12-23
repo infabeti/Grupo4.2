@@ -57,10 +57,10 @@ public class ControladorBorrar {
 		}
 		//System.out.println(Arrays.toString(modelo.getConsultasBBDD().getPeliculas_totales()));
 		
-		this.controlador.navegarPanelResumen();
+		this.controlador.navegarPanelGeneros();
 	}
 	public void accionadoBotonCancelarPanelBorrar() {
-		this.controlador.navegarPanelResumen();
+		this.controlador.navegarPanelGeneros();
 	}
 
 	public PanelBorrar makePanelBorrar(ControladorBorrar controlador) {

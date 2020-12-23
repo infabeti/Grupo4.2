@@ -18,6 +18,8 @@ public class Modelo {
 	public int tiempoDisponibleSabado = getTIEMPO_TOTAL_SABADO();
 	public int tiempoDisponibleDomingo = getTIEMPO_TOTAL_DOMINGO();
 	
+	private Usuario usuario_activo;
+	
 	public Modelo(ConsultasBBDD consultasBBDD) {
 		this.setConsultasBBDD(consultasBBDD);
 	}
@@ -31,6 +33,14 @@ public class Modelo {
 	}
 	
 	
+	public Usuario getUsuario_activo() {
+		return usuario_activo;
+	}
+
+	public void setUsuario_activo(Usuario usuario_activo) {
+		this.usuario_activo = usuario_activo;
+	}
+
 	//PUSH OBJECT para crear arrays de objetos
 	public static Object[] pushObject(Object[] array, Object push) {
 		Object[] longer = Arrays.copyOf(array, array.length + 1);

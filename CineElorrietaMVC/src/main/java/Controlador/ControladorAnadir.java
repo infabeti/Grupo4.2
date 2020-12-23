@@ -54,10 +54,10 @@ public class ControladorAnadir {
 			//System.out.println(this.modelo.getConsultasBBDD().getPelicula(18).getNombre());
 
 		//System.out.println(this.modelo.getConsultasBBDD().getPelicula(47).getCodigo());
-		this.controlador.navegarPanelResumen();
+		this.controlador.navegarPanelGeneros();
 	}
 	public void accionadoBotonCancelarPanelAnadir() {
-		this.controlador.navegarPanelResumen();
+		this.controlador.navegarPanelGeneros();
 	}
 
 

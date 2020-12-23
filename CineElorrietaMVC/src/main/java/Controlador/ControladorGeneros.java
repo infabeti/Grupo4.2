@@ -39,6 +39,12 @@ public class ControladorGeneros {
 			panelGeneros.tiempoDomingo.setText(getModelo().secsToHours(modelo.tiempoDisponibleDomingo));
 		}
 		
+
+		boolean esAdmin = modelo.getUsuario_activo().isAdmin();
+			this.panelGeneros.getBtnEdicion().setVisible(esAdmin);
+			this.panelGeneros.getBtnEdicion().setEnabled(esAdmin); // Si es admin eso es true(visible), sino es false
+		
+		
 	}
 	public void addPelicula(JComboBox source) {
 		Pelicula added_peli = getModelo().getConsultasBBDD().getPelicula_toAdd(source.getSelectedItem().toString()); // recoge la peli conociendo su nombre
